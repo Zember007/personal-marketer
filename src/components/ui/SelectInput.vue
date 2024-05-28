@@ -1,0 +1,53 @@
+<template>
+    <div class="select-box">
+        <select class="select">
+            <option disabled hidden selected>{{name}}</option>
+            <option v-for="item in items" value="{{ item }}">{{ item }}</option>
+        </select>
+    </div>
+</template>
+
+<script>
+export default {
+    props:{
+        name: String,
+        items: Array
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.select-box {    
+    position: relative;
+
+    &::before {
+        content: "";
+        background: url('../../assets/img/icons/arrow-down.svg') no-repeat;
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
+    }
+}
+
+.select {
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid var(--colors-secondary-border-color);
+    border-radius: 8px;
+    padding: 16px;
+    padding-right: 40px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    background: transparent;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+}
+</style>
