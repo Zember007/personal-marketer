@@ -54,4 +54,10 @@ export default {
     color: var(--component-colors-blue-active);
     background: none;
 }
+
+@media(max-width:990px) {
+    .profile__description-text {
+        font-size: 14px;
+    }
+}
 </style>

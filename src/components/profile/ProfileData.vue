@@ -130,4 +130,15 @@ export default {
     letter-spacing: -0.02em;
     color: var(--text-primary);
 }
+
+@media(max-width:750px){
+  .profile__data-item-img {
+    width: 200px;
+    height: 140px;
+  } 
+
+  .profile__data-item-title{
+    font-size: 16px;
+  }
+}
 </style>

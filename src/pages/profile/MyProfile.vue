@@ -1,10 +1,11 @@
 <template>
 
+<ProfileLayout>
     <div class="profile__cart">
         <div class="profile__cart-main">
             <div class="profile__gallery">
                 <ProfileGallery />
-                <RouterLink to="/edit" class="profile__edit">
+                <RouterLink to="/profile/edit" class="profile__edit">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.83325 1.3335H6.49992C3.16659 1.3335 1.83325 2.66683 1.83325 6.00016V10.0002C1.83325 13.3335 3.16659 14.6668 6.49992 14.6668H10.4999C13.8333 14.6668 15.1666 13.3335 15.1666 10.0002V8.66683"
@@ -31,13 +32,15 @@
         <ProfileData></ProfileData>
 
     </div>
+</ProfileLayout>
 </template>
 
 <script setup>
-import ProfileGallery from '../components/profile/ProfileGallery.vue';
-import ProfileDescription from '../components/profile/ProfileDescription.vue';
-import ProfileData from '../components/profile/ProfileData.vue';
-
+import ProfileGallery from '../../components/profile/ProfileGallery.vue';
+import ProfileDescription from '../../components/profile/ProfileDescription.vue';
+import ProfileData from '../../components/profile/ProfileData.vue'; 
+import ProfileLayout from '../../layouts/ProfileLayout.vue'
+ 
 </script>
 
 <style lang="scss" scoped>
@@ -45,7 +48,7 @@ import ProfileData from '../components/profile/ProfileData.vue';
     display: flex;
     flex-direction: column;
     gap: 12px;
-} 
+}
 
 .profile__edit {
     background: var(--background-background-primary);
@@ -59,7 +62,7 @@ import ProfileData from '../components/profile/ProfileData.vue';
     justify-content: center;
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 100%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
@@ -109,5 +112,17 @@ import ProfileData from '../components/profile/ProfileData.vue';
     color: var(--text-tertiary);
 }
 
-.profile__cart-company {}
+@media(max-width:990px) {
+    .profile__edit {
+        padding: 12px 10px;
+    }
+
+    .profile__fullname {
+        font-size: 24px;
+    }
+
+    .profile__specialization {
+        font-size: 16px;
+    }
+}
 </style>

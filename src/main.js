@@ -21,6 +21,7 @@ import PhoneInput from './components/ui/PhoneInput.vue'
 import SelectInput from './components/ui/SelectInput.vue'
 import PrimaryButton from './components/ui/PrimaryButton.vue'
 import SecondaryButton from './components/ui/SecondaryButton.vue'
+import CheckInput from './components/ui/CheckInput.vue'
 
 
 app
@@ -30,5 +31,6 @@ app
     .component('SelectInput', SelectInput)
     .component('PrimaryButton', PrimaryButton)
     .component('SecondaryButton', SecondaryButton)
+    .component('CheckInput', CheckInput)
 
 

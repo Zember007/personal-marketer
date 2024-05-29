@@ -1,8 +1,8 @@
 <template>
-    
-        <div class="img-box">
-            <img src="../../assets/img/profile/no_img.svg " alt="gallery">
-        </div>
+
+    <div class="img-box">
+        <img src="../../assets/img/profile/no_img.svg " alt="gallery">
+    </div>
 </template>
 
 <script>
@@ -13,8 +13,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .img-box {
     background: var(--background-background-secondary);
     border-radius: 12px;
@@ -25,5 +23,10 @@ export default {
     justify-content: center;
 }
 
-
+@media(max-width:990px) {
+    .img-box {
+        width: 180px;
+        height: 180px;
+    }
+}
 </style>

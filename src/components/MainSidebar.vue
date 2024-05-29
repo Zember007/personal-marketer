@@ -1,10 +1,11 @@
   <template>
+    
     <div class="sidebar">
       <div class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
       </div>
       <div class="sidebar__nav">
-        <div class="sidebar__nav-title">Основное</div>
+        <div class="sidebar__nav-title"><span>Основное</span></div>
         <div class="sidebar__nav-item active">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -23,7 +24,7 @@
         </div>
       </div>
       <div class="sidebar__nav">
-        <div class="sidebar__nav-title">Управление</div>
+        <div class="sidebar__nav-title"><span>Управление</span></div>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -98,7 +99,7 @@
         </div>
       </div>
       <div class="sidebar__nav">
-        <div class="sidebar__nav-title">Другое</div>
+        <div class="sidebar__nav-title"><span>Другое</span></div>
         <div class="sidebar__nav-item">
 
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,6 +124,7 @@
         </div>
       </div>
     </div>
+
   </template>
 
 <script>
@@ -186,6 +188,51 @@ export default {
 
     svg path{
       fill: var(--component-colors-blue-active);
+    }
+  }
+}
+
+@media(max-width:990px) and (min-width:550px){
+  span{
+    display: none;
+  }
+
+  .sidebar__log{
+    width: 54px;
+    overflow: hidden;
+    min-height: 54px;
+  }
+
+  .sidebar{
+    padding: 24px 8px;
+    width: 70px;
+    gap: 30px;
+  }
+  .sidebar__nav-title{
+    span{
+      display: none;
+    }
+
+    &:not(:first-child){
+      border-bottom: 2px solid #d9d9d9; 
+    }
+
+  }
+}
+
+@media(max-width:550px){
+  .sidebar{
+    padding: 16px 33px 16px 12px;
+    width: 200px;
+    gap: 32px;
+    transition: all .5s;
+    transform: translateX(-100%);
+  }
+
+  .sidebar__log{
+    width: 160px;
+    img{
+      width: 100%;
     }
   }
 }
