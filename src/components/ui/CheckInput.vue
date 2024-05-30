@@ -14,7 +14,7 @@ export default {
 <style lang="scss" scoped>
 .checkbox_box{
     height: 24px;
-    width: 24px;
+    min-width: 24px;
     padding: 0.5px;
     background: #FFF;
     border: 1px solid #27272f;

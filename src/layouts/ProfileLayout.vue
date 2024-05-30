@@ -1,14 +1,33 @@
 <template>
-  <MainHeader />
-  <MainSidebar />
+  <MainHeader @open-menu="open_menu"/>
+  <MainSidebar :open="menu_action"/>
   <main class="main">
     <slot></slot>
   </main>
 </template>
 
-<script setup>
+<script>
 import MainHeader from '../components/MainHeader.vue';
 import MainSidebar from '../components/MainSidebar.vue';
+
+export default {
+  components:{
+    MainHeader,
+    MainSidebar
+  },
+
+  data(){
+    return {
+      menu_action: false
+    }
+  },
+
+  methods: {
+    open_menu(data){
+      this.menu_action = data
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -4,17 +4,31 @@
             <div class="logo">
                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
             </div>
-            <div class="header__nav">
+            <div class="header__nav" :class="{active:open_menu}">
                 <PrimaryButton style="padding: 16px 40px;">Вход для клиентов</PrimaryButton>
                 <PrimaryButton style="padding: 16px 40px;">Вход для исполнителей</PrimaryButton>
             </div>
+            <BurgerMenu @open-menu="menu_action"/>
         </div>
     </header>
 </template>
 
 <script>
+import BurgerMenu from './BurgerMenu.vue';
 export default {
-
+    components: {
+        BurgerMenu
+    },
+     data() {
+        return {
+            open_menu: false
+        }
+     },
+     methods: {
+        menu_action(data) {
+            this.open_menu = data
+        }
+     }
 }
 </script>
 
@@ -36,5 +50,38 @@ export default {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+@media(max-width:990px)  {
+    .header__inner {
+        padding: 20px 12px;  
+    }
+
+    .logo {
+        width: 140px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .header__nav {
+        position: fixed;
+        right: 0;
+        top: 70px;
+        background: var(--background-background-primary);
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 20px;
+        z-index: 100;
+        transition: all .3s;
+        transform: translateX(100%);
+
+        &.active {
+            transform: translateX(0);
+        }
+    }
 }
 </style>

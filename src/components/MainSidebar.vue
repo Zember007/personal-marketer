@@ -1,6 +1,6 @@
   <template>
-    
-    <div class="sidebar">
+
+    <div class="sidebar" :class="{active:open}">
       <div class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
       </div>
@@ -19,7 +19,17 @@
           <span>Мой профиль</span>
         </div>
         <div class="sidebar__nav-item">
-          <img src="../assets/img/sidebar/user.svg" alt="user">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.14992 15.8419L2.13325 15.8586C1.90825 15.3669 1.76659 14.8086 1.70825 14.1919C1.76659 14.8002 1.92492 15.3502 2.14992 15.8419Z"
+              fill="#242626" />
+            <path
+              d="M7.49994 8.64977C8.5953 8.64977 9.48327 7.7618 9.48327 6.66644C9.48327 5.57107 8.5953 4.68311 7.49994 4.68311C6.40457 4.68311 5.5166 5.57107 5.5166 6.66644C5.5166 7.7618 6.40457 8.64977 7.49994 8.64977Z"
+              fill="#242626" />
+            <path
+              d="M13.4917 1.6665H6.50841C3.47508 1.6665 1.66675 3.47484 1.66675 6.50817V13.4915C1.66675 14.3998 1.82508 15.1915 2.13341 15.8582C2.85008 17.4415 4.38341 18.3332 6.50841 18.3332H13.4917C16.5251 18.3332 18.3334 16.5248 18.3334 13.4915V11.5832V6.50817C18.3334 3.47484 16.5251 1.6665 13.4917 1.6665ZM16.9751 10.4165C16.3251 9.85817 15.2751 9.85817 14.6251 10.4165L11.1584 13.3915C10.5084 13.9498 9.45841 13.9498 8.80841 13.3915L8.52508 13.1582C7.93341 12.6415 6.99175 12.5915 6.32508 13.0415L3.20841 15.1332C3.02508 14.6665 2.91675 14.1248 2.91675 13.4915V6.50817C2.91675 4.15817 4.15841 2.9165 6.50841 2.9165H13.4917C15.8417 2.9165 17.0834 4.15817 17.0834 6.50817V10.5082L16.9751 10.4165Z"
+              fill="#242626" />
+          </svg>
           <span>Портфолио</span>
         </div>
       </div>
@@ -58,8 +68,27 @@
           <span>Аналитика</span>
         </div>
         <div class="sidebar__nav-item">
-          <img src="../assets/img/sidebar/user.svg" alt="user">
-          <span>Мой профиль</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.6084 6.47484C14.55 6.4665 14.4917 6.4665 14.4334 6.47484C13.1417 6.43317 12.1167 5.37484 12.1167 4.07484C12.1167 2.74984 13.1917 1.6665 14.525 1.6665C15.85 1.6665 16.9334 2.7415 16.9334 4.07484C16.925 5.37484 15.9 6.43317 14.6084 6.47484Z"
+              fill="#242626" />
+            <path
+              d="M17.3249 12.2498C16.3916 12.8748 15.0833 13.1082 13.8749 12.9498C14.1916 12.2665 14.3583 11.5082 14.3666 10.7082C14.3666 9.87485 14.1833 9.08318 13.8333 8.39151C15.0666 8.22485 16.3749 8.45818 17.3166 9.08318C18.6333 9.94985 18.6333 11.3748 17.3249 12.2498Z"
+              fill="#242626" />
+            <path
+              d="M5.36672 6.47484C5.42505 6.4665 5.48338 6.4665 5.54172 6.47484C6.83338 6.43317 7.85838 5.37484 7.85838 4.07484C7.85838 2.7415 6.78338 1.6665 5.45005 1.6665C4.12505 1.6665 3.05005 2.7415 3.05005 4.07484C3.05005 5.37484 4.07505 6.43317 5.36672 6.47484Z"
+              fill="#242626" />
+            <path
+              d="M5.45843 10.7083C5.45843 11.5167 5.63343 12.2833 5.9501 12.975C4.7751 13.1 3.5501 12.85 2.6501 12.2583C1.33343 11.3833 1.33343 9.95834 2.6501 9.08334C3.54176 8.48334 4.8001 8.24167 5.98343 8.37501C5.64176 9.07501 5.45843 9.86667 5.45843 10.7083Z"
+              fill="#242626" />
+            <path
+              d="M10.1 13.225C10.0333 13.2167 9.95833 13.2167 9.88333 13.225C8.35 13.175 7.125 11.9167 7.125 10.3667C7.13333 8.78333 8.40833 7.5 10 7.5C11.5833 7.5 12.8667 8.78333 12.8667 10.3667C12.8583 11.9167 11.6417 13.175 10.1 13.225Z"
+              fill="#242626" />
+            <path
+              d="M7.39175 14.9502C6.13341 15.7919 6.13341 17.1752 7.39175 18.0085C8.82508 18.9669 11.1751 18.9669 12.6084 18.0085C13.8667 17.1669 13.8667 15.7835 12.6084 14.9502C11.1834 13.9919 8.83341 13.9919 7.39175 14.9502Z"
+              fill="#242626" />
+          </svg>
+          <span>Команда</span>
         </div>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +158,9 @@
 
 <script>
 export default {
-
+  props:{
+    open:Boolean
+  }
 }
 </script>
 
@@ -146,7 +177,7 @@ export default {
   background: var(--background-background-primary);
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 50px;
 }
 
 .sidebar__log {}
@@ -154,7 +185,7 @@ export default {
 .sidebar__nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 
 .sidebar__nav-title {
@@ -186,42 +217,43 @@ export default {
     color: var(--component-colors-blue-active);
     background: var(--component-colors-link-active-background);
 
-    svg path{
+    svg path {
       fill: var(--component-colors-blue-active);
     }
   }
 }
 
-@media(max-width:990px) and (min-width:550px){
-  span{
+@media(max-width:990px) and (min-width:550px) {
+  span {
     display: none;
   }
 
-  .sidebar__log{
+  .sidebar__log {
     width: 54px;
     overflow: hidden;
     min-height: 54px;
   }
 
-  .sidebar{
+  .sidebar {
     padding: 24px 8px;
     width: 70px;
     gap: 30px;
   }
-  .sidebar__nav-title{
-    span{
+
+  .sidebar__nav-title {
+    span {
       display: none;
     }
 
-    &:not(:first-child){
-      border-bottom: 2px solid #d9d9d9; 
+    &:not(:first-child) {
+      border-bottom: 2px solid #d9d9d9;
     }
 
   }
 }
 
-@media(max-width:550px){
-  .sidebar{
+@media(max-width:550px) {
+  .sidebar {
     padding: 16px 33px 16px 12px;
     width: 200px;
     gap: 32px;
@@ -229,9 +261,14 @@ export default {
     transform: translateX(-100%);
   }
 
-  .sidebar__log{
+  .sidebar.active{
+    transform: translateX(0);
+  }
+
+  .sidebar__log {
     width: 160px;
-    img{
+
+    img {
       width: 100%;
     }
   }

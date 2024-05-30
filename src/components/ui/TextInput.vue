@@ -31,4 +31,10 @@ export default {
     letter-spacing: -0.02em;
     color: var(--text-primary);
 }
+
+@media(max-width:550px) {
+    .input {
+        min-width: 0;
+    }
+}
 </style>

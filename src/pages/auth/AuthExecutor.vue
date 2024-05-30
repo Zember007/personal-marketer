@@ -85,4 +85,29 @@ import AuthLayout from '../../layouts/AuthLayout.vue'
     letter-spacing: -0.02em;
     color: var(--text-secondary);
 }
+
+@media(max-width:990px) {
+    .auth__button-title{font-size: 24px;}
+    .auth__button-description{font-size: 14px;}
+    .auth__nav{gap:20px;}
+}
+
+@media(max-width:780px) {
+    .auth__nav{flex-direction: column;}
+    h1 {
+        font-size: 24px;
+    }
+    h3{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .auth__button-img{
+        width: 100%;
+        height: auto;
+        img {
+            width: 100%;
+        }
+    }
+}
 </style>

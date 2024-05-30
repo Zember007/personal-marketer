@@ -29,4 +29,11 @@ export default {
         height: 180px;
     }
 }
+
+@media(max-width:550px) {
+    .img-box {
+        width: 144px;
+        height: 144px;
+    }
+}
 </style>

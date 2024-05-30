@@ -1,12 +1,14 @@
 <template>
     <div class="profile_top">
-        <div class='profile_top__title'>С возвращением, Алексей!</div>
+        <div class='profile_top__title'>
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    name: "ProfileTop"
 }
 </script>
 
@@ -20,10 +22,23 @@ export default {
 
 .profile_top__title {
     font-family: var(--font-family);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+}
+
+
+
+@media(max-width:550px)  {
+    .profile_top__title {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .profile_top {
+        padding: 20px;
+    }
 }
 </style>

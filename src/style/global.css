@@ -181,3 +181,16 @@ h3 {
   letter-spacing: -0.02em;
   color: var(--text-secondary);
 }
+
+@media(max-width:990px) {
+    h1 {font-size: 40px;}
+}
+
+@media(max-width:550px) {
+  h1{font-size: 24px; text-align: center;}
+  h2{font-size: 24px; text-align: center;}
+  h3{font-size: 16px;}
+  .container {
+    padding: 0 13px;
+  }
+}

@@ -1,5 +1,17 @@
 <template>
     <ProfileLayout>
+        <ProfileTop>
+            <RouterLink to="/profile" class="route_back">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.5417 16.5999L7.10834 11.1666C6.46667 10.5249 6.46667 9.4749 7.10834 8.83324L12.5417 3.3999"
+                        stroke="#242626" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
+                <span>Мой профиль</span>
+            </RouterLink>
+        </ProfileTop>
         <div class="profile__cart">
             <section>
 
@@ -47,9 +59,9 @@
             <section>
                 <div class="title">Описание</div>
                 <div class="textarea_box">
-                    <textarea name="description"></textarea>
+                    <textarea @input="textarea_action" name="description" maxlength="1000"></textarea>
                     <div class="count_char">
-                        0/1000
+                        {{ textarea_length }}/1000
                     </div>
                 </div>
                 <div class="form_btn">
@@ -61,9 +73,30 @@
     </ProfileLayout>
 </template>
 
-<script setup>
+<script>
 import ProfileGallery from '../../components/profile/ProfileGallery.vue'
 import ProfileLayout from '../../layouts/ProfileLayout.vue'
+import ProfileTop from '../../components/profile/ProfileTop.vue';
+
+export default {
+    components: {
+        ProfileGallery,
+        ProfileLayout,
+        ProfileTop
+    },
+
+    data() {
+        return {
+            textarea_length: 0
+        }
+    },
+
+    methods: {
+        textarea_action(event) {
+            this.textarea_length = event.target.value.length
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -84,7 +117,7 @@ textarea {
 
 .textarea_box {
     position: relative;
-    width: 930px;
+    max-width: 930px;
     height: 469px;
 }
 
@@ -203,5 +236,33 @@ section {
 .form_btn {
     display: flex;
     gap: 8px;
+}
+
+.route_back{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media(max-width:990px) {
+    section.section_information {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:550px) {
+    .profile__cart {
+        padding: 24px 12px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
+
+@media(max-width:400px) {
+    .form_btn {
+        flex-direction: column;
+    }
 }
 </style>

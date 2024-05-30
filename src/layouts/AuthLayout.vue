@@ -1,6 +1,6 @@
 <template>
     <Header></Header>
-    <div class="auth__container">
+    <div class="auth__container">        
         <slot></slot>
     </div>
 </template>
@@ -19,5 +19,13 @@ import Header from '../components/Header.vue';
     justify-content: center;
     flex-direction: column;
     gap: 80px;
+    padding: 15px;
+}
+
+@media(max-width:780px) {
+    .auth__container {
+        margin: 36px 0;
+        gap: 32px;
+    }
 }
 </style>

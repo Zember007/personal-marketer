@@ -2,9 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header__inner">
-                <div class="burger_menu"> 
-                    <span></span> 
-                </div>
+                <BurgerMenu @open-menu="open_menu" :burger_active="false"/>
                 <div class="header__inner-nav">
                     <div class="header__notification">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,8 +27,18 @@
 </template>
 
 <script>
-export default {
+import BurgerMenu from './BurgerMenu.vue'
 
+export default {
+    components:{
+        BurgerMenu
+    },
+
+    methods: {
+        open_menu(data){
+            this.$emit('open-menu', data)
+        }
+    } 
 }
 </script>
 
@@ -103,48 +111,10 @@ export default {
     gap: 5px;
 }
 
-.burger_menu {  
-  cursor: pointer;
-  padding: 6px 0; 
-  
-  span {
-    position: relative;
-    display: block;
-    width: 22px;
-    height: 3px;
-    background: #222;
-    transition: all .2s ease-in-out;
-    
-    &:before, &:after {
-      position: absolute;
-      background: #222;
-      content: '';
-      width: 22px;
-      height: 3px;
-      transition: all .2s ease-in-out;
+@media(max-width:550px) {
+    .header__profile-box {
+        display: none;
     }
-    
-    &:before {
-      top: -8px;
-    }
-    
-    &:after {
-      top: 8px;
-    }
-  }
 }
 
-.burger_menu.active { 
-  span { 
-    background: transparent;  
-    
-    &:before {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    
-    &:after {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-  }
-} 
 </style>

@@ -12,7 +12,7 @@
                     <CheckInput />
                     <span class="auth__text">Я принимаю <a href="#">политику конфиденциальности</a></span>
                 </div>
-                <RouterLink to="/profile">
+                <RouterLink to="/auth/verification">
                     <PrimaryButton style="width: 100%;">Создать аккаунт</PrimaryButton>
                 </RouterLink>
             </form>
@@ -140,6 +140,19 @@ form {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+@media(max-width:550px) {
+    .login {
+        padding: 32px 20px;
+    }
+    .auth_description{
+        font-size: 16px;
+        max-width: auto;
+    }
+    .auth__text{
+        font-size: 12px;
     }
 }
 </style>
