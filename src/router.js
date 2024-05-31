@@ -9,13 +9,13 @@ import VerificationPhone from './pages/auth/VerificationPhone.vue';
 import Projects from './pages/Projects.vue';
 
 const routes = [
-  { path: '/f', component: AuthExecutor },
+  { path: '/', component: AuthExecutor },
   { path: '/auth/verification', component: VerificationPhone },
   { path: '/login', component: AuthLogin },
   { path: '/register', component: AuthRegister },
   { path: '/profile', component: MyProfile },
   { path: '/profile/edit', component: ProfileEdit },
-  { path: '/', component: Projects },
+  { path: '/projects', component: Projects },
 ]
 
 const router = createRouter({
