@@ -1,6 +1,6 @@
   <template>
 
-    <div class="sidebar" :class="{active:open}">
+    <div class="sidebar" :class="{ active: open }">
       <div class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
       </div>
@@ -158,8 +158,8 @@
 
 <script>
 export default {
-  props:{
-    open:Boolean
+  props: {
+    open: Boolean
   }
 }
 </script>
@@ -212,8 +212,18 @@ export default {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: all .3s;
 
   &.active {
+    color: var(--component-colors-blue-active);
+    background: var(--component-colors-link-active-background);
+
+    svg path {
+      fill: var(--component-colors-blue-active);
+    }
+  }
+
+  &:hover {
     color: var(--component-colors-blue-active);
     background: var(--component-colors-link-active-background);
 
@@ -261,7 +271,7 @@ export default {
     transform: translateX(-100%);
   }
 
-  .sidebar.active{
+  .sidebar.active {
     transform: translateX(0);
   }
 

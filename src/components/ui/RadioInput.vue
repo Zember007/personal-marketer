@@ -68,4 +68,10 @@ export default {
     border: 0;
     text-align: center;
 }
+
+@media(max-width:550px) {
+    .form_radio label {
+        padding: 10px;
+    }
+}
 </style>

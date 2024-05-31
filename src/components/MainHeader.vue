@@ -2,7 +2,9 @@
     <header class="header">
         <div class="container">
             <div class="header__inner">
-                <BurgerMenu @open-menu="open_menu" :burger_active="false"/>
+                <div>
+                    <BurgerMenu @open-menu="open_menu" :burger_active="false"/>
+                </div>
                 <div class="header__inner-nav">
                     <div class="header__notification">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
