@@ -16,12 +16,12 @@
                                 fill="#242626" />
                         </svg>
                     </div>
-                    <div class="header__profile">
+                    <RouterLink to="/profile" class="header__profile">
                         <div class="header__profile-box">
                             <div class="header__profile-name">Маркетолог</div>
                             <div class="header__profile-full_name">Алексей Цыплаков</div>
                         </div>
-                    </div>
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -97,9 +97,9 @@ export default {
     color: var(--text-secondary);
 }
 
-.header__profile-full_name::after {
-    content: url('../assets/img/icons/arrow-down.svg');  
-}
+// .header__profile-full_name::after {
+//     content: url('../assets/img/icons/arrow-down.svg');  
+// }
 
 .header__profile-full_name {
     font-family: var(--font-family);

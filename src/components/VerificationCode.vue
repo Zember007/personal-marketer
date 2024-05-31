@@ -4,8 +4,6 @@
         <input maxlength="1" @input="code_input" type="text" name="code" id="1">
         <input maxlength="1" @input="code_input" type="text" name="code" id="2">
         <input maxlength="1" @input="code_input" type="text" name="code" id="3">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="4">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="5">
         <input type="hidden" name="pincode" id="code">
     </div>
 </template>
@@ -41,7 +39,8 @@ export default {
 <style lang="scss" scoped>
 .verf_code {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 12px;
 }
 
 input {

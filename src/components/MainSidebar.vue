@@ -6,7 +6,7 @@
       </div>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Основное</span></div>
-        <div class="sidebar__nav-item active">
+        <RouterLink to="/profile" class="sidebar__nav-item active">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.99992 10.0003C12.3011 10.0003 14.1666 8.13485 14.1666 5.83366C14.1666 3.53247 12.3011 1.66699 9.99992 1.66699C7.69873 1.66699 5.83325 3.53247 5.83325 5.83366C5.83325 8.13485 7.69873 10.0003 9.99992 10.0003Z"
@@ -17,7 +17,7 @@
           </svg>
 
           <span>Мой профиль</span>
-        </div>
+        </RouterLink>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -35,7 +35,7 @@
       </div>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Управление</span></div>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/projects" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M16.1956 3.3624C16.3059 3.53566 16.117 3.7375 15.9168 3.69199C15.5251 3.57533 15.0918 3.51699 14.6501 3.51699H11.9415C11.7843 3.51699 11.6362 3.44305 11.5418 3.31736L10.6084 2.07533C10.4911 1.90903 10.602 1.66699 10.8056 1.66699H13.1001C14.4009 1.66699 15.5468 2.3426 16.1956 3.3624Z"
@@ -45,7 +45,7 @@
               fill="#242626" />
           </svg>
           <span>Проекты</span>
-        </div>
+        </RouterLink>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
