@@ -1,0 +1,9 @@
+name: "personal-marketer"
+
+services:
+  app:
+    build: .
+    container_name: personal-marketer-app
+    command: nginx -g 'daemon off;'
+    ports:
+      - "${APP_PORT}:80"
