@@ -26,6 +26,7 @@ import CheckInput from './components/ui/CheckInput.vue'
 
 app
     .component('TextInput', TextInput)
+    .component('RadioInput', RadioInput)
     .component('CheckInput', RadioInput)
     .component('PhoneInput', PhoneInput)
     .component('SelectInput', SelectInput)

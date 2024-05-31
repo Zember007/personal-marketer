@@ -13,6 +13,14 @@
             </RouterLink>
         </ProfileTop>
         <div class="profile__cart">
+
+            <section>
+                <div class="text_box">
+                    <div class="title_main">Редактирование профиля</div>
+                    <div class="description">Управляйте настройками своего профиля</div>
+                </div>
+            </section>
+
             <section>
 
                 <div class="text_box">
@@ -53,7 +61,10 @@
                             <SelectInput name="Профессия" :items="['Инженер', 'Инженер', 'Инженер']" />
                         </div>
                     </div>
-
+                    <div class="column_select">
+                        <span class="small_text">Почасовая ставка</span>
+                        <RadioInput :radios="['750₽','1000₽','1500₽']"></RadioInput> 
+                    </div>
                 </div>
             </section>
             <section>
@@ -77,6 +88,7 @@
 import ProfileGallery from '../../components/profile/ProfileGallery.vue'
 import ProfileLayout from '../../layouts/ProfileLayout.vue'
 import ProfileTop from '../../components/profile/ProfileTop.vue';
+import RadioInput from '../../components/ui/RadioInput.vue';
 
 export default {
     components: {
@@ -139,6 +151,15 @@ textarea {
     padding: 32px;
     display: flex;
     flex-direction: column;
+}
+
+.title_main {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
 }
 
 section {
@@ -238,7 +259,7 @@ section {
     gap: 8px;
 }
 
-.route_back{
+.route_back {
     display: flex;
     align-items: center;
     gap: 8px;
