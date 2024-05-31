@@ -117,7 +117,7 @@
 
             </div>
         </div>
-        <ProjectAdd @click-add="team_add">Добавить документ </ProjectAdd>
+        <ProjectAdd @click-add="team_add">Добавить сотрудника</ProjectAdd>
     </div>
 </template>
 
