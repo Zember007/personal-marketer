@@ -9,6 +9,7 @@ export default defineConfig({
         // i am ignorning my custom '<container>' tag
         isCustomElement: (tag) => ['container'].includes(tag)
       }
-    }
+    },
+    
   })]
 })

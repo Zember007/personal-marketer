@@ -1,19 +1,38 @@
 <template>
-    <Header></Header>
-    <div class="auth__container">
-        <slot></slot>
-    </div>
-    <div class="link">
-        <a href="#">Публичная оферта</a>
-        <a href="/public/Политика конфиденциальности.pdf">Политика конфиденциальности</a>
+    <div class="wrapper">
+        <Header></Header>
+        <div class="auth__container">
+            <slot></slot>
+        </div>
+        <div class="link">
+            <a href="#">Публичная оферта</a>
+            <a @click.prevent="open_privacy_policy" href="#">Политика конфиденциальности</a> 
+        </div>
     </div>
 </template>
 
-<script setup>
+<script>
 import Header from '../components/Header.vue';
+
+export default {
+    components : {
+        Header
+    },
+    methods: {
+        open_privacy_policy(){
+            window.open('/public/privacy-policy.pdf','_blank')
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+    position: relative;
+
+    padding-bottom: 70px;
+}
+
 .auth__container {
     margin-top: 50px;
     width: 100%;
@@ -42,6 +61,7 @@ import Header from '../components/Header.vue';
         text-decoration: underline;
         text-decoration-skip-ink: none;
         color: var(--text-secondary);
+        white-space: nowrap;
     }
 }
 
@@ -49,6 +69,12 @@ import Header from '../components/Header.vue';
     .auth__container {
         margin: 36px 0;
         gap: 32px;
+    }
+
+    .link {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
     }
 }
 </style>

@@ -3,6 +3,7 @@ import './style/global.css'
 import App from './App.vue'
 import router from './router'
 import VueTheMask from 'vue-the-mask'
+import {vueKanban} from 'vue-kanban'
 
 
 

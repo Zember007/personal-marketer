@@ -6,7 +6,7 @@
       </div>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Основное</span></div>
-        <RouterLink to="/profile" class="sidebar__nav-item active">
+        <RouterLink to="/profile" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.99992 10.0003C12.3011 10.0003 14.1666 8.13485 14.1666 5.83366C14.1666 3.53247 12.3011 1.66699 9.99992 1.66699C7.69873 1.66699 5.83325 3.53247 5.83325 5.83366C5.83325 8.13485 7.69873 10.0003 9.99992 10.0003Z"
@@ -18,7 +18,7 @@
 
           <span>Мой профиль</span>
         </RouterLink>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/portfolio" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M2.14992 15.8419L2.13325 15.8586C1.90825 15.3669 1.76659 14.8086 1.70825 14.1919C1.76659 14.8002 1.92492 15.3502 2.14992 15.8419Z"
@@ -31,7 +31,7 @@
               fill="#242626" />
           </svg>
           <span>Портфолио</span>
-        </div>
+        </RouterLink>
       </div>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Управление</span></div>
@@ -46,7 +46,7 @@
           </svg>
           <span>Проекты</span>
         </RouterLink>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/tasks" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M13.1667 1.84207C12.8251 1.5004 12.2334 1.73373 12.2334 2.20873V5.11707C12.2334 6.33373 13.2667 7.34207 14.5251 7.34207C15.3167 7.3504 16.4167 7.3504 17.3584 7.3504C17.8334 7.3504 18.0834 6.79207 17.7501 6.45873C16.5501 5.2504 14.4001 3.0754 13.1667 1.84207Z"
@@ -57,7 +57,7 @@
           </svg>
 
           <span>Задачи</span>
-        </div>
+        </RouterLink>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -178,6 +178,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .sidebar__log {}
@@ -214,7 +216,7 @@ export default {
   cursor: pointer;
   transition: all .3s;
 
-  &.active {
+  &.router-link-active {
     color: var(--component-colors-blue-active);
     background: var(--component-colors-link-active-background);
 

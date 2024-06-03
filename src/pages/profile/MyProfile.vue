@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <ProfileData @show-Modal="showModal"></ProfileData>
+            <ProfileData title="Портфолио" @show-Modal="showModal"></ProfileData>
 
         </div>
     </ProfileLayout>

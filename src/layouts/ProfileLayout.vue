@@ -26,6 +26,15 @@ export default {
     open_menu(data){
       this.menu_action = data
     }
+  },
+  watch: {
+    menu_action(data){
+      if(data){
+        document.body.style = 'overflow:hidden'
+      } else {
+        document.body.style = ''
+      }
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="profile__data">
         <div class="profile__data-top">
-            <div class="profile__data-title">Портфолио</div>
+            <div class="profile__data-title">{{ title }}</div>
             <button class="profile__data-edit" @click.prevent="showModal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round"
@@ -38,6 +38,10 @@
 <script>
 export default {
     name: "ProfileData",
+
+    props: {
+        title: String
+    },
 
     methods: {
         showModal(){
