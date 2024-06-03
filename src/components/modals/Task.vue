@@ -493,9 +493,8 @@ button {
 
 @media(max-width:680px) {
     .modal {
-        max-width: 370px;
+        max-width: 360px;
         padding: 32px 20px;
-        overflow-x: hidden;
     }
 
     .modal__top {
@@ -515,43 +514,5 @@ button {
             font-size: 16px;
         }
     }
-
-    .task_settings{
-        width: 100%;
-    }
-
-    .task__inf {
-        padding: 0;
-    }
-
-    .task_settings-title {
-        font-size: 14px;
-    }
-
-    .admin_name{
-        padding: 5px 8px;
-        font-size: 12px;
-        gap: 4px;
-    }
-
-    .switcher{
-        overflow-x: scroll;
-    }
-
-    .subtasks__top{
-        flex-direction: column-reverse;
-        align-items: start;
-        gap: 12px;
-    }
-
-    .subtasks__add{
-        width: 100%;
-        justify-content: center;        
-    }
-
-    .task_nav {
-        justify-content: center;
-    }
-    
 }
 </style>

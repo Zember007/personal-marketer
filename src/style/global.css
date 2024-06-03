@@ -151,6 +151,10 @@ a {
   --component-colors-link-inactive-background: #fff;
 }
 
+#app {
+  height: 100%;
+}
+
 .container {
   padding: 0 32px;
 }

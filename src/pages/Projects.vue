@@ -10,7 +10,11 @@
                 </svg>
 
                 <span>Проекты</span>
+
             </RouterLink>
+            <div class="select_mob">
+                <SelectInput :items="projects" />
+            </div>
         </ProfileTop>
         <div class="project_box">
             <SideProjects class="sidebar" :projects="projects"></SideProjects>
@@ -26,6 +30,7 @@
 
 <script>
 import ProfileLayout from '../layouts/ProfileLayout.vue'
+import ProfileTop from '../components/profile/ProfileTop.vue';
 import ProjectDescription from '../components/projects/ProjectDescription.vue';
 import ProjectDoc from '../components/projects/ProjectDoc.vue';
 import ProjectTasks from '../components/projects/ProjectTasks.vue';
@@ -42,7 +47,8 @@ export default {
         ProjectDoc,
         ProjectTasks,
         ProjectTeam,
-        SideProjects
+        SideProjects,
+        ProfileTop
     },
     data() {
         return {
@@ -101,4 +107,34 @@ export default {
     align-items: center;
     gap: 8px;
 }
+
+.select_mob{
+    display: none;
+}
+
+@media(max-width:1650px) {
+    .project_box {
+        grid: repeat(4, auto) / repeat(2, auto)
+    }
+
+    .sidebar {
+        grid-row: span 4;
+    }
+}
+
+@media(max-width:990px) {
+    .project_box {
+        grid: repeat(4, auto) / auto;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .select_mob{
+        display: block;
+    }
+}
+
+
 </style>

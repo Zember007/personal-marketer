@@ -1,7 +1,7 @@
 <template>
     <transition name="modal-fade">
-        <div class="modal-backdrop">
-            <div class="modal">
+        <div class="modal-backdrop" @click="close">
+            <div class="modal" @click.stop>
                 <button @click.prevent="close" class="close">
                     <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -229,5 +229,12 @@ form{
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+@media(max-width: 550px) {
+  .modal{
+    padding: 24px 40px;
+    margin: 0 10px;
+  }  
 }
 </style>

@@ -27,6 +27,10 @@ export default {
     line-height: 100%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 

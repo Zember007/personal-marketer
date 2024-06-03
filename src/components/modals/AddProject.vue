@@ -1,7 +1,7 @@
 <template>
     <transition name="modal-fade">
-        <div class="modal-backdrop">
-            <div class="modal">
+        <div class="modal-backdrop" @click.stop="close">
+            <div class="modal" @click.stop>
                 <div class="modal__top">
                     <span>Добавить проект в портфолио</span>
                     <button type="button" @click="close">

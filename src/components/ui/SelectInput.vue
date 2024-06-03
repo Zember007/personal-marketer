@@ -2,7 +2,7 @@
     <div class="select-box">
         <select class="select">
             <option disabled hidden selected>{{name}}</option>
-            <option v-for="item in items" value="{{ item }}">{{ item }}</option>
+            <option v-for="item in items"  :selected="item.active" :value="item.name">{{ item.name }}</option>
         </select>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
     width: 100%;
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
-    padding: 16px;
+    padding: 12px 16px;
     padding-right: 40px;
     font-family: var(--font-family);
     font-weight: 400;
@@ -49,5 +49,11 @@ export default {
     -webkit-appearance: none;
     appearance: none;
 
+}
+
+@media(max-width: 550px) {
+    .select {
+        font-size: 14px;
+    }
 }
 </style>

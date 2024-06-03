@@ -147,4 +147,11 @@ export default {
     letter-spacing: -0.02em;
     color: var(--text-primary);
 }
+
+@media(max-width:550px) {
+    .inf {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
 </style>

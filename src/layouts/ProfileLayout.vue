@@ -47,6 +47,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-height: 100%;
 }
 
 @media(max-width:990px) {

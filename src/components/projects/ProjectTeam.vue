@@ -220,4 +220,22 @@ export default {
     align-items: center;
     justify-content: end;
 }
+
+@media(max-width:700px) {
+    .staffer{
+        grid: 1fr / 0.5fr 2fr 1.5fr 0.5fr; 
+    }
+
+    .name {
+        font-size: 12px;
+    }
+
+    .team_list {
+        font-size: 12px;
+    }
+
+    .specifical{
+        text-align: center;
+    }
+}
 </style>

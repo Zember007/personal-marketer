@@ -129,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <ProjectAdd @click-add="tack_add" >Добавить задачу</ProjectAdd>
+        <ProjectAdd @click-add="tack_add">Добавить задачу</ProjectAdd>
     </div>
 </template>
 
@@ -148,7 +148,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box_wrapper{
+.box_wrapper {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -324,5 +324,50 @@ export default {
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+@media(max-width:700px) {
+    .task__list-head {
+        display: none;
+    }
+
+    .task {
+        grid: 1fr / 1fr 2fr 0fr 2fr 1fr;
+    }
+
+    .date {
+        display: none;
+    }
+
+    .swither_item {
+        label {
+            font-size: 12px;
+            width: 90px;
+        }
+
+        &.all label {
+            width: 60px;
+        }
+    }
+
+    .swither{
+        max-width: 75vw;
+        overflow-x: auto;
+    }
+}
+
+@media(max-width:550px){
+    .swither{
+        max-width: 82vw;
+        overflow-x: auto;
+    }
+
+    .task {
+        grid: 1fr / 0.5fr 2fr 0fr 2fr 0.5fr;
+    }
+
+    .name {
+        font-size: 12px;
+    }
 }
 </style>

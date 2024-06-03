@@ -9,19 +9,72 @@
                         stroke-linejoin="round" />
                 </svg>
 
-                <span>Задачи</span>
+                <span>Мой профиль</span>
             </RouterLink>
+
+            <SelectInput :items="projects" />
         </ProfileTop>
+
+        <TaskKanban :tasks="tasks"></TaskKanban>
+
     </ProfileLayout>
 </template>
 
 <script>
 import ProfileLayout from '../layouts/ProfileLayout.vue'
 import ProfileTop from '../components/profile/ProfileTop.vue';
+import TaskKanban from '../components/tasks/TaskKanban.vue';
+
 export default {
     components: {
         ProfileLayout,
-        ProfileTop
+        ProfileTop,
+        TaskKanban
+    },
+    data() {
+        return {
+            projects: [
+                { 'name': 'Фабрика мебели', 'active': true },
+                { 'name': 'Магазин цветов' },
+                { 'name': 'Сайт агентства' },
+                { 'name': 'Доработка сайта' },
+            ],
+            
+            tasks: {
+                not_started: [
+                    { type: "not_started", name: "Не начато" },
+                    [
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:01" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                    ]
+                ],
+                in_progress: [
+                    { type: "in_progress", name: "В процессе" },
+                    [
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                    ]
+                ],
+                in_review: [
+                    { type: "in_review", name: "На проверке" },
+                    [
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                    ]
+                ],
+                completed: [
+                    { type: "completed", name: "Завершено" },
+                    [
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                        { name: "Разработка", data: "13.04.2024", time:"13:00" },
+                    ]
+                ]
+            }
+        };
     }
 }
 </script>

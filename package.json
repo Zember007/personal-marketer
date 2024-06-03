@@ -16,9 +16,12 @@
     "v-mask": "^2.3.0",
     "vue": "^3.4.27",
     "vue-custom-scrollbar": "^1.4.4",
+    "vue-dragscroll": "^4.0.5",
     "vue-kanban": "^1.8.0",
     "vue-router": "^4.3.2",
     "vue-the-mask": "^0.11.1",
+    "vue3-draggable": "^2.0.9",
+    "vuedraggable": "^4.1.0",
     "xstate": "^5.13.1"
   },
   "devDependencies": {
