@@ -1,6 +1,6 @@
   <template>
 
-    <div class="sidebar" :class="{ active: open }">
+    <div class="sidebar" :class="{ active: menu_action }">
       <div class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
       </div>
@@ -90,7 +90,7 @@
           </svg>
           <span>Команда</span>
         </div>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/chat" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M12.9917 10.3333V13.725C12.9917 14.025 12.9584 14.3083 12.8834 14.5667C12.5751 15.7917 11.5584 16.5583 10.1584 16.5583H7.89175L5.37508 18.2333C5.00008 18.4917 4.50008 18.2167 4.50008 17.7667V16.5583C3.65008 16.5583 2.94175 16.275 2.45008 15.7833C1.95008 15.2833 1.66675 14.575 1.66675 13.725V10.3333C1.66675 8.75 2.65008 7.65833 4.16675 7.51667C4.27508 7.50833 4.38341 7.5 4.50008 7.5H10.1584C11.8584 7.5 12.9917 8.63333 12.9917 10.3333Z"
@@ -101,7 +101,7 @@
           </svg>
 
           <span>Чат</span>
-        </div>
+        </RouterLink>
         <div class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -159,7 +159,13 @@
 <script>
 export default {
   props: {
-    open: Boolean
+    menu_action: Boolean
+  },
+   
+  watch: {
+    menu_action(data) {
+      this.$emit('menu-action',data)
+    }
   }
 }
 </script>

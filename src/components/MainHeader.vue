@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header__inner">
                 <div>
-                    <BurgerMenu @open-menu="open_menu" :burger_active="false"/>
+                    <BurgerMenu @open-menu="open_menu" :burger_active="menu_action"/>
                 </div>
                 <div class="header__inner-nav">
                     <div class="header__notification">
@@ -34,6 +34,10 @@ import BurgerMenu from './BurgerMenu.vue'
 export default {
     components:{
         BurgerMenu
+    },
+
+    props: {
+        menu_action: Boolean
     },
 
     methods: {

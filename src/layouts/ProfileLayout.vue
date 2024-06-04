@@ -1,6 +1,6 @@
 <template>
-  <MainHeader @open-menu="open_menu"/>
-  <MainSidebar :open="menu_action"/>
+  <MainHeader @open-menu="open_menu" :menu_action="menu_action"/>
+  <MainSidebar @menu-action="open_menu" :menu_action="menu_action"/>
   <main class="main">
     <slot></slot>
   </main>
@@ -35,6 +35,10 @@ export default {
         document.body.style = ''
       }
     }
+  },
+
+  setup(){
+    document.body.style = ''
   }
 }
 </script>

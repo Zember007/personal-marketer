@@ -9,6 +9,7 @@ import AuthRegister from './pages/auth/AuthRegister.vue';
 import VerificationPhone from './pages/auth/VerificationPhone.vue';
 import Projects from './pages/Projects.vue';
 import TasksBoard from './pages/TasksBoard.vue'; 
+import Chat from './pages/Chat.vue';
 
 const routes = [
   { path: '/', component: AuthExecutor },
@@ -21,6 +22,7 @@ const routes = [
   { path: '/profile/edit', component: ProfileEdit },
   { path: '/projects', component: Projects },
   { path: '/tasks', component: TasksBoard }, 
+  { path: '/chat', component: Chat }, 
 ]
 
 const router = createRouter({
