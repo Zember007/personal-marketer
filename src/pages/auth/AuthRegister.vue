@@ -10,7 +10,7 @@
                 <PhoneInput label="Ваш номер телефона" />
                 <div class="check-box">
                     <CheckInput />
-                    <span class="auth__text">Я принимаю <a href="#">политику конфиденциальности</a></span>
+                    <span class="auth__text">Я принимаю <a href="#" @click.prevent="open_privacy_policy">политику конфиденциальности</a></span>
                 </div>
                 <RouterLink to="/auth/verification">
                     <PrimaryButton style="width: 100%;">Создать аккаунт</PrimaryButton>
@@ -56,9 +56,19 @@
     </AuthLayout>
 </template>
 
-<script setup>
+<script>
 import AuthLayout from '../../layouts/AuthLayout.vue'
-
+export default {
+    components: {
+        AuthLayout
+    },
+    
+    methods: {
+        open_privacy_policy(){
+            window.open('/public/privacy-policy.pdf','_blank')
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -9,13 +9,13 @@
                 <PhoneInput label="Ваш номер телефона" />
                 <div class="check-box">
                     <CheckInput />
-                    <span class="auth__text">Я принимаю <a href="#">политику конфиденциальности</a></span>
+                    <span class="auth__text">Я принимаю <a href="#" @click.prevent="open_privacy_policy">политику конфиденциальности</a></span>
                 </div>
                 <RouterLink to="/auth/verification">
                     <PrimaryButton style="width: 100%;">Продолжить</PrimaryButton>
                 </RouterLink>
             </form>
-            <span class="auth__text">Ещё нет аккаунта? <RouterLink to="/register" >Создайте</RouterLink></span>
+            <span class="auth__text">Ещё нет аккаунта? <RouterLink to="/register">Создайте</RouterLink></span>
             <div class="easy_login">
                 <span>Войти с помощью</span>
                 <div class="easy_login-nav">
@@ -55,9 +55,19 @@
     </AuthLayout>
 </template>
 
-<script setup>
+<script>
 import AuthLayout from '../../layouts/AuthLayout.vue'
-
+export default {
+    components: {
+        AuthLayout
+    },
+    
+    methods: {
+        open_privacy_policy(){
+            window.open('/public/privacy-policy.pdf','_blank')
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -130,7 +140,7 @@ form {
     display: flex;
     gap: 10px;
 
-    a{
+    a {
         border-radius: 4px;
         background: var(--background-background-secondary);
         padding: 14px 0;
@@ -147,10 +157,12 @@ form {
     .login {
         padding: 32px 20px;
     }
-    .auth_description{
+
+    .auth_description {
         font-size: 16px;
     }
-    .auth__text{
+
+    .auth__text {
         font-size: 12px;
     }
 }
