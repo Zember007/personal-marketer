@@ -65,7 +65,7 @@ export default {
     
     methods: {
         open_privacy_policy(){
-            window.open('/public/privacy-policy.pdf','_blank')
+            window.open('/privacy-policy.pdf','_blank')
         }
     }
 }
