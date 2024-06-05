@@ -21,6 +21,10 @@ export default {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
 
     &::before {
         content: url('../../assets/img/icons/search.svg');

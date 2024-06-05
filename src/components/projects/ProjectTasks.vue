@@ -129,15 +129,15 @@
                 </div>
             </div>
         </div>
-        <ProjectAdd @click-add="tack_add">Добавить задачу</ProjectAdd>
+        <DataAdd @click-add="tack_add">Добавить задачу</DataAdd>
     </div>
 </template>
 
 <script>
-import ProjectAdd from './ProjectAdd.vue'
+import DataAdd from '../DataAdd.vue'
 export default {
     components: {
-        ProjectAdd
+        DataAdd
     },
     methods: {
         tack_add() {

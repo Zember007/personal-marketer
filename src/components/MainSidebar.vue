@@ -67,7 +67,7 @@
 
           <span>Аналитика</span>
         </div>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/team" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M14.6084 6.47484C14.55 6.4665 14.4917 6.4665 14.4334 6.47484C13.1417 6.43317 12.1167 5.37484 12.1167 4.07484C12.1167 2.74984 13.1917 1.6665 14.525 1.6665C15.85 1.6665 16.9334 2.7415 16.9334 4.07484C16.925 5.37484 15.9 6.43317 14.6084 6.47484Z"
@@ -89,7 +89,7 @@
               fill="#242626" />
           </svg>
           <span>Команда</span>
-        </div>
+        </RouterLink>
         <RouterLink to="/chat" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -102,7 +102,7 @@
 
           <span>Чат</span>
         </RouterLink>
-        <div class="sidebar__nav-item">
+        <RouterLink to="/finance" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M17.4751 13.4003C17.2751 15.6253 15.6667 17.0837 13.3334 17.0837H5.83342C3.53341 17.0837 1.66675 15.217 1.66675 12.917V7.08366C1.66675 4.81699 3.03341 3.23366 5.15841 2.96699C5.37508 2.93366 5.60008 2.91699 5.83342 2.91699H13.3334C13.5501 2.91699 13.7584 2.92533 13.9584 2.95866C15.9501 3.19199 17.3001 4.58366 17.4751 6.60033C17.5001 6.84199 17.3001 7.04199 17.0584 7.04199H15.7667C14.9667 7.04199 14.2251 7.35033 13.6917 7.90033C13.0584 8.51699 12.7417 9.38366 12.8167 10.2503C12.9501 11.767 14.2834 12.9587 15.8667 12.9587H17.0584C17.3001 12.9587 17.5001 13.1587 17.4751 13.4003Z"
@@ -113,8 +113,8 @@
           </svg>
 
           <span>Финансы</span>
-        </div>
-        <div class="sidebar__nav-item">
+        </RouterLink>
+        <RouterLink to="/balance" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M18.2667 13.9582C17.9917 16.1748 16.175 17.9915 13.9584 18.2665C12.6167 18.4332 11.3667 18.0665 10.3917 17.3498C9.83338 16.9415 9.96671 16.0748 10.6334 15.8748C13.1417 15.1165 15.1167 13.1332 15.8834 10.6248C16.0834 9.9665 16.95 9.83317 17.3584 10.3832C18.0667 11.3665 18.4334 12.6165 18.2667 13.9582Z"
@@ -125,7 +125,7 @@
           </svg>
 
           <span>Баланс</span>
-        </div>
+        </RouterLink>
       </div>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Другое</span></div>
@@ -247,7 +247,7 @@ export default {
   }
 
   .sidebar__log {
-    width: 54px;
+    width: 52px;
     overflow: hidden;
     min-height: 54px;
   }

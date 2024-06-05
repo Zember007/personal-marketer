@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name:"ProjectAdd",
+    name:"DataAdd",
     methods: {
         click_add() {
             this.$emit('click-add')
@@ -35,7 +35,7 @@ export default {
     color: var(--text-primary);
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
-    padding: 16px;
+    padding: 15px 16px;
     background: var(--background-background-primary);
     align-items: center;
     justify-content: center;

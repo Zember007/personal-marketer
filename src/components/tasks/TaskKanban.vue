@@ -7,7 +7,7 @@
                     {{ category[1].length }}
                 </div>
             </div>
-            <ProjectAdd @click-add="task_add">Добавить задачу</ProjectAdd>
+            <DataAdd @click-add="task_add">Добавить задачу</DataAdd>
             <draggable :id="category[0].type" class="tasks-list" v-model="tasks[index][1]" item-key="id" group="tasks"
                 @start="" @end="">
                 <template #item="{ element }">
@@ -23,14 +23,14 @@
 <script>
 import draggable from "vuedraggable";
 import TaskCart from "./TaskCart.vue"
-import ProjectAdd from "../projects/ProjectAdd.vue"
+import DataAdd from "../DataAdd.vue"
 import AddTask from "../modals/AddTask.vue"
 export default {
 
     components: {
         draggable,
         TaskCart,
-        ProjectAdd,
+        DataAdd,
         AddTask
     },
 

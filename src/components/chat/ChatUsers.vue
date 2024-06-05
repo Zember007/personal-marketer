@@ -2,13 +2,13 @@
     <div class="wrapper">
         <div class="title">Сообщения</div>
         <div class="chats">
-            <UserCart />
-            <UserCart />
-            <UserCart />
-            <UserCart />
-            <UserCart />
-            <UserCart />
-            <UserCart />
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
+            <UserCart @click="chat_open"/>
         </div>
         <button class="add_new">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +30,14 @@ import UserCart from './UserCart.vue'
 export default {
     components: {
         UserCart
+    },
+    props: {
+        ChatOpen: Boolean
+    },
+    methods: {
+        chat_open() {
+            this.$emit('chat-open', true)
+        }
     }
 }
 </script>

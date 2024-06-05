@@ -117,15 +117,15 @@
 
             </div>
         </div>
-        <ProjectAdd @click-add="team_add">Добавить сотрудника</ProjectAdd>
+        <DataAdd @click-add="team_add">Добавить сотрудника</DataAdd>
     </div>
 </template>
 
 <script>
-import ProjectAdd from './ProjectAdd.vue'
+import DataAdd from '../DataAdd.vue'
 export default {
     components: {
-        ProjectAdd
+        DataAdd
     },
     methods: {
         team_add() {

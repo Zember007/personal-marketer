@@ -19,7 +19,9 @@ export default {
 <style lang="scss" scoped>
 .select-box {    
     position: relative;
-
+    background: var(--background-background-primary);
+    height: 100%;
+    
     &::before {
         content: "";
         background: url('../../assets/img/icons/arrow-down.svg') no-repeat;
@@ -35,6 +37,7 @@ export default {
 .select {
     cursor: pointer;
     width: 100%;
+    height: 100%; 
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
     padding: 12px 16px;

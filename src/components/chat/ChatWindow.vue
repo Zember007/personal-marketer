@@ -284,6 +284,10 @@ svg {
 
     input {
         flex-grow: 1;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
     }
 }
 
@@ -304,5 +308,43 @@ svg {
     border-radius: 30px;
     padding: 10px;
     background: var(--icons-active);
+}
+
+@media(max-width:1420px) {
+    .plan {
+        
+        padding: 0;
+        border: 0;
+
+        svg, span {
+            display: none;
+        }
+
+        &::before {
+            content: url('../../assets/img/icons/calendar-edit.svg');
+        }
+    }
+}
+
+@media(max-width:550px) {
+    .start_work{
+        background: none;
+        padding: 0;
+        span {
+            display: none;            
+        }
+
+        &::before {
+            content: url('../../assets/img/icons/add-square.svg');
+        }
+    }
+
+    .start_work-list {
+        transform: translate(-90%, 100%);
+    }
+
+    .input_box input {
+        width: 100%;
+    }
 }
 </style>

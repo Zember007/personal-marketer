@@ -152,15 +152,15 @@
                 </div>
             </div>
         </div>
-        <ProjectAdd @click-add="doc_add">Добавить документ </ProjectAdd>
+        <DataAdd @click-add="doc_add">Добавить документ </DataAdd>
     </div>
 </template>
 
 <script>
-import ProjectAdd from './ProjectAdd.vue'
+import DataAdd from '../DataAdd.vue' 
 export default {
     components: {
-        ProjectAdd
+        DataAdd
     },
     methods: {
         doc_add() {

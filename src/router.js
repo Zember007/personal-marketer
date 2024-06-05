@@ -10,6 +10,9 @@ import VerificationPhone from './pages/auth/VerificationPhone.vue';
 import Projects from './pages/Projects.vue';
 import TasksBoard from './pages/TasksBoard.vue'; 
 import Chat from './pages/Chat.vue';
+import Team from './pages/Team.vue';
+import Finance from './pages/Finance.vue';
+import Balance from './pages/Balance.vue';
 
 const routes = [
   { path: '/', component: AuthExecutor },
@@ -23,6 +26,9 @@ const routes = [
   { path: '/projects', component: Projects },
   { path: '/tasks', component: TasksBoard }, 
   { path: '/chat', component: Chat }, 
+  { path: '/team', component: Team }, 
+  { path: '/finance', component: Finance },
+  { path: '/balance', component: Balance },
 ]
 
 const router = createRouter({

@@ -1,7 +1,7 @@
 <template>
     <div class="chat__sidebar">
         <SearchInput />
-        <ChatUsers/>
+        <ChatUsers @chat-open="chat_open" :ChatOpen="ChatOpen"/>
     </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
         ChatUsers
     },
 
+    props: {
+        ChatOpen: Boolean
+    },
+
     data(){
         return {
             chats:[
@@ -20,6 +24,12 @@ export default {
                     'last_message': 'Вы видели претензию от Ани?',
                 }
             ]
+        }
+    },
+
+    methods: {
+        chat_open() {
+            this.$emit('chat-open', true)
         }
     }
 
@@ -33,7 +43,12 @@ export default {
     display: flex;
     flex-direction: column;
     gap:16px;
-    background: var(--background-background-primary);
-    width: 400px;    
+    background: var(--background-background-primary);  
+}
+
+@media(max-width:1420px){
+    .chat__sidebar {
+        padding: 16px; 
+    }
 }
 </style>
