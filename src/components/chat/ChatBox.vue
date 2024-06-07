@@ -1,7 +1,7 @@
 <template>
     <div class="chat__wrapper">
         <ChatSidebar @chat-open="chat_open" :ChatOpen="ChatOpen" class="sidebar" />
-        <ChatWindow class="window" :class="{active: ChatOpen}"/>
+        <ChatWindow :class="{active: ChatOpen}" class="chat_window"/>
     </div>
 </template>
 
@@ -13,14 +13,17 @@ export default {
         ChatWindow,
         ChatSidebar
     },
+    props: {
+        ChatOpen: Boolean
+    },
     data(){
         return {
-            ChatOpen: false
+            
         }
     },
     methods: {
         chat_open(data) {
-            this.ChatOpen = data
+            this.$emit('chat-open', data)
         }
     }
 }
@@ -38,9 +41,9 @@ export default {
     position: relative;
 }
 
-.window {
-    width: 72%;
-    transition: all .5s;
+.chat_window {
+    width: 72%; 
+    transition: all .5s; 
 }
 
 .sidebar {
@@ -49,7 +52,7 @@ export default {
 }
 
 @media(max-width:1420px) {
-    .window {
+    .chat_window {
         width: 57%;
     }
 
@@ -59,11 +62,11 @@ export default {
 }
 
 @media(max-width:990px) {
-    .window, .sidebar {
+    .chat_window, .sidebar {
         width: 100%;
     }
 
-    .window {
+    .chat_window {
         position: absolute;
         top: 0;left: 0; right: 0;bottom: 0;
         z-index: 1;

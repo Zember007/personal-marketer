@@ -31,6 +31,7 @@ export default {
         top: 50%;
         transform: translateY(-50%);
         right: 16px;
+        pointer-events: none;
     }
 }
 
@@ -57,6 +58,12 @@ export default {
 @media(max-width: 550px) {
     .select {
         font-size: 14px;
+        padding: 12px 10px;
+        padding-right: 17px;
+    }
+
+    .select-box::before {
+        right: 5px;
     }
 }
 </style>

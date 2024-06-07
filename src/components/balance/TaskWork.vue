@@ -57,5 +57,13 @@ export default {
     }
 }
 
-.view {}
+@media(max-width:450px) {
+    .action {
+        display: none;
+    }
+
+    .task {
+        grid: 1fr / 1fr 3fr 2fr 1fr;
+    }
+}
 </style>

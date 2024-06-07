@@ -13,9 +13,11 @@ import Chat from './pages/Chat.vue';
 import Team from './pages/Team.vue';
 import Finance from './pages/Finance.vue';
 import Balance from './pages/Balance.vue';
+import Home from './pages/Home.vue';
 
 const routes = [
-  { path: '/', component: AuthExecutor },
+  { path: '/', component: Home },
+  { path: '/auth', component: AuthExecutor },
   { path: '/auth/verification', component: VerificationPhone },
   { path: '/login', component: AuthLogin },
   { path: '/register', component: AuthRegister },

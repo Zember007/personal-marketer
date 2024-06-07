@@ -2,9 +2,9 @@
     <div class="transaction__box">
         <div class="transaction__top">
             <div class="title"><span>История транзакций</span></div>
-            <button class="view_all"><span>Все транзации</span></button>
+            <button class="view_all" @click="visible=!visible"><span>Все транзации</span></button>
         </div>
-        <div class="transaction__list">
+        <div class="transaction__list" :class="{active:visible}">
             <Transaction />
             <Transaction />
             <Transaction />
@@ -25,6 +25,11 @@ import Transaction from './Transaction.vue';
 export default {
     components: {
         Transaction,
+    },
+    data(){
+        return {
+            visible: false
+        }
     }
 }
 </script>
@@ -68,5 +73,17 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-height: 492px;
+    transition: all .5s;
+    overflow: hidden;
+    &.active {
+        max-height: 100000000000000px;
+    }
+}
+
+@media(max-width:1560px){
+    .transaction__list{
+        max-height: 220px;
+    } 
 }
 </style>

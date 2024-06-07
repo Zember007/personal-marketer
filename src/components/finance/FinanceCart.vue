@@ -5,56 +5,74 @@
         </div>
         <div class="block">
             <div class="num"><span>01</span></div>
-            <div class="name"><strong>Разработка сайта</strong></div>
-            <div class="price"><strong>250,000₽</strong></div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
+            <div class="name" data-label="Задача"><strong>Разработка сайта</strong></div>
+            <div class="price" data-label="Бюджет"><strong>250,000₽</strong></div>
+            <div data-label="Договор">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
             </div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
+            <div data-label="Акт">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
             </div>
-            <div class="month">
-                <span>Акт: Январь</span>
-            </div>
-        </div>
-        <div class="block">
-            <div class="num"><span>01</span></div>
-            <div class="name"><strong>Разработка сайта</strong></div>
-            <div class="price"><strong>250,000₽</strong></div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
-            </div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
-            </div>
-            <div class="month">
-                <span>Акт: Январь</span>
+            <div data-label="Период">
+                <div class="month">
+                    <span>Акт: Январь</span>
+                </div>
             </div>
         </div>
         <div class="block">
             <div class="num"><span>01</span></div>
-            <div class="name"><strong>Разработка сайта</strong></div>
-            <div class="price"><strong>250,000₽</strong></div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
+            <div class="name" data-label="Задача"><strong>Разработка сайта</strong></div>
+            <div class="price" data-label="Бюджет"><strong>250,000₽</strong></div>
+            <div data-label="Договор">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
             </div>
-            <div class="doc">
-                <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
-                <strong>Договор.pdf</strong>
-                <span>34 MB</span>
+            <div data-label="Акт">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
             </div>
-            <div class="month">
-                <span>Акт: Январь</span>
+            <div data-label="Период">
+                <div class="month">
+                    <span>Акт: Январь</span>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <div class="num"><span>01</span></div>
+            <div class="name" data-label="Задача"><strong>Разработка сайта</strong></div>
+            <div class="price" data-label="Бюджет"><strong>250,000₽</strong></div>
+            <div data-label="Договор">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
+            </div>
+            <div data-label="Акт">
+                <div class="doc">
+                    <div class="img"><img src="../../assets/img/icons/doc.svg" alt="doc"></div>
+                    <strong>Договор.pdf</strong>
+                    <span>34 MB</span>
+                </div>
+            </div>
+            <div data-label="Период">
+                <div class="month">
+                    <span>Акт: Январь</span>
+                </div>
             </div>
         </div>
     </div>
@@ -71,13 +89,14 @@ export default {
     background: var(--background-background-primary);
     max-width: 1000px;
     border-radius: 8px 8px 0 0;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--colors-secondary-border-color);
 }
 
 .title {
-    border-bottom: 1px solid var(--colors-secondary-border-color);    
+    border-bottom: 1px solid var(--colors-secondary-border-color);
     padding: 20px 24px;
     font-family: var(--font-family);
     font-weight: 700;
@@ -116,7 +135,7 @@ export default {
 
 .name {}
 
-.price {    
+.price {
     justify-self: center;
 
     strong {
@@ -149,5 +168,90 @@ export default {
     &::after {
         content: url('../../assets/img/icons/arrow-down.svg');
     }
+}
+
+@media(max-width:1350px) {
+    .doc {
+        span {
+            display: none;
+        }
+    }
+
+    .block {
+        font-size: 12px;
+        grid-template-columns: 0.5fr 2fr 1fr 2fr 2fr 2fr;
+        gap: 10px;
+
+        strong {
+            font-size: 12px;
+        }
+    }
+
+}
+
+@media(max-width:800px) {
+
+    .title {
+        border: 1px solid var(--colors-secondary-border-color);
+        border-bottom: 0;
+        border-radius: 8px 8px 0 0;
+    }
+
+
+
+    .block {
+        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        &:not(:last-child) {
+            border: 0;
+            padding-bottom: 16px;
+        }
+    }
+
+    .price {
+        justify-self: auto;
+    }
+
+    .month {
+        justify-self: auto;
+    }
+
+    .title {
+        background: var(--background-background-primary);
+    }
+
+    .block>div {
+        background: var(--background-background-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 0 24px;
+        border-bottom: 1px solid var(--colors-secondary-border-color);
+        border-right: 1px solid var(--colors-secondary-border-color);
+        border-left: 1px solid var(--colors-secondary-border-color);
+
+
+        &:nth-child(2) {
+            border-top: 1px solid var(--colors-secondary-border-color);
+        }
+
+        &::before {
+            content: attr(data-label);
+        }
+
+        &.num {
+            display: none;
+        }
+    }
+
+    .finance__cart {
+        border: 0;
+        background: none;
+    }
+
+
 }
 </style>

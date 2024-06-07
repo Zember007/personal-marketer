@@ -15,11 +15,11 @@
         </ProfileTop>
 
         <div class="balance__box">
-            <BalanceCurrent/>
-            <BalanceCarts/>
-            <BalanceTransaction class="two_span"/>
-            <BalanceWork/>
-            <BalanceHistory/>
+            <BalanceCurrent />
+            <BalanceCarts />
+            <BalanceTransaction class="two_span" />
+            <BalanceWork />
+            <BalanceHistory />
         </div>
     </ProfileLayout>
 </template>
@@ -36,12 +36,12 @@ import BalanceHistory from '../components/balance/BalanceHistory.vue'
 export default {
     components: {
         ProfileLayout,
-        ProfileTop,  
+        ProfileTop,
         BalanceCurrent,
-        BalanceCarts ,
-        BalanceTransaction ,
-        BalanceWork   ,
-        BalanceHistory 
+        BalanceCarts,
+        BalanceTransaction,
+        BalanceWork,
+        BalanceHistory
     },
 }
 </script>
@@ -61,5 +61,17 @@ export default {
 
 .two_span {
     grid-row: span 2;
+}
+
+@media(max-width:1560px) {
+    .balance__box {
+        grid: auto auto / auto auto auto;
+        grid: auto auto auto auto auto / auto ;
+        gap: 28px;
+    }
+
+    .two_span {
+        order: 5;
+    }
 }
 </style>

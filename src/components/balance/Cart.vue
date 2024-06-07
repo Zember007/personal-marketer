@@ -114,4 +114,12 @@ export default {
         justify-content: center;
     }
 }
+
+@media(max-width:450px) {
+    .inf {
+        strong {
+            font-size: 12px;
+        }
+    }
+}
 </style>

@@ -7,18 +7,34 @@
                 <Cart/>
             </div>
         </div>
-        <DataAdd>Добавить новую карту</DataAdd>
+        <DataAdd @click="showModal">Добавить новую карту</DataAdd>
     </div>
+    <AddCart v-show="isModalVisible" @close="closeModal" />
 </template>
 
 <script>
 import DataAdd from '../DataAdd.vue'
 import Cart from './Cart.vue'
+import AddCart from '../modals/AddCart.vue';
 export default {
     components: {
         DataAdd,
-        Cart
-    }
+        Cart,
+        AddCart
+    },    
+    data() {
+        return {
+            isModalVisible: false,
+        };
+    },
+    methods: {
+        showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        }
+    },
 }
 </script>
 
@@ -33,6 +49,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 40px;
 }
 
 .inf_carts {

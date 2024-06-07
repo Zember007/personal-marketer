@@ -1,5 +1,5 @@
 <template>
-    <div class="window">
+    <div class="window__wrapper">
         <div class="window__top">
             <div class="user">
                 <div class="avatar">
@@ -61,7 +61,7 @@
                     <button @click.prevent="start_work = !start_work" class="start_work"><span>Начать
                             работу</span></button>
                     <div class="start_work-list" v-show="start_work">
-                        <button>
+                        <button @click.prevent="ShowOffer">
                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -131,21 +131,36 @@
                 </svg>
             </button>
         </div>
+        <CreateOffer v-show="isShowOffer" @close="CloseOffer"/>
     </div>
 </template>
 
 <script>
+import CreateOffer from '../modals/CreateOffer.vue';
 export default {
+    components: {
+        CreateOffer
+    },
     data() {
         return {
-            start_work: false
+            start_work: false,
+            isShowOffer: false
         }
+    },
+    methods: {
+        CloseOffer() {
+            this.isShowOffer = false
+        },
+
+        ShowOffer() {
+            this.isShowOffer = true
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.window {
+.window__wrapper {
     display: flex;
     flex-direction: column;
 }

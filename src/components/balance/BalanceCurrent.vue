@@ -24,15 +24,45 @@
             </div>
         </div>
         <div class="nav">
-            <button class="balance__button">Вывести</button>
-            <button class="balance__button">Пополнить</button>
+            <button @click.prevent="OutputBalance_show" class="balance__button">Вывести</button>
+            <button @click.prevent="AddBalance_show" class="balance__button">Пополнить</button>
         </div>
     </div>
+
+    <AddBalance v-show="AddBalanceVisible" @close="AddBalance_close" />
+    <OutputBalance v-show="OutputBalanceVisible" @close="OutputBalance_close" />
 </template>
 
 <script>
+import AddBalance from '../modals/AddBalance.vue'
+import OutputBalance from '../modals/OutputBalance.vue'
 export default {
-    name:"BalanceCurrent"
+    name:"BalanceCurrent",
+    components: {
+        AddBalance ,
+        OutputBalance
+    },
+    data() {
+        return {
+            AddBalanceVisible: false,
+            OutputBalanceVisible: false,
+        };
+    },
+    methods: {
+        AddBalance_show() {
+            this.AddBalanceVisible = true;
+        },
+        AddBalance_close() {
+            this.AddBalanceVisible = false;
+        },
+
+        OutputBalance_show() {
+            this.OutputBalanceVisible = true;
+        },
+        OutputBalance_close() {
+            this.OutputBalanceVisible = false;
+        }
+    },
 }
 </script>
 
@@ -116,7 +146,7 @@ export default {
 
 .balance__button {
     border-radius: 6px;
-    padding: 18px 40px;
+    padding: 18px 20px;
     background: var(--primary-button-color);
     font-family: var(--font-family);
     font-weight: 500;
@@ -127,4 +157,5 @@ export default {
     max-width: 210px;
     width: 100%;
 }
+
 </style>
