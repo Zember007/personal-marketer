@@ -48,6 +48,7 @@
                     </div>
                     <TextInput label="Имя и фамилия" />
                     <PhoneInput label="Номер телефона" />
+                    <TextInput label="ИНН" />
                 </div>
                 <div class="column">
                     <div class="text_box">
