@@ -5,8 +5,12 @@
                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
             </div>
             <div class="header__nav" :class="{active:open_menu}">
-                <PrimaryButton style="padding: 16px 40px;">Вход для клиентов</PrimaryButton>
-                <PrimaryButton style="padding: 16px 40px;">Вход для исполнителей</PrimaryButton>
+                <RouterLink to="/auth">
+                    <PrimaryButton style="padding: 16px 40px;">Вход для клиентов</PrimaryButton>
+                </RouterLink>
+                <RouterLink to="/auth">
+                    <PrimaryButton style="padding: 16px 40px;">Вход для исполнителей</PrimaryButton>
+                </RouterLink>
             </div>
             <BurgerMenu @open-menu="menu_action"/>
         </div>
@@ -14,6 +18,7 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import BurgerMenu from './BurgerMenu.vue';
 export default {
     components: {

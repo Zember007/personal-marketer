@@ -18,7 +18,7 @@
 
             <div class="container">
                 <div class="preview__switcher">
-                    <input type="radio" id="radio1" name="preview">
+                    <input type="radio" id="radio1" name="preview" checked>
                     <label for="radio1" class="preview__switcher-block">
                         <div class="title">Персональная стратегия</div>
                         <div class="text">Выберите маркетолога, который разработает стратегию развития вашего бизнеса.
