@@ -1,9 +1,9 @@
   <template>
 
     <div class="sidebar" :class="{ active: menu_action }">
-      <div class="sidebar__log">
+      <RouterLink to="/" class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
-      </div>
+      </RouterLink>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Основное</span></div>
         <RouterLink to="/profile" class="sidebar__nav-item">
@@ -101,18 +101,6 @@
           </svg>
 
           <span>Чат</span>
-        </RouterLink>
-        <RouterLink to="/finance" class="sidebar__nav-item">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M17.4751 13.4003C17.2751 15.6253 15.6667 17.0837 13.3334 17.0837H5.83342C3.53341 17.0837 1.66675 15.217 1.66675 12.917V7.08366C1.66675 4.81699 3.03341 3.23366 5.15841 2.96699C5.37508 2.93366 5.60008 2.91699 5.83342 2.91699H13.3334C13.5501 2.91699 13.7584 2.92533 13.9584 2.95866C15.9501 3.19199 17.3001 4.58366 17.4751 6.60033C17.5001 6.84199 17.3001 7.04199 17.0584 7.04199H15.7667C14.9667 7.04199 14.2251 7.35033 13.6917 7.90033C13.0584 8.51699 12.7417 9.38366 12.8167 10.2503C12.9501 11.767 14.2834 12.9587 15.8667 12.9587H17.0584C17.3001 12.9587 17.5001 13.1587 17.4751 13.4003Z"
-              fill="#242626" />
-            <path
-              d="M18.3334 9.14199V10.8587C18.3334 11.317 17.9667 11.692 17.5 11.7087H15.8667C14.9667 11.7087 14.1417 11.0503 14.0667 10.1503C14.0167 9.62533 14.2167 9.13366 14.5667 8.79199C14.875 8.47533 15.3 8.29199 15.7667 8.29199H17.5C17.9667 8.30866 18.3334 8.68366 18.3334 9.14199Z"
-              fill="#242626" />
-          </svg>
-
-          <span>Финансы</span>
         </RouterLink>
         <RouterLink to="/balance" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

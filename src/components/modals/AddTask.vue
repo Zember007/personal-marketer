@@ -88,7 +88,7 @@
                         </div>
                         <div class="price task_settings-item">
                             <span class="task_settings-title">Цена</span>
-                            <input placeholder="Введите цену" type="number" id="price" class="input_price">
+                            <input placeholder="Введите цену" type="text" id="price" class="input_price">
                         </div>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                 </div>
 
                 <div class="task_nav">
-                   <SecondaryButton style="padding: 16px 40px">Отменить</SecondaryButton> 
-                   <PrimaryButton style="padding: 16px 40px">Создать</PrimaryButton>
+                    <SecondaryButton style="padding: 16px 40px">Отменить</SecondaryButton>
+                    <PrimaryButton style="padding: 16px 40px">Создать</PrimaryButton>
                 </div>
             </div>
         </div>
@@ -145,14 +145,28 @@
 </template>
 
 <script>
-
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 export default {
     name: 'AddProject',
+
+    data: () => ({
+        myInputModel: ''
+    }),
 
     methods: {
         close() {
             this.$emit('close')
         },
+        currencyMask() {
+            console.log(createNumberMask({
+                prefix: '€',
+                suffix: ''
+            }));
+            return createNumberMask({
+                prefix: '€',
+                suffix: ''
+            });
+        }
     },
 }
 </script>
@@ -362,13 +376,14 @@ button {
     background: none;
     border: 0;
     font-family: var(--font-family);
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
     letter-spacing: -0.02em;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
     position: relative;
-    width: 150px;
+    width: 120px;
 
     &::-webkit-calendar-picker-indicator {
         background: transparent;
@@ -396,10 +411,10 @@ button {
     height: 36px;
     background: none;
     font-family: var(--font-family);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.02em;
-    color: var(--text-tertiary);
+    color: var(--text-primary);
 }
 
 .switcher__box {
@@ -516,7 +531,7 @@ button {
         }
     }
 
-    .task_settings{
+    .task_settings {
         width: 100%;
     }
 
@@ -528,30 +543,30 @@ button {
         font-size: 14px;
     }
 
-    .admin_name{
+    .admin_name {
         padding: 5px 8px;
         font-size: 12px;
         gap: 4px;
     }
 
-    .switcher{
+    .switcher {
         overflow-x: scroll;
     }
 
-    .subtasks__top{
+    .subtasks__top {
         flex-direction: column-reverse;
         align-items: start;
         gap: 12px;
     }
 
-    .subtasks__add{
+    .subtasks__add {
         width: 100%;
-        justify-content: center;        
+        justify-content: center;
     }
 
     .task_nav {
         justify-content: center;
     }
-    
+
 }
 </style>

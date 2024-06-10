@@ -284,8 +284,9 @@ form {
 
 @media(max-width: 550px) {
     .modal {
-        padding: 24px 40px;
+        padding: 24px;
         margin: 0 10px;
+        max-width: 360px;
     }
 }
 </style>

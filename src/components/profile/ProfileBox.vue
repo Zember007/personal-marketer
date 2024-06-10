@@ -11,7 +11,7 @@
                         <div class="profile__specialization">Маркетолог</div>
                     </div>
 
-                    <RouterLink to="/profile/edit" class="profile__edit">
+                    <RouterLink v-if="!preview" to="/profile/edit" class="profile__edit">
                         <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M7.83325 1.3335H6.49992C3.16659 1.3335 1.83325 2.66683 1.83325 6.00016V10.0002C1.83325 13.3335 3.16659 14.6668 6.49992 14.6668H10.4999C13.8333 14.6668 15.1666 13.3335 15.1666 10.0002V8.66683"
@@ -26,7 +26,19 @@
 
                         <span>Редактировать профиль</span>
                     </RouterLink>
+
+
                 </div>
+                <div class="description_user">
+                    <span>Стоимость работы</span>
+                    <strong>5500₽/час</strong>
+                </div>
+
+                <div class="description_user">
+                    <span>Экзамен пройден</span>
+                </div>
+
+                <PrimaryButton style="padding: 16px;" v-if="preview">Добавить в проект</PrimaryButton>
             </div>
             <div class="profile__main-box">
                 <div class="profile__main-inf">
@@ -64,6 +76,10 @@ export default {
             isModalVisible: false,
         };
     },
+    props: {
+        preview: Boolean
+    },
+
     methods: {
         showModal() {
             this.isModalVisible = true;
@@ -72,14 +88,43 @@ export default {
             this.isModalVisible = false;
         }
     },
+
+    mounted() {
+        console.log(this.preview);
+    }
 }
 </script>
 
 <style lang="scss" scoped>
+.description_user {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    gap: 10px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+
+    strong {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: var(--text-primary);
+    }
+}
+
 .profile__gallery {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    min-width: 240px;
 }
 
 .profile__edit {
@@ -161,6 +206,9 @@ export default {
     .profile__specialization {
         font-size: 16px;
     }
+    .profile__gallery {
+        min-width: 180px;
+    }
 }
 
 @media(max-width:550px) {
@@ -171,6 +219,7 @@ export default {
     .profile__gallery {
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .profile__cart {

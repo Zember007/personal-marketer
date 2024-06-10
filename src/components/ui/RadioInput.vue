@@ -9,7 +9,7 @@
         <div class="form_radio input">
             <input id="radio-index" type="radio" name="radio" value="input">
             <label for="radio-index">
-                <input type="text" placeholder="Своя цена">
+                <input class="your_price" type="number" placeholder="Своя цена">
             </label>
         </div>
     </div>
@@ -25,7 +25,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form_radio-box{
+.your_price {    
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.form_radio-box {
     display: flex;
     align-items: center;
     gap: 8px;

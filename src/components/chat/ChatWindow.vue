@@ -75,7 +75,7 @@
                             </svg>
                             <span>С тарифом</span>
                         </button>
-                        <button>
+                        <button @click.prevent="ShowTask"> 
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -132,19 +132,23 @@
             </button>
         </div>
         <CreateOffer v-show="isShowOffer" @close="CloseOffer"/>
+        <AddTask v-show="isShowTask" @close="CloseTask"/> 
     </div>
 </template>
 
 <script>
 import CreateOffer from '../modals/CreateOffer.vue';
+import AddTask from '../modals/AddTask.vue'
 export default {
     components: {
-        CreateOffer
+        CreateOffer,
+        AddTask
     },
     data() {
         return {
             start_work: false,
-            isShowOffer: false
+            isShowOffer: false,
+            isShowTask: false,
         }
     },
     methods: {
@@ -154,6 +158,13 @@ export default {
 
         ShowOffer() {
             this.isShowOffer = true
+        },
+        CloseTask() {
+            this.isShowTask = false
+        },
+
+        ShowTask() {
+            this.isShowTask = true
         },
     }
 }

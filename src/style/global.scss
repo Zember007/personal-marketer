@@ -187,14 +187,62 @@ h3 {
   color: var(--text-secondary);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+h1.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--grey-primary-grey-900);
+  max-width: 1000px;
+
+  .span_primary {
+    color: var(--blue-primary-blue-900);
+  }
+
+  position: relative;
+
+  .element_primary{
+    position: relative;
+    &::before {
+      content: url(../assets/img/icons/line.svg);
+  
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+    }
+  }
+}
+
 @media(max-width:990px) {
-    h1 {font-size: 40px;}
+  h1 {
+    font-size: 40px;
+  }
 }
 
 @media(max-width:550px) {
-  h1{font-size: 24px; text-align: center;}
-  h2{font-size: 24px; text-align: center;}
-  h3{font-size: 16px;}
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
   .container {
     padding: 0 13px;
   }

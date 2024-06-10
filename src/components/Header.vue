@@ -1,11 +1,11 @@
 <template>
     <header class="header">
         <div class="header__inner">
-            <div class="logo">
+            <RouterLink to="/" class="logo">
                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
-            </div>
+            </RouterLink>
             <div class="header__nav" :class="{active:open_menu}">
-                <RouterLink to="/auth">
+                <RouterLink to="/login">
                     <PrimaryButton style="padding: 16px 40px;">Вход для клиентов</PrimaryButton>
                 </RouterLink>
                 <RouterLink to="/auth">

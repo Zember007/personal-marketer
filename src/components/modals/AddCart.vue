@@ -11,7 +11,7 @@
 
                 </button>
 
-                <div class="title">Добавить документ</div>
+                <div class="title">Добавить новую карту</div>
 
                 <form action="#">
                     <label class="cart__number">
@@ -194,8 +194,25 @@ form {
 
 @media(max-width: 550px) {
     .modal {
-        padding: 24px 40px;
+        padding: 20px;
         margin: 0 10px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .cart__number {
+        font-size: 12px;
+
+        input {
+            font-size: 12px;
+            padding: 16px 5px;
+
+            &::placeholder {
+                font-size: 12px;
+            }
+        }
     }
 }
 </style>

@@ -159,6 +159,7 @@ export default {
             width: 16px;
             height: 16px;
         }
+        padding: 8px;
     }
 
     .profile__data-item-img {
@@ -176,7 +177,7 @@ export default {
     }
 
     .profile__data-title {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 </style>

@@ -16,7 +16,7 @@ export default {
 .img-box {
     background: var(--background-background-secondary);
     border-radius: 12px;
-    width: 240px;
+    width: 100%;
     height: 240px;
     display: flex;
     align-items: center;
@@ -25,14 +25,13 @@ export default {
 
 @media(max-width:990px) {
     .img-box {
-        width: 180px;
         height: 180px;
     }
 }
 
 @media(max-width:550px) {
     .img-box {
-        width: 144px;
+        width: 144px; 
         height: 144px;
     }
 }

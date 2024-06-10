@@ -44,7 +44,7 @@ export default {
     border-radius: 8px;
     padding: 24px;
     background: var(--background-background-primary);
-    height: 100%;
+    height: 300px; 
     width: 100%;
     display: flex;
     flex-direction: column;

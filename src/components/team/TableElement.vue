@@ -1,5 +1,5 @@
 <template>
-    <div class="tr">
+    <div class="tr" :class="{ active: ProfileActive }">
         <div class="td num_td">{{ cat.age }}</div>
         <div class="td user_td">
             <div class="user" @click="ProfileActive=!ProfileActive" :class="{ active: ProfileActive }">
@@ -49,8 +49,8 @@
             </div>
         </button>
     </div>
-    <div class="user_profile" :class="{ active: ProfileActive }">
-        <ProfileBox />
+    <div class="user_profile"  :class="{ active: ProfileActive }">
+        <ProfileBox :preview="true"/>
     </div>
 </template>
 
@@ -233,7 +233,7 @@ export default {
 
 .tr {
 
-    &:not(:last-child) {
+    &:not(:last-child):not(.active) {
         border-bottom: 1px solid var(--colors-secondary-border-color);
     }
 }
@@ -253,7 +253,7 @@ export default {
     .tr {
         grid-template-columns: 0.5fr 4fr 3fr 3fr 3fr 0fr 0.5fr;  
         padding: 16px 10px;
-        
+        gap: 10px;
     }
 
    
@@ -263,7 +263,11 @@ export default {
     }
 }
 
-@media(max-width: 1150px)  {
+@media(max-width: 1520px) {
+
+}
+
+@media(max-width: 700px)  {
     .tr {
         grid-template-columns: 1fr 1fr;  
         grid-template-areas:

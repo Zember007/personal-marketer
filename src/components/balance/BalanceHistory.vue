@@ -1,7 +1,7 @@
 <template>
     <div class="work">
         <div class="work__top">
-            <div class="title"><span>Задачи в работе</span></div>
+            <div class="title"><span>Задачи в архиве</span></div>
             <div class="view_all"><span>Показать все</span></div>
         </div>
         <div class="work__list">
@@ -17,7 +17,7 @@
 <script>
 import TaskHistory from './TaskHistory.vue'
 export default {
-    components: { 
+    components: {
         TaskHistory
     }
 }
@@ -29,6 +29,7 @@ export default {
     background: var(--background-background-primary);
     display: flex;
     flex-direction: column;
+    height: 390px;
 }
 
 .work__top {
@@ -65,7 +66,9 @@ export default {
 .task {
 
     &:not(:last-child) {
-        border-bottom: 1px solid var(--colors-secondary-border-color); 
+        border-bottom: 1px solid var(--colors-secondary-border-color);
     }
 }
+
+
 </style>

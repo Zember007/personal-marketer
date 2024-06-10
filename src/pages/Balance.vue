@@ -55,7 +55,7 @@ export default {
 
 .balance__box {
     display: grid;
-    grid: auto auto / auto auto auto;
+    grid: 300px auto / auto auto auto;
     gap: 28px;
 }
 

@@ -29,6 +29,7 @@ export default {
     background: var(--background-background-primary);
     display: flex;
     flex-direction: column;
+    height: 390px;
 }
 
 .work__top {

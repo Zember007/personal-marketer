@@ -76,7 +76,7 @@ export default {
     padding: 24px;
     background: var(--background-background-primary);
     width: 100%;
-    height: 100%;
+    height: 300px;
 }
 
 .title {

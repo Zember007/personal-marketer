@@ -11,7 +11,6 @@ import Projects from './pages/Projects.vue';
 import TasksBoard from './pages/TasksBoard.vue'; 
 import Chat from './pages/Chat.vue';
 import Team from './pages/Team.vue';
-import Finance from './pages/Finance.vue';
 import Balance from './pages/Balance.vue';
 import Home from './pages/Home.vue';
 
@@ -29,7 +28,6 @@ const routes = [
   { path: '/tasks', component: TasksBoard }, 
   { path: '/chat', component: Chat }, 
   { path: '/team', component: Team }, 
-  { path: '/finance', component: Finance },
   { path: '/balance', component: Balance },
 ]
 

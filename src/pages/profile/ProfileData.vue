@@ -61,4 +61,10 @@ export default {
     flex-direction: column;
     gap: 120px;
 }
+
+@media(max-width:990px) {
+    .profile__cart {
+        padding: 20px;
+    }
+}
 </style>

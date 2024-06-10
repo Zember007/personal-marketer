@@ -58,6 +58,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .name {
@@ -75,6 +77,8 @@ export default {
     font-size: 12px;
     letter-spacing: -0.02em;
     color: var(--text-secondary);
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .last_time {

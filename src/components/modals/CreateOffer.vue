@@ -47,8 +47,8 @@
                         </div>
                     </div>
                     <div class="nav">
-                        <SecondaryButton>Отменить</SecondaryButton>
-                        <PrimaryButton style="width: 100%;">Добавить</PrimaryButton>
+                        <SecondaryButton style="padding: 16px; width: 100%;">Отменить</SecondaryButton>
+                        <PrimaryButton style="width: 100%;padding: 16px;">Добавить</PrimaryButton>
                     </div>
                 </form>
             </div>
@@ -278,8 +278,26 @@ form {
 
 @media(max-width: 550px) {
     .modal {
-        padding: 24px 40px;
+        padding: 32px 20px;
         margin: 0 10px;
+    }
+
+    .title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+    }
+
+    .desc {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        color: var(--text-secondary);
     }
 }
 </style>

@@ -188,7 +188,7 @@ button {
 
 @media(max-width:680px) {
     .modal {
-        max-width: 360px;
+        max-width: 350px;
         padding: 32px 20px;
     }
 
@@ -214,5 +214,7 @@ button {
     .modal__button{
         padding: 16px 40px;
     }
+
+    
 }
 </style>
