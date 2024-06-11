@@ -2,7 +2,7 @@
     <div class="tr" :class="{ active: ProfileActive }">
         <div class="td num_td">{{ cat.age }}</div>
         <div class="td user_td">
-            <div class="user" @click="ProfileActive=!ProfileActive" :class="{ active: ProfileActive }">
+            <div class="user" @click="ProfileActive = !ProfileActive" :class="{ active: ProfileActive }">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="32" height="32" rx="16" fill="#EBEDFF" />
                     <path
@@ -20,7 +20,7 @@
         <div class="td profession_td" data-label="Профессия">{{ cat.breed }}</div>
         <div class="td hour_td" data-label="Почасовая ставка">{{ cat.gender }}/час</div>
         <div class="td status_td" data-label="Статус">
-            <div class="status avalible" >{{ cat.gender }}</div>
+            <div class="status avalible">{{ cat.gender }}</div>
         </div>
         <div class="td">
             <div class="add_to_project">
@@ -49,8 +49,8 @@
             </div>
         </button>
     </div>
-    <div class="user_profile"  :class="{ active: ProfileActive }">
-        <ProfileBox :preview="true"/>
+    <div class="user_profile" :class="{ active: ProfileActive }">
+        <ProfileBox :preview="true" />
     </div>
 </template>
 
@@ -233,7 +233,7 @@ export default {
 
 .tr {
 
-    &:not(:last-child):not(.active) {
+    &:not(:last-child) {
         border-bottom: 1px solid var(--colors-secondary-border-color);
     }
 }
@@ -251,30 +251,42 @@ export default {
 
 @media(max-width: 1520px) {
     .tr {
-        grid-template-columns: 0.5fr 4fr 3fr 3fr 3fr 0fr 0.5fr;  
+        grid-template-columns: 0.5fr 4fr 3fr 3fr 3fr 0fr 0.5fr;
         padding: 16px 10px;
         gap: 10px;
     }
 
-   
+    .user {
+        min-width: 150px;
+    }
+
+
 
     .add_to_project {
         display: none;
     }
 }
 
-@media(max-width: 1520px) {
-
-}
-
-@media(max-width: 700px)  {
+@media(max-width: 700px) {
+    .user {
+        .profile-nav {
+            display: none;
+        }
+    }
+    
     .tr {
-        grid-template-columns: 1fr 1fr;  
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "user view"
             "Profession Profession"
             "hour hour"
             "status status";
+
+        
+
+        &:not(:last-child) {
+            border: 0;
+        }
     }
 
     .td {
@@ -288,16 +300,20 @@ export default {
     .user_td {
         grid-area: user;
     }
+
     .status_td {
         padding: 6px 12px;
         grid-area: status;
     }
+
     .profession_td {
         grid-area: Profession;
     }
+
     .hour_td {
         grid-area: hour;
     }
+
     .view_td {
         grid-area: view;
     }
@@ -307,18 +323,27 @@ export default {
         justify-content: end;
     }
 
-    .status_td, .profession_td, .hour_td {
+    .status_td,
+    .profession_td,
+    .hour_td {
 
-        display: flex;
+        display: grid;
         align-items: center;
-        justify-content: space-between;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
 
         &::before {
+            justify-self: start;
             content: attr(data-label);
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            letter-spacing: -0.02em;
+            color: var(--text-tertiary);
         }
     }
 
-    
-}
 
+}
 </style>

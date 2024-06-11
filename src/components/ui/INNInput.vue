@@ -1,18 +1,14 @@
 <template>
     <label class="label">
         <span>{{ label }}</span>
-        <input type="text" class="input" :v-mask="mask">
+        <input type="text" class="input" v-mask="'############'">
     </label>
 </template>
 
 <script>
 export default {
     props: {
-        label: String,
-        mask: String
-    },
-    mounted() {
-        console.log(this.mask);
+        label: String
     }
 }
 </script>

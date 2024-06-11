@@ -24,8 +24,8 @@
                 </div>
             </div>
             <div class="tbody">
-                <div v-for="cat in sortedCats">
-                    <TableElement :cat="cat"/> 
+                <div v-for="cat in sortedCats" class="box_el">
+                    <TableElement :cat="cat" />
                 </div>
             </div>
         </div>
@@ -94,8 +94,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .table {
     border-radius: 8px;
     background: var(--background-background-primary);
@@ -165,9 +163,37 @@ export default {
     }
 }
 
-@media(max-width: 1520px)  {
+@media(max-width: 1520px) {
     .thead {
         display: none;
     }
+}
+
+@media(max-width: 700px) {
+    .table {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 143%;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        border-radius: 0;
+        background: transparent;
+
+    }
+
+    .tbody {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+
+        .box_el {
+            border: 1px solid var(--colors-secondary-border-color);
+            border-radius: 8px;
+            background: var(--background-background-primary);
+        }
+    }
+
+
 }
 </style>

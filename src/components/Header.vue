@@ -5,11 +5,11 @@
                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
             </RouterLink>
             <div class="header__nav" :class="{active:open_menu}">
-                <RouterLink to="/login">
-                    <PrimaryButton style="padding: 16px 40px;">Вход для клиентов</PrimaryButton>
+                <RouterLink to="/login" >
+                    <PrimaryButton style="width: 100%;padding: 16px 40px;">Вход для клиентов</PrimaryButton>
                 </RouterLink>
                 <RouterLink to="/auth">
-                    <PrimaryButton style="padding: 16px 40px;">Вход для исполнителей</PrimaryButton>
+                    <PrimaryButton style="width: 100%;padding: 16px 40px;">Вход для исполнителей</PrimaryButton>
                 </RouterLink>
             </div>
             <BurgerMenu @open-menu="menu_action"/>

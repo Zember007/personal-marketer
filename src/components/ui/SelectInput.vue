@@ -58,12 +58,12 @@ export default {
 @media(max-width: 550px) {
     .select {
         font-size: 14px;
-        padding: 12px 10px;
-        padding-right: 17px;
+        padding: 12px 12px;
+        padding-right: 22px;
     }
 
     .select-box::before {
-        right: 5px;
+        right: 7px;
     }
 }
 </style>

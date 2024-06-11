@@ -30,7 +30,9 @@
 
                 <div class="img_profile-box">
                     <div class="img_profile">
-                        <ProfileGallery />
+                        <div class="profile__gallery">
+                            <ProfileGallery />
+                        </div>
                         <div class="img_profile-nav">
                             <PrimaryButton>Изменить</PrimaryButton>
                             <SecondaryButton>Удалить</SecondaryButton>
@@ -48,7 +50,7 @@
                     </div>
                     <TextInput label="Имя и фамилия" />
                     <PhoneInput label="Номер телефона" />
-                    <TextInput label="ИНН" />
+                    <INNInput label="ИНН"/>
                 </div>
                 <div class="column">
                     <div class="text_box">
@@ -266,9 +268,16 @@ section {
     gap: 8px;
 }
 
+.profile__gallery{
+    min-width: 240px;
+}
+
 @media(max-width:990px) {
     section.section_information {
         flex-direction: column;
+    }
+    .profile__gallery {
+        min-width: 180px;
     }
 }
 

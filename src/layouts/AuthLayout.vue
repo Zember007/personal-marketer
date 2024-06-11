@@ -5,7 +5,7 @@
             <slot></slot>
         </div>
         <div class="link">
-            <a href="#">Публичная оферта</a>
+            <a @click.prevent="open_polzovatel" href="#">Пользовательское соглашение</a>
             <a @click.prevent="open_privacy_policy" href="#">Политика конфиденциальности</a> 
         </div>
     </div>
@@ -21,6 +21,9 @@ export default {
     methods: {
         open_privacy_policy(){
             window.open('/privacy-policy.pdf','_blank')
+        },
+        open_polzovatel() {
+            window.open('/polzovatelskoe-soglashenie.pdf','_blank')
         }
     }
 }
@@ -34,15 +37,13 @@ export default {
 }
 
 .auth__container {
-    margin-top: 50px;
     width: 100%;
-    height: 100%;
+    min-height: calc(100vh - 150px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 80px;
-    padding: 15px;
 }
 
 .link {

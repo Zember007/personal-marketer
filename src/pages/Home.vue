@@ -9,23 +9,23 @@ export default {
         return {
             preview_text: [
                 {
-                    title: ' <span class="span_primary">Маркетплейс</span> маркетологов <span class="element_primary">Персональный</span> Маркетолог',
+                    title: ' <span class="span_primary">Маркетплейс</span> маркетологов<br> <span class="element_primary">Персональный</span> Маркетолог',
                     text: 'Маркетинг, который приносит прибыль<br>Ваш персональный помощник для развития Вашего бизнеса'
                 },
                 {
-                    title: ' Вся аналитика и результаты работы <span class="element_primary span_primary">в едином окне</span>',
+                    title: ' Вся аналитика и результаты <br> работы <span class="element_primary span_primary">в едином окне</span>',
                     text: 'Маркетолог подключит Метрику, а также все необходимые сервисы<br>для аналитики Вашего бизнеса и достижения поставленных KPI'
                 },
                 {
-                    title: 'Документы, счета, чат <span class="span_primary element_primary">в едином сервисе</span>',
+                    title: 'Документы, счета, чат <br> <span class="span_primary element_primary">в едином сервисе</span>',
                     text: 'Больше нет необходимости переключаться между приложениями, мессенджерами и почтой:<br>все отчёты, переписка, документы хранятся в едином сервисе'
                 },
                 {
-                    title: '<span class="span_primary element_primary">Контролируйте</span> бюджет, задачи и сроки',
+                    title: '<span class="span_primary element_primary">Контролируйте</span> бюджет,<br> задачи и сроки',
                     text: 'В режиме реального времени отслеживайте результаты работы<br>и эффективность расходования бюджета'
                 },
                 {
-                    title: 'Все отчеты по проекту <span class="span_primary element_primary">в едином сервисе</span>',
+                    title: 'Все отчеты по проекту <br><span class="span_primary element_primary">в едином сервисе</span>',
                     text: 'Интеграция происходит через API-шлюзы, но вам, как владельцу бизнеса,<br>больше не нужно думать о том, как это реализовать'
                 },
             ],
@@ -35,6 +35,15 @@ export default {
     methods: {
         text_change(num) {
             this.text_active = num
+        },
+        open_policy() {
+            window.open('/privacy-policy.pdf','_blank')
+        },
+        open_pravila() {
+            window.open('/pravila-oplaty-i-vozvrata.pdf','_blank')
+        },
+        open_polzovatel() {
+            window.open('/polzovatelskoe-soglashenie.pdf','_blank')
         }
     }
 }
@@ -93,6 +102,7 @@ export default {
         </section>
         <main class="main">
             <section class="video">
+                <img src="../assets/img/home/video.jpg" alt="">
                 <div class="icon_play"></div>
             </section>
             <section class="team">
@@ -108,56 +118,56 @@ export default {
                                     <div class="title">Дмитрий Фролов</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-1.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Ирина Войнова</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-2.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-1.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Алексей Цыплаков</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-3.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-2.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Олеся Трофимова</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-4.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-3.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Светлана Анисенко</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-5.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-4.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Игорь Кузнецов</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-6.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-5.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Инна Фадеева</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-7.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-6.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
                                     <div class="title">Кирилл Золотов</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
-                                <img src="../assets/img/home/team/image-8.jpg" alt="team_people">
+                                <img src="../assets/img/home/team/image-7.jpg" alt="team_people">
                             </div>
                         </div>
                     </div>
@@ -256,86 +266,12 @@ export default {
                 <div class="sliders">
                     <div class="logo_slider-right">
                         <div class="block">
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-1.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-2.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-3.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-4.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-5.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-6.svg" alt="logo">
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-1.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-2.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-3.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-4.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-5.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-6.svg" alt="logo">
-                            </div>
+                            <img src="../assets/img/home/logo/list-1.svg" alt="logo">
                         </div>
                     </div>
                     <div class="logo_slider-left">
                         <div class="block">
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-7.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-8.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-9.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-10.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-11.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-12.svg" alt="logo">
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-7.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-8.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-9.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-10.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-11.svg" alt="logo">
-                            </div>
-                            <div class="slider__logo">
-                                <img src="../assets/img/home/logo/Logo-12.svg" alt="logo">
-                            </div>
+                            <img src="../assets/img/home/logo/list.svg" alt="logo">
                         </div>
                     </div>
                 </div>
@@ -417,7 +353,7 @@ export default {
                                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
                             </div>
                             <div class="footer-text">
-                                Персональный маркетолог
+                                Персональный маркетолог <br>
                                 Маркетинг, который приносит прибыль
                             </div>
                             <div class="share__links">
@@ -452,15 +388,16 @@ export default {
                             </div>
                             <div class="column">
                                 <div class="title">Информация</div>
-                                <a href="#" class="link">Политика конфиденциальности</a>
-                                <a href="#" class="link">Пользовательское соглашение</a>
-                                <a href="#" class="link">Правила оплаты и возврата</a>
+                                <a @click.prevent="open_policy" href="#" class="link">Политика конфиденциальности</a>
+                                <a @click.prevent="open_polzovatel" href="#" class="link">Пользовательское соглашение</a>
+                                <a @click.prevent="open_pravila" href="#" class="link">Правила оплаты и возврата</a>
                                 <a href="#" class="link">Руководство пользователя</a>
                             </div>
                         </div>
                     </div>
                     <div class="footer__desc">
-                        <span>© Все права защищены. ООО «Персональный маркетолог», 2024 </span>
+                        <span>© Все права защищены.</span>
+                        <span> Персональный маркетолог, 2024</span>
                     </div>
                 </div>
             </div>
@@ -484,6 +421,7 @@ export default {
 
 .preview {
     background: url('../assets/img/home/preview.jpg') 50% 50% no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,7 +438,7 @@ export default {
     text-align: center;
 }
 
-.preview__informations.text {
+.preview__informations .text {
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 20px;
@@ -566,14 +504,7 @@ export default {
             }
 
             &::before {
-                content: "";
-                background: var(--icons-active);
                 width: 100px;
-                height: 8px;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                z-index: 1;
             }
         }
     }
@@ -586,6 +517,18 @@ export default {
     background: var(--background-background-primary);
     position: relative;
     cursor: pointer;
+
+    &::before {
+        content: "";
+        background: var(--icons-active);
+        width: 0;
+        height: 8px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        transition: all .3s;
+    }
 
     .title {
         font-family: var(--font-family);
@@ -609,17 +552,19 @@ export default {
 }
 
 .video {
-    height: 800px;
-    width: 1400px;
+    width: 100%;
     margin: 0 auto;
     padding: 15px;
-    background: url(../assets/img/home/video.jpg) no-repeat 50% 50% / cover;
     display: flex;
     align-items: center;
     justify-content: center;
 
+    img {
+        max-width: 100%;
+    }
 
     .icon_play {
+        position: absolute;
         height: 60px;
         width: 60px;
         display: flex;
@@ -750,8 +695,11 @@ export default {
     justify-content: center;
     align-items: start;
 
-    .img {
-        width: 100%;
+    &.img {
+
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -804,36 +752,48 @@ export default {
 }
 
 .logo_slider-right {
+    height: 120px;
+    position: relative;
     .block {
-        animation: scroll-x 20s linear infinite;
+        // animation: scroll-x 20s linear infinite;
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 
 .logo_slider-left {
+    height: 120px;
+    position: relative;
     .block {
-        animation: scroll-x-revers 20s linear infinite;
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translateX(50%);
+        // animation: scroll-x-revers 20s linear infinite;
     }
 }
 
-@keyframes scroll-x {
-    from {
-        transform: translateX(0);
-    }
+// @keyframes scroll-x {
+//     from {
+//         transform: translateX(0);
+//     }
 
-    to {
-        transform: translateX(calc((-100%) - (12px)));
-    }
-}
+//     to {
+//         transform: translateX(calc((-100%) - (12px)));
+//     }
+// }
 
-@keyframes scroll-x-revers {
-    from {
-        transform: translateX(calc((-100%) - (12px)));
-    }
+// @keyframes scroll-x-revers {
+//     from {
+//         transform: translateX(calc((-100%) - (12px)));
+//     }
 
-    to {
-        transform: translateX(0);
-    }
-}
+//     to {
+//         transform: translateX(0);
+//     }
+// }
 
 .logo_slider-left {}
 
@@ -992,7 +952,6 @@ export default {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
-    line-height: 250%;
     letter-spacing: -0.02em;
     color: var(--text-secondary);
 }
@@ -1057,10 +1016,7 @@ export default {
     }
 }
 
-@media(max-width:1350px)  {
-    .video {
-        width: 100%;
-    }
+@media(max-width:1350px) {
 
     .main {
         gap: 120px;
@@ -1108,6 +1064,84 @@ export default {
     .footer__desc {
         white-space: nowrap;
         font-size: 16px;
+    }
+}
+
+@media(max-width:950px) {
+    .footer__nav-block {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:750px) {
+    .title_main {
+        font-size: 36px;
+    }
+
+    .information__text {
+        font-size: 16px;
+    }
+
+    
+}
+
+@media(max-width:680px) {
+    .preview__informations {
+        gap: 32px;
+        .text {
+            font-size: 16px;
+            max-width: 350px;
+        }
+    }
+
+    .preview__nav {
+        flex-direction: column;
+    }
+
+    .preview {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .footer__desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery__inf {
+        padding: 12px;
+        .title {
+            font-size: 14px;
+        }
+
+        .text {
+            font-size: 12px;
+        }
+    }
+
+    .title_main {
+        font-size: 28px;
+    }
+
+    .information__title {
+        font-size: 26px; 
+    }
+
+    .materials__block-title {
+        font-size: 20px;
+    }
+
+    .materials__box {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        padding-bottom: 120px;
+    }
+
+    .footer__nav-block {
+        gap: 60px;
     }
 }
 </style>

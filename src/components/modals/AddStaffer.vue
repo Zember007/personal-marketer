@@ -179,6 +179,11 @@ button {
         border-radius: 8px;
         background: var(--background-background-secondary);
         padding: 12px;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+        color: var(--text-tertiary);
     }
 }
 

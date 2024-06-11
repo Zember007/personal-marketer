@@ -1,29 +1,49 @@
 <template>
     <div class="chat__wrapper">
         <ChatSidebar @chat-open="chat_open" :ChatOpen="ChatOpen" class="sidebar" />
-        <ChatWindow :class="{active: ChatOpen}" class="chat_window"/>
+        <ChatWindow @isShowOffer="ShowOffer" @isShowTask="ShowTask"  :class="{active: ChatOpen}" class="chat_window"/>
+        <CreateOffer v-show="isShowOffer" @close="CloseOffer"/>
+        <AddTask v-show="isShowTask" @close="CloseTask"/> 
     </div>
 </template>
 
 <script>
 import ChatSidebar from './ChatSidebar.vue';
 import ChatWindow from './ChatWindow.vue';
+import CreateOffer from '../modals/CreateOffer.vue';
+import AddTask from '../modals/AddTask.vue'
 export default {
     components: {
         ChatWindow,
-        ChatSidebar
+        ChatSidebar,
+        CreateOffer,
+        AddTask
     },
     props: {
         ChatOpen: Boolean
     },
     data(){
         return {
-            
+            isShowOffer: false,
+            isShowTask: false,
         }
     },
     methods: {
         chat_open(data) {
             this.$emit('chat-open', data)
+        },
+        CloseOffer() {
+            this.isShowOffer = false
+        },
+        CloseTask() {
+            this.isShowTask = false
+        },
+
+        ShowOffer() {
+            this.isShowOffer = true
+        },
+        ShowTask() {
+            this.isShowTask = true
         }
     }
 }

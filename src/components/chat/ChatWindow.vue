@@ -131,40 +131,28 @@
                 </svg>
             </button>
         </div>
-        <CreateOffer v-show="isShowOffer" @close="CloseOffer"/>
-        <AddTask v-show="isShowTask" @close="CloseTask"/> 
+        
     </div>
 </template>
 
 <script>
-import CreateOffer from '../modals/CreateOffer.vue';
-import AddTask from '../modals/AddTask.vue'
+
 export default {
-    components: {
-        CreateOffer,
-        AddTask
-    },
     data() {
         return {
-            start_work: false,
-            isShowOffer: false,
-            isShowTask: false,
+            start_work: false,            
         }
     },
     methods: {
-        CloseOffer() {
-            this.isShowOffer = false
-        },
+        
 
         ShowOffer() {
-            this.isShowOffer = true
-        },
-        CloseTask() {
-            this.isShowTask = false
+            this.$emit('isShowOffer', true)
         },
 
+
         ShowTask() {
-            this.isShowTask = true
+            this.$emit('isShowTask', true)
         },
     }
 }

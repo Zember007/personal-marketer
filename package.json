@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.23.1",
+    "chart.js": "^4.4.3",
     "dragula": "^3.7.3",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.77.2",
@@ -19,14 +20,14 @@
     "text-mask-addons": "^3.8.0",
     "v-mask": "^2.3.0",
     "vue": "^3.4.27",
+    "vue-chartjs": "^5.3.1",
     "vue-custom-scrollbar": "^1.4.4",
     "vue-dragscroll": "^4.0.5",
     "vue-kanban": "^1.8.0",
     "vue-router": "^4.3.2",
     "vue-the-mask": "^0.11.1",
     "vue3-draggable": "^2.0.9",
-    "vuedraggable": "^4.1.0",
-    "xstate": "^5.13.1"
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

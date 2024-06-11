@@ -2,7 +2,7 @@
     <div class="profile__data">
         <div class="profile__data-top">
             <div class="profile__data-title">{{ title }}</div>
-            <button class="profile__data-edit" @click.prevent="showModal">
+            <button class="profile__data-edit" v-if="!preview" @click.prevent="showModal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
@@ -20,7 +20,7 @@
                 <div class="profile__data-item-title">Twist Joy</div>
             </div>
         </div>
-        <div class="profile__data-list empty" @click="showModal"> 
+        <div v-if="!preview" class="profile__data-list empty" @click="showModal"> 
 
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -40,7 +40,8 @@ export default {
     name: "ProfileData",
 
     props: {
-        title: String
+        title: String,
+        preview: Boolean
     },
 
     methods: {

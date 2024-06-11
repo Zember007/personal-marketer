@@ -1,5 +1,5 @@
 <template>
-    <div class="profile__cart">
+    <div class="profile__cart" :class="{ preview: preview }">
         <div class="profile__cart-main">
             <div class="profile__gallery">
                 <ProfileGallery />
@@ -27,18 +27,23 @@
                         <span>Редактировать профиль</span>
                     </RouterLink>
 
+                    <div class="preview_user" v-if="preview">
+                        <div class="description_user price">
+                            <span>Стоимость работы</span>
+                            <strong>5500₽/<span class="hour-text">час</span><span
+                                    class="hour-text mob">ч</span></strong>
+                        </div>
+
+                        <div class="description_user">
+                            <span>Экзамен пройден</span>
+                        </div>
+                        <PrimaryButton style="padding: 14px;">Добавить в проект</PrimaryButton>
+                    </div>
+
 
                 </div>
-                <div class="description_user">
-                    <span>Стоимость работы</span>
-                    <strong>5500₽/час</strong>
-                </div>
 
-                <div class="description_user">
-                    <span>Экзамен пройден</span>
-                </div>
 
-                <PrimaryButton style="padding: 16px;" v-if="preview">Добавить в проект</PrimaryButton>
             </div>
             <div class="profile__main-box">
                 <div class="profile__main-inf">
@@ -50,7 +55,7 @@
             </div>
         </div>
 
-        <ProfileData title="Портфолио" @show-Modal="showModal"></ProfileData>
+        <ProfileData :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
 
     </div>
     <AddProject v-show="isModalVisible" @close="closeModal" />
@@ -87,16 +92,13 @@ export default {
         closeModal() {
             this.isModalVisible = false;
         }
-    },
-
-    mounted() {
-        console.log(this.preview);
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .description_user {
+    padding: 4px 12px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 14px;
@@ -194,6 +196,19 @@ export default {
     color: var(--text-tertiary);
 }
 
+.preview_user {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hour-text {
+
+    &.mob {
+        display: none;
+    }
+}
+
 @media(max-width:990px) {
     .profile__edit {
         padding: 12px 10px;
@@ -206,12 +221,32 @@ export default {
     .profile__specialization {
         font-size: 16px;
     }
+
     .profile__gallery {
         min-width: 180px;
+    }
+
+    .hour-text {
+        display: none;
+
+        &.mob {
+            display: inline;
+        }
+    }
+
+    .profile__cart.preview {
+        padding: 0 10px;  
+        padding-bottom: 16px;      
+        border-radius: 0;
     }
 }
 
 @media(max-width:550px) {
+
+    .description_user {
+        padding: 0;
+    }
+
     .profile__cart-main {
         flex-direction: column;
     }
@@ -219,7 +254,6 @@ export default {
     .profile__gallery {
         flex-direction: row;
         justify-content: space-between;
-        flex-wrap: wrap;
     }
 
     .profile__cart {
@@ -246,6 +280,21 @@ export default {
         .profile__specialization {
             font-size: 16px;
         }
+    }
+
+    .preview_user {
+        margin-top: 5px;
+        gap:0;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+
+    .description_user.price {
+        display: none;
+    }
+
+    .profile__main-inf {
+        gap: 5px;
     }
 }
 </style>

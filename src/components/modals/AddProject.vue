@@ -122,6 +122,7 @@ button {
         color: var(--text-primary);
         border: 0;
         background: transparent;
+        width: 100%;
 
         &::placeholder {
             font-family: var(--font-family);
@@ -176,13 +177,14 @@ button {
 
 .modal__button {
     border-radius: 6px;
-    padding: 16px 40px;
+    padding: 16px;
     background: var(--primary-button-inactive-color);
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
     letter-spacing: -0.02em;
+    width: 100%;
     color: var(--background-background-primary);
 }
 
@@ -209,10 +211,6 @@ button {
 
     .img{
         padding: 106px 0;
-    }
-
-    .modal__button{
-        padding: 16px 40px;
     }
 
     

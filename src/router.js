@@ -13,6 +13,8 @@ import Chat from './pages/Chat.vue';
 import Team from './pages/Team.vue';
 import Balance from './pages/Balance.vue';
 import Home from './pages/Home.vue';
+import Analytics from './pages/Analytics.vue';
+import NotFound from './pages/404.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -29,6 +31,9 @@ const routes = [
   { path: '/chat', component: Chat }, 
   { path: '/team', component: Team }, 
   { path: '/balance', component: Balance },
+  { path: '/analytics', component: Analytics },
+  { path: '/404', component: NotFound },  
+  { path: '/:catchAll(.*)', redirect: '/404' }, 
 ]
 
 const router = createRouter({

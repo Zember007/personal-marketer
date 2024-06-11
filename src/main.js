@@ -6,6 +6,7 @@ import VueTheMask from 'vue-the-mask'
 
 
 
+
 const app = createApp(App)
 
 app.use(router)
@@ -23,6 +24,7 @@ import PrimaryButton from './components/ui/PrimaryButton.vue'
 import SecondaryButton from './components/ui/SecondaryButton.vue'
 import CheckInput from './components/ui/CheckInput.vue'
 import SearchInput from './components/ui/SearchInput.vue'
+import INNInput from './components/ui/INNInput.vue'
 
 
 app
@@ -34,6 +36,7 @@ app
     .component('PrimaryButton', PrimaryButton)
     .component('SecondaryButton', SecondaryButton)
     .component('CheckInput', CheckInput)
+    .component('INNInput', INNInput)
     .component('SearchInput', SearchInput)
 
 

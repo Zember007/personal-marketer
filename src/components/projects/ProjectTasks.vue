@@ -350,14 +350,19 @@ export default {
         }
     }
 
-    .swither{
+    .swither {
         max-width: 75vw;
         overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
     }
 }
 
-@media(max-width:550px){
-    .swither{
+@media(max-width:550px) {
+    .swither {
         max-width: 82vw;
         overflow-x: auto;
     }

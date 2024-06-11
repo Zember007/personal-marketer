@@ -9,7 +9,7 @@
                         stroke-linejoin="round" />
                 </svg>
 
-                <span>Мой профиль</span>
+                <span>Задачи</span>
             </RouterLink>
 
             <SelectInput :items="projects" />

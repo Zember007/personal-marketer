@@ -88,7 +88,7 @@
                         </div>
                         <div class="price task_settings-item">
                             <span class="task_settings-title">Цена</span>
-                            <input placeholder="Введите цену" type="text" id="price" class="input_price">
+                            <input placeholder="0₽" type="number" id="price" class="input_price">
                         </div>
                     </div>
                 </div>
@@ -383,7 +383,7 @@ button {
     letter-spacing: -0.02em;
     color: var(--text-primary);
     position: relative;
-    width: 120px;
+    width: 130px;
 
     &::-webkit-calendar-picker-indicator {
         background: transparent;
@@ -551,6 +551,10 @@ button {
 
     .switcher {
         overflow-x: scroll;
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
     }
 
     .subtasks__top {

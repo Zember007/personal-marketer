@@ -85,7 +85,7 @@ export default {
             display: block;
             position: absolute;
             top: 50%;
-            left: 35%;
+            left: 30%;
             transform: rotate(45deg) translate(0, -70%);
             width: 2px;
             height: 20px;
@@ -97,7 +97,7 @@ export default {
             content: "";
             position: absolute;
             top: 50%;
-            left: 66%;
+            left: 72%;
             transform: rotate(-45deg) translate(0, -70%);
             display: block;
             width: 2px;
