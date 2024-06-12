@@ -34,7 +34,9 @@ export default {
                     link: '#analytics'
                 },
             ],
-            text_active: 0
+            text_active: 0,
+            touchstartX: 0,
+            touchendX: 0
         }
     },
     methods: {
@@ -49,6 +51,29 @@ export default {
         },
         open_polzovatel() {
             window.open('/polzovatelskoe-soglashenie.pdf', '_blank')
+        },
+
+        touch_end(event) {
+            this.touchendX = event.changedTouches[0].screenX;
+            if (this.touchendX < this.touchstartX) {
+                console.log('Swiped Left');
+                if (this.text_active != 4) {                    
+                    this.text_active = this.text_active + 1
+                    document.querySelectorAll('.preview__switcher input')[this.text_active].click()
+                }
+            }
+
+            if (this.touchendX > this.touchstartX) {
+                console.log('Swiped Right');
+                if (this.text_active != 0) {
+                    this.text_active = this.text_active - 1
+                    document.querySelectorAll('.preview__switcher input')[this.text_active].click()
+                }
+            }
+        },
+
+        touch_start(event) {
+            this.touchstartX = event.changedTouches[0].screenX;
         }
     },
     mounted() {
@@ -61,14 +86,14 @@ export default {
                 });
             });
         })
-    }
+    },
 }
 </script>
 
 <template>
     <div class="wrapper">
         <Header></Header>
-        <section class="preview">
+        <section class="preview" @touchstart="touch_start" @touchend="touch_end">
             <div class="preview__informations">
                 <h1 class="title" v-html="preview_text[text_active]['title']">
 
