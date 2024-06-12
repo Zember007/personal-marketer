@@ -25,14 +25,14 @@ export default {
 
 @media(max-width:990px) {
     .img-box {
-        height: 180px;
+        height: 200px;
     }
 }
 
 @media(max-width:550px) {
     .img-box {
-        width: 144px; 
-        height: 144px;
+        width: 140px; 
+        height: 140px;
     }
 }
 </style>

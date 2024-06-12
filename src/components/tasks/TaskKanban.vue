@@ -47,10 +47,12 @@ export default {
     methods: {
         task_add() {
             this.isTaskVisible = true;
+            document.body.style="overflow:hidden"
         },
 
         closeTask() {
             this.isTaskVisible = false;
+            document.body.style=""
         },
     }
 

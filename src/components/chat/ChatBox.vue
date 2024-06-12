@@ -34,16 +34,20 @@ export default {
         },
         CloseOffer() {
             this.isShowOffer = false
+            document.body.style=""
         },
         CloseTask() {
             this.isShowTask = false
+            document.body.style=""
         },
 
         ShowOffer() {
             this.isShowOffer = true
+            document.body.style="overflow:hidden"
         },
         ShowTask() {
             this.isShowTask = true
+            document.body.style="overflow:hidden"
         }
     }
 }

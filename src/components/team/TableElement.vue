@@ -180,7 +180,7 @@ export default {
     color: var(--text-primary);
     border-radius: 800px;
     background: var(--background-background-secondary);
-    min-width: 200px;
+    width: 200px;
     cursor: pointer;
 
     span {
@@ -257,7 +257,7 @@ export default {
     }
 
     .user {
-        min-width: 150px;
+        width: 150px;
     }
 
 
@@ -268,11 +268,6 @@ export default {
 }
 
 @media(max-width: 700px) {
-    .user {
-        .profile-nav {
-            display: none;
-        }
-    }
     
     .tr {
         grid-template-columns: 1fr 1fr;

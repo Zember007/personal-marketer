@@ -10,23 +10,28 @@ export default {
             preview_text: [
                 {
                     title: ' <span class="span_primary">Маркетплейс</span> маркетологов<br> <span class="element_primary">Персональный</span> Маркетолог',
-                    text: 'Маркетинг, который приносит прибыль<br>Ваш персональный помощник для развития Вашего бизнеса'
+                    text: 'Маркетинг, который приносит прибыль<br>Ваш персональный помощник для развития Вашего бизнеса',
+                    link: '#personal'
                 },
                 {
                     title: ' Вся аналитика и результаты <br> работы <span class="element_primary span_primary">в едином окне</span>',
-                    text: 'Маркетолог подключит Метрику, а также все необходимые сервисы<br>для аналитики Вашего бизнеса и достижения поставленных KPI'
+                    text: 'Маркетолог подключит Метрику, а также все необходимые сервисы<br>для аналитики Вашего бизнеса и достижения поставленных KPI',
+                    link: '#analytics'
                 },
                 {
                     title: 'Документы, счета, чат <br> <span class="span_primary element_primary">в едином сервисе</span>',
-                    text: 'Больше нет необходимости переключаться между приложениями, мессенджерами и почтой:<br>все отчёты, переписка, документы хранятся в едином сервисе'
+                    text: 'Больше нет необходимости переключаться между приложениями, мессенджерами и почтой:<br>все отчёты, переписка, документы хранятся в едином сервисе',
+                    link: '#documents'
                 },
                 {
                     title: '<span class="span_primary element_primary">Контролируйте</span> бюджет,<br> задачи и сроки',
-                    text: 'В режиме реального времени отслеживайте результаты работы<br>и эффективность расходования бюджета'
+                    text: 'В режиме реального времени отслеживайте результаты работы<br>и эффективность расходования бюджета',
+                    link: '#balance'
                 },
                 {
                     title: 'Все отчеты по проекту <br><span class="span_primary element_primary">в едином сервисе</span>',
-                    text: 'Интеграция происходит через API-шлюзы, но вам, как владельцу бизнеса,<br>больше не нужно думать о том, как это реализовать'
+                    text: 'Интеграция происходит через API-шлюзы, но вам, как владельцу бизнеса,<br>больше не нужно думать о том, как это реализовать',
+                    link: '#analytics'
                 },
             ],
             text_active: 0
@@ -37,14 +42,25 @@ export default {
             this.text_active = num
         },
         open_policy() {
-            window.open('/privacy-policy.pdf','_blank')
+            window.open('/privacy-policy.pdf', '_blank')
         },
         open_pravila() {
-            window.open('/pravila-oplaty-i-vozvrata.pdf','_blank')
+            window.open('/pravila-oplaty-i-vozvrata.pdf', '_blank')
         },
         open_polzovatel() {
-            window.open('/polzovatelskoe-soglashenie.pdf','_blank')
+            window.open('/polzovatelskoe-soglashenie.pdf', '_blank')
         }
+    },
+    mounted() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        })
     }
 }
 </script>
@@ -64,7 +80,7 @@ export default {
 
                 <div class="preview__nav">
                     <RouterLink to="/login" class="home__btn-primary">Начать бесплатно</RouterLink>
-                    <button class="home__btn-second">Подробнее</button>
+                    <a :href="preview_text[text_active]['link']" class="home__btn-second">Подробнее</a>
                 </div>
             </div>
 
@@ -181,7 +197,7 @@ export default {
                             в <span>одном сервисе</span>
                         </h2>
                         <div class="information__box">
-                            <div class="information__block">
+                            <div id="personal" class="information__block">
                                 <div class="information__box-col">
                                     <div class="information__title">
                                         Персональный маркетолог <br>
@@ -197,7 +213,7 @@ export default {
                                 <div class="information__box-col img"><img
                                         src="../assets/img/home/information/image.svg" alt="information-img"></div>
                             </div>
-                            <div class="information__block">
+                            <div id="analytics" class="information__block">
                                 <div class="information__box-col img"><img
                                         src="../assets/img/home/information/image1.svg" alt="information-img"></div>
                                 <div class="information__box-col">
@@ -214,7 +230,7 @@ export default {
                                     <RouterLink to="/login" class="home__btn-primary">Начать бесплатно</RouterLink>
                                 </div>
                             </div>
-                            <div class="information__block">
+                            <div id="documents" class="information__block">
                                 <div class="information__box-col">
                                     <div class="information__title">
                                         Документы, счета, чат
@@ -236,7 +252,7 @@ export default {
                                 <div class="information__box-col img"><img
                                         src="../assets/img/home/information/image2.svg" alt="information-img"></div>
                             </div>
-                            <div class="information__block">
+                            <div id="balance" class="information__block">
                                 <div class="information__box-col img"><img
                                         src="../assets/img/home/information/image3.svg" alt="information-img"></div>
                                 <div class="information__box-col">
@@ -266,12 +282,23 @@ export default {
                 <div class="sliders">
                     <div class="logo_slider-right">
                         <div class="block">
-                            <img src="../assets/img/home/logo/list-1.svg" alt="logo">
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 2.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 3.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 4.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 5.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 6.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 7.svg" alt="logo"></div>
                         </div>
                     </div>
                     <div class="logo_slider-left">
                         <div class="block">
-                            <img src="../assets/img/home/logo/list.svg" alt="logo">
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 2-1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 3-1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 4-1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 5-1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 6-1.svg" alt="logo"></div>
+                            <div class="logo-item"><img src="../assets/img/home/logo/logo - 7-1.svg" alt="logo"></div>
                         </div>
                     </div>
                 </div>
@@ -380,16 +407,17 @@ export default {
                             <div class="column">
                                 <div class="title">Возможности</div>
                                 <a href="#" class="link">Маркетлейс маркетологов</a>
-                                <a href="#" class="link">Персональная стратегия</a>
-                                <a href="#" class="link">Аналитика</a>
-                                <a href="#" class="link">Документы, счета, чат в едином сервисе</a>
-                                <a href="#" class="link">Контроль бюджета</a>
-                                <a href="#" class="link">Отчеты</a>
+                                <a href="#personal" class="link">Персональная стратегия</a>
+                                <a href="#analytics" class="link">Аналитика</a>
+                                <a href="#documents" class="link">Документы, счета, чат в едином сервисе</a>
+                                <a href="#balance" class="link">Контроль бюджета</a>
+                                <a href="#analytics" class="link">Отчеты</a>
                             </div>
                             <div class="column">
                                 <div class="title">Информация</div>
                                 <a @click.prevent="open_policy" href="#" class="link">Политика конфиденциальности</a>
-                                <a @click.prevent="open_polzovatel" href="#" class="link">Пользовательское соглашение</a>
+                                <a @click.prevent="open_polzovatel" href="#" class="link">Пользовательское
+                                    соглашение</a>
                                 <a @click.prevent="open_pravila" href="#" class="link">Правила оплаты и возврата</a>
                                 <a href="#" class="link">Руководство пользователя</a>
                             </div>
@@ -511,7 +539,7 @@ export default {
 }
 
 .preview__switcher-block {
-
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.2);
     padding: 32px 16px 40px 16px;
     width: 100%;
     background: var(--background-background-primary);
@@ -618,7 +646,6 @@ export default {
     text-align: center;
     color: var(--text-primary);
     text-align: center;
-    max-width: 800px;
 
     span {
         color: var(--icons-active);
@@ -743,36 +770,18 @@ export default {
     display: flex;
     gap: 12px;
     min-width: 100%;
+    height: 120px;
+    position: relative;
 
     .block {
         display: flex;
         gap: 12px;
-    }
-
-}
-
-.logo_slider-right {
-    height: 120px;
-    position: relative;
-    .block {
-        // animation: scroll-x 20s linear infinite;
         position: absolute;
         top: 0;
         right: 50%;
         transform: translateX(50%);
     }
-}
 
-.logo_slider-left {
-    height: 120px;
-    position: relative;
-    .block {
-        position: absolute;
-        top: 0;
-        right: 50%;
-        transform: translateX(50%);
-        // animation: scroll-x-revers 20s linear infinite;
-    }
 }
 
 // @keyframes scroll-x {
@@ -970,6 +979,7 @@ export default {
     .preview__switcher-block {
         padding: 0;
         background: none;
+        box-shadow: none;
 
         .title,
         .text {
@@ -1071,6 +1081,20 @@ export default {
     .footer__nav-block {
         flex-direction: column;
     }
+
+    .logo_slider-left,
+    .logo_slider-right {
+        height: 84px;
+
+        .block {
+
+            img {
+                width: 225px;
+                height: 84px;
+            }
+        }
+
+    }
 }
 
 @media(max-width:750px) {
@@ -1082,12 +1106,13 @@ export default {
         font-size: 16px;
     }
 
-    
+
 }
 
 @media(max-width:680px) {
     .preview__informations {
         gap: 32px;
+
         .text {
             font-size: 16px;
             max-width: 350px;
@@ -1111,6 +1136,7 @@ export default {
 
     .gallery__inf {
         padding: 12px;
+
         .title {
             font-size: 14px;
         }
@@ -1125,7 +1151,7 @@ export default {
     }
 
     .information__title {
-        font-size: 26px; 
+        font-size: 26px;
     }
 
     .materials__block-title {
@@ -1142,6 +1168,27 @@ export default {
 
     .footer__nav-block {
         gap: 60px;
+    }
+}
+
+@media(max-width:550px) {
+
+    .logo_slider-left,
+    .logo_slider-right {
+        height: 46px;
+
+        .block {
+
+            img {
+                width: 123px;
+                height: 46px;
+            }
+        }
+
+    }
+
+    .sliders {
+        gap: 12px;
     }
 }
 </style>

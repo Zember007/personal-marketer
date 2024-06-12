@@ -25,7 +25,9 @@ export default {
 
 @media (max-width: 550px) {
     .button {
-        padding: 16px 45px;
+        padding: 16px 0;
+        width: 100%;
+        font-size: 14px;
     }
 }
 </style>

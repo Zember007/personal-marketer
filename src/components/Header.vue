@@ -61,6 +61,10 @@ export default {
     .header__inner {
         padding: 20px 12px;  
     }
+}
+
+@media(max-width:820px)  {
+    
 
     .logo {
         width: 140px;

@@ -1,7 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
 import MyProfile from './pages/profile/MyProfile.vue';
-import ProfileEdit from './pages/profile/ProfileEdit.vue'; 
 import ProfileData from './pages/profile/ProfileData.vue'; 
 import AuthExecutor from './pages/auth/AuthExecutor.vue'; 
 import AuthLogin from './pages/auth/AuthLogin.vue'; 
@@ -25,7 +24,6 @@ const routes = [
   { path: '/profile', component: MyProfile },
   { path: '/portfolio', component: ProfileData },
   { path: '/compani', component: ProfileData },
-  { path: '/profile/edit', component: ProfileEdit },
   { path: '/projects', component: Projects },
   { path: '/tasks', component: TasksBoard }, 
   { path: '/chat', component: Chat }, 

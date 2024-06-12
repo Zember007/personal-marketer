@@ -1,7 +1,7 @@
   <template>
 
     <div class="sidebar" :class="{ active: menu_action }">
-      <RouterLink to="/" class="sidebar__log">
+      <RouterLink @click="overflowVisible" to="/" class="sidebar__log">
         <img src="../assets/img/sidebar/logo.svg" alt="logo">
       </RouterLink>
       <div class="sidebar__nav">
@@ -148,6 +148,12 @@
 export default {
   props: {
     menu_action: Boolean
+  },
+
+  methods: {
+    overflowVisible() {
+      document.body.style = ''
+    }
   },
    
   watch: {

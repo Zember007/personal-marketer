@@ -1,17 +1,4 @@
-<template>
-    <ProfileLayout>
-        <ProfileTop>
-            <RouterLink to="/profile" class="route_back">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M12.5417 16.5999L7.10834 11.1666C6.46667 10.5249 6.46667 9.4749 7.10834 8.83324L12.5417 3.3999"
-                        stroke="#242626" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-
-                <span>Мой профиль</span>
-            </RouterLink>
-        </ProfileTop>
+<template>    
         <div class="profile__cart">
 
             <section>
@@ -84,20 +71,15 @@
                 </div>
             </section>
         </div>
-    </ProfileLayout>
 </template>
 
 <script>
-import ProfileGallery from '../../components/profile/ProfileGallery.vue'
-import ProfileLayout from '../../layouts/ProfileLayout.vue'
-import ProfileTop from '../../components/profile/ProfileTop.vue';
-import RadioInput from '../../components/ui/RadioInput.vue';
+import ProfileGallery from './ProfileGallery.vue'
+import RadioInput from '../ui/RadioInput.vue';
 
 export default {
     components: {
-        ProfileGallery,
-        ProfileLayout,
-        ProfileTop
+        ProfileGallery
     },
 
     data() {
@@ -262,14 +244,8 @@ section {
     gap: 8px;
 }
 
-.route_back {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .profile__gallery{
-    min-width: 240px;
+    width: 240px;
 }
 
 @media(max-width:990px) {
@@ -277,7 +253,7 @@ section {
         flex-direction: column;
     }
     .profile__gallery {
-        min-width: 180px;
+        width: 200px;
     }
 }
 
@@ -288,6 +264,15 @@ section {
 
     .description {
         font-size: 14px;
+    }
+
+    .img_profile-nav {
+        flex-grow: 1;
+        max-width: 200px;
+    }
+
+    .profile__gallery {
+        width: 140px;
     }
 }
 

@@ -66,26 +66,32 @@ export default {
     methods: {
         task_add() {
             this.isTaskVisible = true;
+            document.body.style="overflow:hidden"
         },
 
         closeTask() {
             this.isTaskVisible = false;
+            document.body.style=""
         },
 
         doc_add() {
             this.isDocVisible = true;
+            document.body.style="overflow:hidden"
         },
 
         closeDoc() {
             this.isDocVisible = false;
+            document.body.style=""
         },
 
         team_add() {
             this.isTeamVisible = true;
+            document.body.style="overflow:hidden"
         },
 
         closeTeam() {
             this.isTeamVisible = false;
+            document.body.style=""
         }
     }
 }

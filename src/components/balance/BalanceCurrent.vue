@@ -51,16 +51,20 @@ export default {
     methods: {
         AddBalance_show() {
             this.AddBalanceVisible = true;
+            document.body.style="overflow:hidden"
         },
         AddBalance_close() {
             this.AddBalanceVisible = false;
+            document.body.style=""
         },
 
         OutputBalance_show() {
             this.OutputBalanceVisible = true;
+            document.body.style="overflow:hidden"
         },
         OutputBalance_close() {
             this.OutputBalanceVisible = false;
+            document.body.style=""
         }
     },
 }

@@ -11,7 +11,7 @@
                         <div class="profile__specialization">Маркетолог</div>
                     </div>
 
-                    <RouterLink v-if="!preview" to="/profile/edit" class="profile__edit">
+                    <a href="#" v-if="!preview" @click.prevent="EditShow" class="profile__edit">
                         <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M7.83325 1.3335H6.49992C3.16659 1.3335 1.83325 2.66683 1.83325 6.00016V10.0002C1.83325 13.3335 3.16659 14.6668 6.49992 14.6668H10.4999C13.8333 14.6668 15.1666 13.3335 15.1666 10.0002V8.66683"
@@ -25,7 +25,7 @@
                         </svg>
 
                         <span>Редактировать профиль</span>
-                    </RouterLink>
+                    </a>
 
                     <div class="preview_user" v-if="preview">
                         <div class="description_user price">
@@ -37,7 +37,22 @@
                         <div class="description_user">
                             <span>Экзамен пройден</span>
                         </div>
-                        <PrimaryButton style="padding: 14px;">Добавить в проект</PrimaryButton>
+                        <PrimaryButton class="add_to_project" style="padding: 14px 0;">Добавить в проект
+                            <div class="add_to_project-list">
+                                <label class="check_add">
+                                    <input type="checkbox" name="">
+                                    <span>Проект - 1</span>
+                                </label>
+                                <label class="check_add">
+                                    <input type="checkbox" name="">
+                                    <span>Проект - 1</span>
+                                </label>
+                                <label class="check_add">
+                                    <input type="checkbox" name="">
+                                    <span>Проект - 1</span>
+                                </label>
+                            </div>
+                        </PrimaryButton>
                     </div>
 
 
@@ -58,6 +73,7 @@
         <ProfileData :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
 
     </div>
+
     <AddProject v-show="isModalVisible" @close="closeModal" />
 </template>
 
@@ -88,9 +104,14 @@ export default {
     methods: {
         showModal() {
             this.isModalVisible = true;
+            document.body.style = "overflow:hidden"
         },
         closeModal() {
             this.isModalVisible = false;
+            document.body.style = ""
+        },
+        EditShow() {
+            this.$emit('edit_show')
         }
     }
 }
@@ -185,6 +206,7 @@ export default {
     line-height: 100%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    white-space: nowrap;
 }
 
 .profile__specialization {
@@ -209,6 +231,91 @@ export default {
     }
 }
 
+.add_to_project {
+
+    position: relative;
+
+    &:hover {
+        .add_to_project-list {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.add_to_project-list {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    left: -2px;
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    z-index: 1;
+    border-radius: 8px;
+    background: var(--background-background-primary);
+    box-shadow: 0 6px 12px 0 rgba(89, 89, 89, 0.1), 0 22px 22px 0 rgba(89, 89, 89, 0.09), 0 50px 30px 0 rgba(89, 89, 89, 0.05), 0 88px 35px 0 rgba(89, 89, 89, 0.01), 0 138px 38px 0 rgba(89, 89, 89, 0);
+
+    label {
+        padding: 12px 16px;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 165%;
+        letter-spacing: -0.02em;
+        color: #27272f;
+
+        &:hover {
+            background: var(--background-background-secondary);
+            color: var(--component-colors-blue-active);
+        }
+    }
+}
+
+.check_add {
+    display: block;
+    margin: 0 0 10px 0;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.check_add input[type=checkbox] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.check_add span {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 35px;
+    line-height: 22px;
+}
+
+.check_add span:before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--colors-secondary-border-color);
+    background: var(--background-background-primary);
+    border-radius: 4px;
+}
+
+/* Checked */
+.check_add input[type=checkbox]:checked+span:before {
+    background: url(../../assets/img/icons/check.svg) no-repeat 50% 50% var(--component-colors-blue-active);
+}
+
 @media(max-width:990px) {
     .profile__edit {
         padding: 12px 10px;
@@ -223,7 +330,7 @@ export default {
     }
 
     .profile__gallery {
-        min-width: 180px;
+        min-width: 200px;
     }
 
     .hour-text {
@@ -235,8 +342,8 @@ export default {
     }
 
     .profile__cart.preview {
-        padding: 0 10px;  
-        padding-bottom: 16px;      
+        padding-right: 10px;
+        padding-left: 10px;
         border-radius: 0;
     }
 }
@@ -284,7 +391,7 @@ export default {
 
     .preview_user {
         margin-top: 5px;
-        gap:0;
+        gap: 0;
         flex-grow: 1;
         justify-content: space-between;
     }

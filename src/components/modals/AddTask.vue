@@ -104,10 +104,6 @@
                             <label for="switcher-2">Файлы</label>
                         </div>
                         <div class="switcher__item">
-                            <input type="radio" id="switcher-3" name="switcher">
-                            <label for="switcher-3">История</label>
-                        </div>
-                        <div class="switcher__item">
                             <input type="radio" id="switcher-4" name="switcher">
                             <label for="switcher-4">Команда </label>
                         </div>

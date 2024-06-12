@@ -39,9 +39,13 @@ export default {
     methods: {
         showModal() {
             this.isModalVisible = true;
+            document.body.style="overflow:hidden"
+            
         },
         closeModal() {
             this.isModalVisible = false;
+            document.body.style=""
+            
         }
     },
 }
