@@ -55,7 +55,7 @@ export default {
 
         touch_end(event) {
             this.touchendX = event.changedTouches[0].screenX;
-            if (this.touchendX < this.touchstartX) {
+            if (this.touchendX-30 < this.touchstartX+30) {
                 console.log('Swiped Left');
                 if (this.text_active != 4) {                    
                     this.text_active = this.text_active + 1
@@ -63,7 +63,7 @@ export default {
                 }
             }
 
-            if (this.touchendX > this.touchstartX) {
+            if (this.touchendX+30 > this.touchstartX-30) {
                 console.log('Swiped Right');
                 if (this.text_active != 0) {
                     this.text_active = this.text_active - 1
@@ -71,6 +71,7 @@ export default {
                 }
             }
         },
+        
 
         touch_start(event) {
             this.touchstartX = event.changedTouches[0].screenX;

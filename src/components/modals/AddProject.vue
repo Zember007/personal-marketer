@@ -79,6 +79,8 @@ button {
 .modal {
     border-radius: 8px;
     padding: 64px 32px;
+    max-height: 90vh;
+    overflow-y: auto;
     max-width: 650px;
     background: var(--background-background-primary);
 }

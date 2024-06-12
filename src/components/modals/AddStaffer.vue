@@ -118,6 +118,8 @@ button {
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
     padding: 32px 40px;
+    max-height: 90vh;
+    overflow-y: auto;
     max-width: 440px;
     background: var(--background-background-primary);
     position: relative;

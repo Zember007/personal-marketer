@@ -120,6 +120,8 @@ button {
     border-radius: 8px;
     padding: 24px 32px;
     width: 455px;
+    max-height: 90vh;
+    overflow-y: auto;
     background: var(--background-background-primary);
     position: relative;
     display: flex;
