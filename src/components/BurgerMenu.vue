@@ -86,7 +86,7 @@ export default {
     }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 550px) {
     .burger_menu {
         display: block;
     }

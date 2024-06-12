@@ -55,16 +55,14 @@ export default {
 
         touch_end(event) {
             this.touchendX = event.changedTouches[0].screenX;
-            if (this.touchendX-30 < this.touchstartX+30) {
-                console.log('Swiped Left');
+            if (this.touchendX+30 < this.touchstartX-30) {
                 if (this.text_active != 4) {                    
                     this.text_active = this.text_active + 1
                     document.querySelectorAll('.preview__switcher input')[this.text_active].click()
                 }
             }
 
-            if (this.touchendX+30 > this.touchstartX-30) {
-                console.log('Swiped Right');
+            if (this.touchendX-30 > this.touchstartX+30) {
                 if (this.text_active != 0) {
                     this.text_active = this.text_active - 1
                     document.querySelectorAll('.preview__switcher input')[this.text_active].click()
@@ -142,11 +140,11 @@ export default {
                 </div>
             </div>
         </section>
+        <section class="video">
+            <img src="../assets/img/home/video.jpg" alt="">
+            <div class="icon_play"></div>
+        </section>
         <main class="main">
-            <section class="video">
-                <img src="../assets/img/home/video.jpg" alt="">
-                <div class="icon_play"></div>
-            </section>
             <section class="team">
                 <div class="container">
                     <div class="main__inner">
