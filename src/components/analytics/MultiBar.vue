@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <div class="top">
-            <div class="title">Общее количество показов</div>
+            <div class="title">{{ title }}</div>
             <img src="../../assets/img/icons/dots.svg" alt="dots">
         </div>
         <div class="bar-box">
@@ -56,7 +56,6 @@ export default {
 
             },
             chartOptions: {
-                responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     tooltip: {
@@ -65,6 +64,9 @@ export default {
                 }
             }
         }
+    },
+    props: {
+        title: String
     },
     mounted() {
     }
@@ -78,6 +80,7 @@ export default {
     padding: 24px;
     background: var(--background-background-primary);
     max-width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -85,7 +88,7 @@ export default {
 
 .bar-box {
     width: 100%;
-    height: 300px;
+    height: 100%;
     display: flex;
     gap: 30px;
 }

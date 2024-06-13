@@ -14,17 +14,20 @@
                 </RouterLink>
                 <SelectAnalytics :items="[{ name: 'Фабрика мебели', active: true }]"></SelectAnalytics>
                 <div class="select-box">
-                    <select class="select">
-                        <option selected="active" value="Аналитика сайта">
-
-                            <span>
-                                Аналитика сайта
-                            </span>
+                    <select @input="change_analytics" class="select">
+                        <option selected="active" value="site">
+                            Аналитика сайта
+                        </option>
+                        <option value="report_ad">
+                            Отчет о рекламе
+                        </option>
+                        <option value="page">
+                            Позиции сайта
                         </option>
                     </select>
                 </div>
             </div>
-            <button class="offer">
+            <button class="offer" @click.prevent="showModal">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 9.16602V14.166L9.66667 12.4993" stroke="#0D6EFD" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -57,7 +60,7 @@
                     </svg>
 
                     <span>Добавить виджет</span>
-                    <div class="widthets_list" :class="{active: isVisibleWidgets}">
+                    <div class="widthets_list" :class="{ active: isVisibleWidgets }">
                         <button class="widget">
                             <img src="../assets/img/icons/edit-square.svg" alt="square">
                             <span>Источник трафика</span>
@@ -111,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="box site">
+        <div v-show="analytic_type == 'site'" class="box_analytic site">
             <div class="traffic">
                 <Doughnut :data="data_traffic" title="Источник трафика" />
             </div>
@@ -122,10 +125,10 @@
                 <Doughnut :data="data_age" title="Возраст" />
             </div>
             <div class="visitors">
-                <MultiBar />
+                <MultiBar title="Аналитика"/>
             </div>
             <div class="refusals">
-                <Bar />
+                <Bar title="Отказы" :labels="true"/>
             </div>
             <div class="adress_page">
                 <AnalyticsList />
@@ -134,13 +137,23 @@
                 <AnalyticsList />
             </div>
             <div class="viewing_depth">
-                <Bar />
+                <Bar title="Глубина просмотра" :labels="true"/>
             </div>
             <div class="time_site">
-                <Bar />
+                <Bar title="Время на сайте" :labels="true"/>
             </div>
-        </div> -->
-        <div class="box site">
+        </div>
+
+        <div v-show="analytic_type == 'report_ad'" class="box_analytic report_ad">
+            <div class="visitors">
+                <MultiBar title="Общее количество показов"/>
+            </div>
+            <div class="roi">
+                <Bar title="ROI"/>
+            </div>
+            <div class="count_click">
+                <Bar title="Количество кликов"/>
+            </div>
             <div class="traffic">
                 <Doughnut :data="data_traffic" title="Источник трафика" />
             </div>
@@ -150,29 +163,33 @@
             <div class="age">
                 <Doughnut :data="data_age" title="Возраст" />
             </div>
-            <div class="visitors">
-                <MultiBar />
+            <div class="search_table">
+                <AnalyticsSearchTable />
             </div>
-            <div class="refusals">
-                <Bar />
+        </div>
+
+        <div v-show="analytic_type == 'page'" class="box_analytic page">
+            <div class="traffic">
+                <Bar title="Трафик" :labels="true"/>
             </div>
-            <div class="adress_page">
-                <AnalyticsList />
+            <div class="position">
+                <Bar title="Позиция" :labels="true"/>
             </div>
-            <div class="frase">
-                <AnalyticsList />
+            <div class="windows">
+                <AnalyticsBlock />
+                <AnalyticsBlock />
+                <AnalyticsBlock />
             </div>
-            <div class="viewing_depth">
-                <Bar />
-            </div>
-            <div class="time_site">
-                <Bar />
+            <div class="search_table">
+                <AnalyticsSearchTable />
             </div>
         </div>
     </ProfileLayout>
+    <AnalyticReport v-show="isModalVisible" @close="closeModal"/>
 </template>
 
 <script>
+import AnalyticReport from '../components/modals/AnalyticReport.vue'
 import ProfileTop from '../components/profile/ProfileTop.vue';
 import ProfileLayout from '../layouts/ProfileLayout.vue'
 import Doughnut from '../components/analytics/Doughnut.vue';
@@ -180,6 +197,8 @@ import Bar from '../components/analytics/Bar.vue';
 import MultiBar from '../components/analytics/MultiBar.vue';
 import SelectAnalytics from '../components/analytics/SelectAnalytics.vue';
 import AnalyticsList from '../components/analytics/AnalyticsList.vue';
+import AnalyticsSearchTable from '../components/analytics/AnalyticsSearchTable.vue';
+import AnalyticsBlock from '../components/analytics/AnalyticsBlock.vue';
 
 export default {
     components: {
@@ -189,13 +208,16 @@ export default {
         Bar,
         MultiBar,
         SelectAnalytics,
-        AnalyticsList
-    },
-    methods: {
+        AnalyticsList,
+        AnalyticsSearchTable,
+        AnalyticsBlock,
+        AnalyticReport
     },
     data() {
         return {
-            isVisibleWidgets:false,
+            isVisibleWidgets: false,
+            isModalVisible: false,
+            analytic_type: 'site',
             data_traffic: {
                 data: {
                     datasets: [{
@@ -255,12 +277,155 @@ export default {
             }
         }
     },
+    methods: {
+        change_analytics(e) {
+            this.analytic_type = e.target.value
+        },
+        showModal() {
+            this.isModalVisible = true;
+            document.body.style = "overflow:hidden"
+        },
+        closeModal() {
+            this.isModalVisible = false;
+            document.body.style = ""
+        },
+    },
+
     mounted() {
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.box_analytic {
+
+    display: grid;
+
+    gap: 24px;
+
+    &.site {
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto);
+
+        grid-template-areas: "traffic gadget age"
+        "visitors visitors refusals"
+        "adress_page frase viewing_depth"
+        "adress_page frase time_site";
+
+
+        .traffic {
+            grid-area: traffic;
+        }
+
+        .gadget {
+            grid-area: gadget;
+        }
+
+        .age {
+            grid-area: age;
+        }
+
+        .visitors {
+            grid-area: visitors;
+        }
+
+        .refusals {
+            grid-area: refusals;
+        }
+
+        .adress_page {
+            grid-area: adress_page;
+        }
+
+        .frase {
+            grid-area: frase;
+        }
+
+        .viewing_depth {
+            grid-area: viewing_depth;
+        }
+
+        .time_site {
+            grid-area: time_site;
+        }
+    }
+
+    &.report_ad {
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto);
+
+        grid-template-areas: "visitors visitors roi"
+        "visitors visitors count_click"
+        "traffic gadget age"
+        "search_table search_table search_table";
+
+
+        .visitors {
+            grid-area: visitors;
+        }
+
+        .roi {
+            grid-area: roi;
+        }
+
+        .count_click {
+            grid-area: count_click;
+        }
+
+        .traffic {
+            grid-area: traffic;
+        }
+
+        .gadget {
+            grid-area: gadget;
+        }
+
+        .age {
+            grid-area: age;
+        }
+
+        .search_table {
+            grid-area: search_table;
+        }
+    }
+
+    &.page {
+
+        column-gap: 8px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 360px auto;
+
+        grid-template-areas: "traffic position windows windows"
+        "search_table search_table search_table search_table";
+
+        .traffic {
+            grid-area: traffic;
+        }
+
+        .position {
+            grid-area: position;
+        }
+
+        .windows {
+            grid-area: windows;
+        }
+
+        .search_table {
+            grid-area: search_table;
+        }
+    }
+}
+
+.windows {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    justify-content: space-between;
+    gap: 8px;
+}
+
 .route_back {
     display: flex;
     align-items: center;
@@ -336,7 +501,7 @@ export default {
     transition: all .5s;
 
     &.active {
-        max-height: 800px;  
+        max-height: 800px;
     }
 }
 
@@ -349,7 +514,7 @@ export default {
     display: flex;
     align-items: center;
     gap: 8px;
-    
+
 }
 
 .select-box {
@@ -389,57 +554,7 @@ export default {
 
 }
 
-.box {
-    display: grid;
-    gap: 24px;
 
-    &.site {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, auto);
-        grid-template-areas:
-            "traffic gadget age"
-            "visitors visitors refusals"
-            "adress_page frase viewing_depth"
-            "adress_page frase time_site";
-
-
-        .traffic {
-            grid-area: traffic;
-        }
-
-        .gadget {
-            grid-area: gadget;
-        }
-
-        .age {
-            grid-area: age;
-        }
-
-        .visitors {
-            grid-area: visitors;
-        }
-
-        .refusals {
-            grid-area: refusals;
-        }
-
-        .adress_page {
-            grid-area: adress_page;
-        }
-
-        .frase {
-            grid-area: frase;
-        }
-
-        .viewing_depth {
-            grid-area: viewing_depth;
-        }
-
-        .time_site {
-            grid-area: time_site;
-        }
-    }
-}
 
 @media(max-width: 550px) {
     .select {

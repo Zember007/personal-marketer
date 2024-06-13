@@ -60,9 +60,9 @@
 
 <script>
 import { Doughnut } from 'vue-chartjs'
-import { Chart as ChartJS, ArcElement } from 'chart.js'
+import { Chart as ChartJS, ArcElement,Tooltip } from 'chart.js'
 
-ChartJS.register(ArcElement)
+ChartJS.register(ArcElement,Tooltip)
 
 export default {
     components: {
@@ -232,7 +232,8 @@ export default {
 }
 
 .Doughnut {
-
+    min-width: 280px;
+    min-height: 280px;
     border-radius: 50%;
     border: 20px solid rgba(13, 110, 253, 0.05);
 }

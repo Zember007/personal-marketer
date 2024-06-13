@@ -78,6 +78,7 @@ export default {
 .list {
     display: flex;
     flex-direction: column;
+    
 }
 
 .lsit_item {

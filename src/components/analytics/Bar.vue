@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <div class="top">
-            <div class="title">ROI</div>
+            <div class="title">{{ title }}</div>
             <div class="percent">
                 <strong>0.52%</strong>
                 <span class="down">
@@ -30,9 +30,9 @@ export default {
     data() {
         return {
             chartData: {
-                labels: ['0.52%', '0.52%', '0.52%', '0.52%', '0.52%', '0.52%', '0.52%'],
+                labels: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
                 datasets: [{
-                    data: [40, 20, 12, 2, 20, 12, 2],
+                    data: [1, 2, 4, 2, 3, 1, 2],
                     backgroundColor: "#0d6efd"
                 }]
 
@@ -42,7 +42,12 @@ export default {
                 maintainAspectRatio: false,
                 scales: {
                     x: {
-                        display: false
+                        display: this.labels,
+                        ticks: {
+                            font: {
+                                size: 10
+                            }
+                        }
                     }
                 },
                 plugins: {
@@ -87,7 +92,7 @@ export default {
                                 let innerHtml = '';
 
                                 titleLines.forEach(function (title, index) {
-                                    innerHtml += title;
+                                    innerHtml += '0.52%';
                                 });
                                 innerHtml += `
                                 <div style="
@@ -127,8 +132,11 @@ export default {
             }
         }
     },
+    props: {
+        title: String,
+        labels: Boolean
+    },
     mounted() {
-        console.log(ChartJS.defaults);
     }
 }
 </script>
@@ -143,6 +151,7 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 24px;
 }
 
@@ -191,5 +200,7 @@ export default {
     }
 }
 
-.down {}
+.bar_box {
+    height: 100%;
+}
 </style>

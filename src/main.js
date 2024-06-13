@@ -30,7 +30,6 @@ import INNInput from './components/ui/INNInput.vue'
 app
     .component('TextInput', TextInput)
     .component('RadioInput', RadioInput)
-    .component('CheckInput', RadioInput)
     .component('PhoneInput', PhoneInput)
     .component('SelectInput', SelectInput)
     .component('PrimaryButton', PrimaryButton)
