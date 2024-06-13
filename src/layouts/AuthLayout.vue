@@ -5,7 +5,7 @@
             <slot></slot>
         </div>
         <div class="link">
-            <a @click.prevent="open_polzovatel" href="#">Пользовательское соглашение</a>
+            <a @click.prevent="open_polzovatel" href="#">Публичная оферта</a>
             <a @click.prevent="open_privacy_policy" href="#">Политика конфиденциальности</a> 
         </div>
     </div>
@@ -23,7 +23,7 @@ export default {
             window.open('/privacy-policy.pdf','_blank')
         },
         open_polzovatel() {
-            window.open('/polzovatelskoe-soglashenie.pdf','_blank')
+            window.open('/oferta.pdf','_blank')
         }
     }
 }

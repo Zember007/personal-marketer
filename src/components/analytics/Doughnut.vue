@@ -1,9 +1,10 @@
 <template>
     <div class="box">
         <div class="top">
-            <div class="title">Тип устройства</div>
-            <div class="nav">
-                <div class="icon_bg">
+            <div class="title">{{ title }}</div>
+            <div class="nav" :class="{active: active}">
+                <span class="before" @click="active=!active"></span>
+                <div class="icon_bg icon">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.82272 14.4468C12.6827 13.6935 14.7894 11.0935 14.7894 8.00016C14.7894 4.32016 11.8294 1.3335 8.12272 1.3335C3.67605 1.3335 1.45605 5.04016 1.45605 5.04016M1.45605 5.04016V2.00016M1.45605 5.04016H2.79605H4.41605"
@@ -12,7 +13,7 @@
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
                     </svg>
                 </div>
-                <div class="icon_bg">
+                <div class="icon_bg icon">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M14.3726 3.98665C12.1526 3.76665 9.91923 3.65332 7.69256 3.65332C6.37256 3.65332 5.05256 3.71999 3.73256 3.85332L2.37256 3.98665"
@@ -29,7 +30,7 @@
                             stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div class="close">
+                <div @click="active=!active" class="close icon">
                     <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M11.686 13.2573L16.0858 17.6571C16.4294 18.0007 16.9993 18.0007 17.3429 17.6571C17.6865 17.3135 17.6865 16.7436 17.3429 16.4L12.9431 12.0002L17.3429 7.60046C17.6865 7.25686 17.6865 6.68698 17.3429 6.34338C16.9993 5.99978 16.4294 5.99978 16.0858 6.34338L11.686 10.7432L7.28626 6.34338C6.94266 5.99978 6.37278 5.99978 6.02918 6.34338C5.68558 6.68698 5.68558 7.25686 6.02918 7.60046L10.429 12.0002L6.02918 16.4C5.68558 16.7436 5.68558 17.3135 6.02918 17.6571C6.37278 18.0007 6.94266 18.0007 7.28626 17.6571L11.686 13.2573Z"
@@ -50,7 +51,7 @@
                 <span></span>
                 <div class="count">
                     <strong>{{ item }}</strong>
-                    <span>{{ (item/percet).toFixed(2)}}%</span>
+                    <span>{{ (item / percet).toFixed(2) }}%</span>
                 </div>
             </div>
         </div>
@@ -68,21 +69,23 @@ export default {
         Doughnut
     },
 
-    data(){
+    data() {
         return {
-            percet:0
+            percet: 0,
+            active: false
         }
     },
 
     props: {
-        data: Object
+        data: Object,
+        title: String
     },
     mounted() {
         let num = 0
         this.data['data']['datasets'][0]['data'].forEach(el => {
             num += el
         })
-        this.percet = num/100
+        this.percet = num / 100
     }
 }
 </script>
@@ -93,7 +96,8 @@ export default {
     border-radius: 8px;
     padding: 24px;
     background: var(--background-background-primary);
-    max-width: 500px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -118,7 +122,45 @@ export default {
 .nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+
+
+    .icon {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    .before{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .before::before { 
+        content: url(../../assets/img/icons/dots.svg);
+        
+        transition: all .3s;
+    }
+
+    &.active {
+        gap: 8px;
+
+        .icon {
+            width: 32px; 
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .before {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+
+    }
 }
 
 .icon_bg {
@@ -131,7 +173,11 @@ export default {
     justify-content: center;
 }
 
-.close {}
+.close {
+    width: 32px;
+    display: flex;
+    align-items: center;justify-content: center;
+}
 
 .Doughnut-box {
     max-width: 280px;

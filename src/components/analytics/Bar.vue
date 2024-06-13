@@ -10,15 +10,17 @@
                 </span>
             </div>
         </div>
-        <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+        <div class="bar_box">
+            <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+        </div>
     </div>
 </template>
 
 <script>
 import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip } from 'chart.js'
 
-ChartJS.register(BarElement, CategoryScale, LinearScale)
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip)
 ChartJS.defaults.datasets.bar.barPercentage = 0.7
 ChartJS.defaults.font.size = 14
 ChartJS.defaults.font.weight = 400
@@ -28,7 +30,7 @@ export default {
     data() {
         return {
             chartData: {
-                labels: ['January', 'February', 'March', 'sd', 'February', 'March', 'sd'],
+                labels: ['0.52%', '0.52%', '0.52%', '0.52%', '0.52%', '0.52%', '0.52%'],
                 datasets: [{
                     data: [40, 20, 12, 2, 20, 12, 2],
                     backgroundColor: "#0d6efd"
@@ -37,9 +39,89 @@ export default {
             },
             chartOptions: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     x: {
                         display: false
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        enabled: false,
+
+                        external: function (context) {
+                            // Tooltip Element
+                            let tooltipEl = document.getElementById('chartjs-tooltip');
+
+                            // Create element on first render
+                            if (!tooltipEl) {
+                                tooltipEl = document.createElement('div');
+                                tooltipEl.id = 'chartjs-tooltip';
+                                document.body.appendChild(tooltipEl);
+                            }
+
+                            // Hide if no tooltip
+                            const tooltipModel = context.tooltip;
+                            if (tooltipModel.opacity === 0) {
+                                tooltipEl.style.opacity = 0;
+                                return;
+                            }
+
+                            // Set caret Position
+                            tooltipEl.classList.remove('above', 'below', 'no-transform');
+                            if (tooltipModel.yAlign) {
+                                tooltipEl.classList.add(tooltipModel.yAlign);
+                            } else {
+                                tooltipEl.classList.add('no-transform');
+                            }
+
+                            function getBody(bodyItem) {
+                                return bodyItem.lines;
+                            }
+
+                            // Set Text
+                            if (tooltipModel.body) {
+                                const titleLines = tooltipModel.title || [];
+                                const bodyLines = tooltipModel.body.map(getBody);
+
+                                let innerHtml = '';
+
+                                titleLines.forEach(function (title, index) {
+                                    innerHtml += title;
+                                });
+                                innerHtml += `
+                                <div style="
+                                position:absolute;
+                                bottom:2px;
+                                left:50%;
+                                transform:translate(-50%,100%);
+                                ">
+                                    <svg style="display:block" width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.40419 7.08587C4.04337 7.8497 2.95663 7.8497 2.59581 7.08586L0.277025 2.17712C-0.0363324 1.51376 0.447569 0.75 1.18122 0.75L5.81878 0.750001C6.55243 0.750001 7.03633 1.51376 6.72297 2.17712L4.40419 7.08587Z" fill="#0D6EFD" />
+                                    </svg>
+                                </div>
+                                `;
+                                tooltipEl.innerHTML = innerHtml;
+                            }
+
+                            const position = context.chart.canvas.getBoundingClientRect();
+                            // const bodyFont = ChartJS.helpers.toFont(tooltipModel.options.bodyFont);
+
+                            // Display, position, and set styles for font
+                            tooltipEl.style.opacity = 1;
+                            tooltipEl.style.position = 'absolute';
+                            tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px';
+                            tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px';
+                            tooltipEl.style.transform = "translate(-50%,-125%)"
+                            tooltipEl.style.padding = '6px ' + '16px';
+                            tooltipEl.style.pointerEvents = 'none';
+                            tooltipEl.style.background = '#0d6efd'
+                            tooltipEl.style['border-radius'] = '35px'
+                            tooltipEl.style['font-size'] = '12px'
+                            tooltipEl.style['font-weight'] = '400'
+                            tooltipEl.style['color'] = '#FFF'
+                            tooltipEl.style['font-family'] = '"Roboto", sans-serif'
+                        }
                     }
                 }
             }
@@ -57,7 +139,8 @@ export default {
     border-radius: 8px;
     padding: 24px;
     background: var(--background-background-primary);
-    max-width: 500px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -95,7 +178,7 @@ export default {
         align-items: center;
         border-radius: 800px;
         padding: 6px;
-        
+
 
         &.down {
             font-family: var(--font-family);

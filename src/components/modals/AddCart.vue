@@ -183,7 +183,7 @@ form {
 
 .cart__button {
     border-radius: 6px;
-    padding: 16px 40px;
+    padding: 16px 0;
     background: var(--primary-button-inactive-color);
     width: 100%;
     font-family: var(--font-family);
