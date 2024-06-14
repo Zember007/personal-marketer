@@ -202,5 +202,6 @@ export default {
 
 .bar_box {
     height: 100%;
+    max-width: 100%;  
 }
 </style>

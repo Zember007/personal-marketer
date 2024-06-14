@@ -40,6 +40,7 @@ export default {
     align-items: stretch;
     flex-direction: column;
     justify-content: space-between;
+    gap: 35px;
 }
 
 .title {

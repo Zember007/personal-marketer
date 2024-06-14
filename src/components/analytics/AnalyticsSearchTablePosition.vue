@@ -16,7 +16,7 @@
                 </svg>
                 <input type="text" placeholder="Поиск">
             </div>
-            <div class="analytics__top-button">
+            <!-- <div class="analytics__top-button">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.3335 9.16634L18.1668 2.33301" stroke="#242626" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -28,22 +28,26 @@
                 </svg>
 
                 <span>Экспорт данных</span>
-            </div>
+            </div> -->
         </div>
         <div class="list">
-            <div class="list_item head">Дата</div>
-            <div class="list_item head">Название кампании</div>
-            <div class="list_item head">ID</div>
-            <div class="list_item head">Внешняя ссылка</div>
-            <div class="list_item head">Показы</div>
-            <div class="list_item head">Охват</div>
-
-            <div class="list_item">28.04.2024</div>
-            <div class="list_item">Кампания</div>
-            <div class="list_item">#813282</div>
-            <div class="list_item">www.link.com</div>
-            <div class="list_item">12,932</div>
-            <div class="list_item">3,201</div>
+            <div class="list_item head">Поисковый запрос</div>
+            <div class="list_item head">Частота</div>
+            <div class="list_item head">25.04.2023</div>
+            <div class="list_item head">26.04.2023</div>
+            <div class="list_item head">27.04.2023</div>
+            <div class="list_item head">28.04.2023</div>
+            <div class="list_item head">29.04.2023</div>
+            <div class="list_item head">30.04.2023</div>            
+            
+            <div class="list_item">запрос</div>
+            <div class="list_item">312</div>
+            <div class="list_item">12</div>
+            <div class="list_item">--</div>
+            <div class="list_item">11</div>
+            <div class="list_item">24</div>
+            <div class="list_item">38</div>
+            <div class="list_item">52</div>
         </div>
     </div>
 </template>
@@ -108,7 +112,7 @@ export default {
     gap: 1px;
     display: grid;
     overflow: hidden;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     overflow-x: auto;
     max-width: 86vw;
 }

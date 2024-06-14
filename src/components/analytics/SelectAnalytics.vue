@@ -20,7 +20,7 @@ export default {
 .select-box {    
     position: relative;
     background: var(--background-background-primary);
-    height: 100%;
+    min-height: 100%;
     
     &::before {
         content: "";

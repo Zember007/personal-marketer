@@ -17,10 +17,10 @@
                     </div>
                     <div class="project__new">
                         <div class="title">
-                            <input type="text" name="title" placeholder="Название проекта...">
+                            <input type="text" name="title" placeholder="Название задачи...">
                         </div>
                         <div class="description">
-                            <textarea name="description" placeholder="Описание проекта..."></textarea>
+                            <textarea name="description" placeholder="Описание задачи..."></textarea>
                         </div>
                     </div>
 
@@ -194,7 +194,7 @@ button {
     background: var(--background-background-primary);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .modal-fade-enter,
@@ -268,7 +268,7 @@ button {
     display: flex;
     gap: 8px;
     justify-content: end;
-    padding-top: 24px;
+    padding-top: 20px;
     border-top: 1px solid var(--colors-secondary-border-color);
 }
 
@@ -416,7 +416,7 @@ button {
 .switcher__box {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 5px;
 }
 
 .switcher {

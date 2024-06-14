@@ -183,14 +183,14 @@ export default {
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
-                                    <div class="title">Светлана Анисенко</div>
+                                    <div class="title">Игорь Кузнецов</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
                                 <img src="../assets/img/home/team/image-4.jpg" alt="team_people">
                             </div>
                             <div class="gallery__block">
                                 <div class="gallery__inf">
-                                    <div class="title">Игорь Кузнецов</div>
+                                    <div class="title">Светлана Анисенко</div>
                                     <div class="text">Маркетолог</div>
                                 </div>
                                 <img src="../assets/img/home/team/image-5.jpg" alt="team_people">

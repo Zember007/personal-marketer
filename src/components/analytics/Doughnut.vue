@@ -232,9 +232,14 @@ export default {
 }
 
 .Doughnut {
-    min-width: 280px;
-    min-height: 280px;
     border-radius: 50%;
     border: 20px solid rgba(13, 110, 253, 0.05);
+}
+
+@media(max-width: 1420px) {
+
+    .Doughnut-box {
+        max-width: 250px;
+    }
 }
 </style>
