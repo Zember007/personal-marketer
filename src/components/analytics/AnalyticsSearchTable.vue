@@ -137,5 +137,9 @@ export default {
     .list {
         max-width: 96vw;
     }
+
+    .analytics__top-button {
+        display: none;
+    }
 }
 </style>

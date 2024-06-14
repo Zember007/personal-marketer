@@ -119,15 +119,15 @@ export default {
     border-radius: 8px;
     padding: 24px;
     background: var(--background-background-primary);
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    // width: 100px;
 }
 
 .bar-box {
-    width: 100%;
     height: 100%;
     display: flex;
     gap: 30px;
@@ -297,6 +297,16 @@ export default {
 
     .box {
         gap: 12px;
+    }
+}
+
+@media(max-width: 550px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .bar-block {
+        width: 80vw;
     }
 }
 </style>

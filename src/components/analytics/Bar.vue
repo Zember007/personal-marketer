@@ -204,4 +204,14 @@ export default {
     height: 100%;
     max-width: 100%;  
 }
+
+@media(max-width: 550px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .bar_box {
+        width: 80vw;
+    }
+}
 </style>

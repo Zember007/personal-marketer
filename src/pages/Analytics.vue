@@ -54,7 +54,8 @@
 
             </div>
             <div class="analytics__top-col">
-                <div class="analytics__top-button" @click="isVisibleWidgets = !isVisibleWidgets;isVisibleImport = false">
+                <div class="analytics__top-button"
+                    @click="isVisibleWidgets = !isVisibleWidgets; isVisibleImport = false">
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.1665 10H13.8332" stroke="#242626" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -65,7 +66,9 @@
                             stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span><span class="none_mob">Добавить виджет</span><div class="mob">Виджет</div></span>
+                    <span><span class="none_mob">Добавить виджет</span>
+                        <div class="mob">Виджет</div>
+                    </span>
                     <div class="widthets_list" :class="{ active: isVisibleWidgets }">
                         <button class="widget">
                             <img src="../assets/img/icons/edit-square.svg" alt="square">
@@ -105,7 +108,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="analytics__top-button" @click="isVisibleImport = !isVisibleImport;isVisibleWidgets=false">
+                <div class="analytics__top-button" @click="openImport">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.1665 10.8327L2.33317 17.666" stroke="#242626" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -248,6 +251,7 @@
     </ProfileLayout>
     <AnalyticReport v-show="isModalVisible" @close="closeModal" />
     <ReportIntegration v-show="isReportVisible" @close="closeReport" />
+    <ReportIdIntegration v-show="isReportIdVisible" @close="closeReportId" />
 </template>
 
 <script setup>
@@ -263,6 +267,7 @@ import AnalyticsSearchTable from '../components/analytics/AnalyticsSearchTable.v
 import AnalyticsSearchTablePosition from '../components/analytics/AnalyticsSearchTablePosition.vue';
 import AnalyticsBlock from '../components/analytics/AnalyticsBlock.vue';
 import ReportIntegration from '../components/modals/ReportIntegration.vue';
+import ReportIdIntegration from '../components/modals/ReportIdIntegration.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { ref, reactive } from 'vue'
 
@@ -274,6 +279,7 @@ const isVisibleImport = ref(false)
 
 const isModalVisible = ref(false)
 const isReportVisible = ref(false)
+const isReportIdVisible = ref(false)
 const data_traffic = {
     data: {
         datasets: [{
@@ -350,12 +356,31 @@ function closeReport() {
     document.body.style = ""
 }
 
+function closeReportId() {
+    isReportIdVisible.value = false;
+    document.body.style = ""
+}
+
+function openImport() {
+    isVisibleWidgets.value = false
+
+    if(analytic_type.value != 'position') {
+        isVisibleImport.value = !isVisibleImport.value; 
+    } else {
+        showReport()
+    }
+}
+
 const { currentRoute, push } = useRouter();
 
 if (currentRoute.value.query.analytic_type) {
 
     analytic_type.value = currentRoute.value.query.analytic_type
 
+}
+
+if(currentRoute.value.query.report_id == 'open'){
+    isReportIdVisible.value = true
 }
 
 
@@ -529,9 +554,11 @@ function push_url(e) {
     letter-spacing: -0.02em;
     color: var(--blue-primary-blue-900);
 
-    &.mob {
-        display: none;
-    }
+
+}
+
+.mob {
+    display: none;
 }
 
 .analytics__top {
@@ -736,6 +763,7 @@ function push_url(e) {
     .windows {
         flex-direction: column;
     }
+
     .offer {
         span {
             display: none;
@@ -853,7 +881,7 @@ function push_url(e) {
                 "search_table";
         }
     }
-    
+
     .none_mob {
         display: none;
     }
