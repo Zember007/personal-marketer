@@ -4,7 +4,7 @@
         <div class="name">Аудит сайта</div>
         <div class="price">22,000₽</div>
         <button class="view" :class="{ active: isView }" @click.prevent="isView = !isView">
-            <img src="../../assets/img/icons/dots.svg" alt="dots">
+            <img src="../../assets/img/icons/dots_blue.svg" alt="dots">
             <div class="list_checks">
                 <button class="check">
                     <img src="../../assets/img/icons/download-file.svg" alt="download">
@@ -12,7 +12,7 @@
                 </button>
                 <button class="check">
                     <img src="../../assets/img/icons/download-file.svg" alt="download">
-                    <span>Скачать акт</span> 
+                    <span>Скачать акт</span>
                 </button>
             </div>
         </button>
@@ -75,6 +75,37 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 36%;
+        transform: rotate(0) translate(0, -70%);
+        opacity: 0;
+        visibility: hidden;
+        width: 2px;
+        height: 20px;
+        background: var(--colors-secondary-grey-secondary);
+        transition: all .5s;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: rotate(0) translate(0, -70%);
+        display: block;
+        width: 2px;
+        height: 20px;
+        background: var(--colors-secondary-grey-secondary);
+        transition: all .5s;
+        opacity: 0;
+        visibility: hidden;
+    }
+
     &.active {
         &>img {
             display: none;
@@ -85,26 +116,31 @@ export default {
             display: block;
             position: absolute;
             top: 50%;
-            left: 30%;
+            left: 36%;
             transform: rotate(45deg) translate(0, -70%);
             width: 2px;
             height: 20px;
             background: var(--colors-secondary-grey-secondary);
             transition: all .5s;
+            opacity: 1;
+            visibility: visible;
         }
 
         &::after {
             content: "";
             position: absolute;
             top: 50%;
-            left: 72%;
+            left: 70%;
             transform: rotate(-45deg) translate(0, -70%);
             display: block;
             width: 2px;
             height: 20px;
             background: var(--colors-secondary-grey-secondary);
             transition: all .5s;
+            opacity: 1;
+            visibility: visible;
         }
+
 
         .list_checks {
             opacity: 1;
