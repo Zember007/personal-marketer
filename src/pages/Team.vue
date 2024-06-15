@@ -8,7 +8,7 @@
                         stroke-linejoin="round" />
                 </svg>
     
-                <span>Команда</span>
+                <span>Исполнители</span>
     
             </RouterLink>
         </ProfileTop>

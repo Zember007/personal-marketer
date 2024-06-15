@@ -59,11 +59,11 @@ export default {
 
 @media(max-width:450px) {
     .action {
-        display: none;
+        width: 100%;
     }
 
     .task {
-        grid: 1fr / 1fr 3fr 2fr 1fr;
+        grid: 1fr / 1fr 2fr 2fr 2fr 1fr;
     }
 }
 </style>

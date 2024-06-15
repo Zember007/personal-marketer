@@ -19,7 +19,8 @@ export default {
 <style lang="scss" scoped>
 .select-box {    
     position: relative;
-    background: var(--background-background-primary);
+    display: flex;
+    align-items: stretch;
     min-height: 100%;
     
     &::before {
@@ -38,7 +39,8 @@ export default {
 .select {
     cursor: pointer;
     width: 100%;
-    height: 100%; 
+    min-height: 100%; 
+    background: var(--background-background-primary);
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
     padding: 12px 16px;
@@ -48,7 +50,6 @@ export default {
     font-size: 16px;
     letter-spacing: -0.02em;
     color: var(--text-primary);
-    background: transparent;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;

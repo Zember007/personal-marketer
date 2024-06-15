@@ -15,20 +15,7 @@
                         stroke-linejoin="round" />
                 </svg>
                 <input type="text" placeholder="Поиск">
-            </div>
-            <!-- <div class="analytics__top-button">
-                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.3335 9.16634L18.1668 2.33301" stroke="#242626" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M18.8335 5.66699V1.66699H14.8335" stroke="#242626" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M9.6665 1.66699H7.99984C3.83317 1.66699 2.1665 3.33366 2.1665 7.50033V12.5003C2.1665 16.667 3.83317 18.3337 7.99984 18.3337H12.9998C17.1665 18.3337 18.8332 16.667 18.8332 12.5003V10.8337"
-                        stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-
-                <span>Экспорт данных</span>
-            </div> -->
+            </div>            
         </div>
         <div class="list">
             <div class="list_item head">Поисковый запрос</div>
@@ -139,7 +126,7 @@ export default {
 
 @media(max-width:550px) {
     .list {
-        max-width: 96vw;
+        max-width: 93vw;
     }
 }
 </style>

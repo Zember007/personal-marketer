@@ -135,7 +135,7 @@ export default {
 
 @media(max-width:550px) {
     .list {
-        max-width: 96vw;
+        max-width: 93vw;
     }
 
     .analytics__top-button {

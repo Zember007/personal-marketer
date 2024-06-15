@@ -73,7 +73,7 @@ export default {
 
 .view {
     position: relative;
-    width: 100%;
+    width: 40px;
     height: 100%;
 
     &::before {
@@ -81,27 +81,27 @@ export default {
         display: block;
         position: absolute;
         top: 50%;
-        left: 36%;
+        right:78%;
         transform: rotate(0) translate(0, -70%);
         opacity: 0;
         visibility: hidden;
         width: 2px;
         height: 20px;
         background: var(--colors-secondary-grey-secondary);
-        transition: all .5s;
+        // transition: all .5s; 
     }
 
     &::after {
         content: "";
         position: absolute;
         top: 50%;
-        left: 70%;
-        transform: rotate(0) translate(0, -70%);
+        right: 30%;
+        transform: rotate(0) translate(50%, -70%);
         display: block;
         width: 2px;
         height: 20px;
         background: var(--colors-secondary-grey-secondary);
-        transition: all .5s;
+        // transition: all .5s;
         opacity: 0;
         visibility: hidden;
     }
@@ -113,30 +113,15 @@ export default {
 
         &::before {
             content: "";
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 36%;
             transform: rotate(45deg) translate(0, -70%);
-            width: 2px;
-            height: 20px;
-            background: var(--colors-secondary-grey-secondary);
-            transition: all .5s;
+            
             opacity: 1;
             visibility: visible;
         }
 
         &::after {
             content: "";
-            position: absolute;
-            top: 50%;
-            left: 70%;
-            transform: rotate(-45deg) translate(0, -70%);
-            display: block;
-            width: 2px;
-            height: 20px;
-            background: var(--colors-secondary-grey-secondary);
-            transition: all .5s;
+            transform: rotate(-45deg) translate(0, -70%);            
             opacity: 1;
             visibility: visible;
         }
@@ -175,5 +160,13 @@ export default {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: all .3s;
+
+    &:hover {
+
+        color: var(--component-colors-blue-active);
+        background: var(--component-colors-link-active-background);
+
+    }
 }
 </style>
