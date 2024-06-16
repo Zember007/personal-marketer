@@ -51,9 +51,24 @@
         </ProfileTop>
         <div class="analytics__top">
             <div class="analytics__top-col filters_box" @click="isVisibleFilter = !isVisibleFilter">
-                <div class="filter site" v-if="analytic_type == 'site'" :class="{active:isVisibleFilter}">
-                    <SelectInput />
-                    <SelectInput />
+                <div class="filter site" v-if="analytic_type == 'site'" :class="{ active: isVisibleFilter }">
+                    <div class="revers">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.69992 14.4463C12.5599 13.693 14.6666 11.093 14.6666 7.99967C14.6666 4.31967 11.7066 1.33301 7.99992 1.33301C3.55325 1.33301 1.33325 5.03967 1.33325 5.03967M1.33325 5.03967V1.99967M1.33325 5.03967H2.67325H4.29325"
+                                stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1.33325 8C1.33325 11.68 4.31992 14.6667 7.99992 14.6667" stroke="#242626"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-dasharray="3 3" />
+                        </svg>
+                    </div>
+                    <SelectInputAnalyt :items="[{ name: 'Детализация: по дням', active: true },
+                    { name: 'Детализация: по неделе' },
+                    { name: 'Детализация: по месяцу' }
+                    ]" />
+                    <SelectInputAnalyt :items="[{ name: 'Данные:с роботами', active: true },
+                    { name: 'Данные:без роботов' }
+                    ]" />
                     <div class="filter_radio-box">
                         <input type="radio" name="period" id="today" checked>
                         <label for="today">Сегодня</label>
@@ -68,9 +83,9 @@
                         <input type="radio" name="period" id="year">
                         <label for="year">Год</label>
                     </div>
-                    <SelectInput />
+                    <SelectInputAnalyt :items="[{ name: '6 - 12 февраля 2024', active: true }]" />
                 </div>
-                <div class="filter position" v-if="analytic_type == 'position'" :class="{active:isVisibleFilter}">
+                <div class="filter position" v-if="analytic_type == 'position'" :class="{ active: isVisibleFilter }">
                     <div class="revers">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -81,10 +96,10 @@
                                 stroke-dasharray="3 3" />
                         </svg>
                     </div>
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
+                    <SelectInputAnalyt :items="[{ name: 'Yandex', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Россия', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Все группы', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Дата', active: true }]" />
                     <div class="from-before">
                         <span>Частота</span>
                         <input type="number" placeholder="От">
@@ -96,14 +111,24 @@
                         <input type="number" placeholder="До">
                     </div>
                 </div>
-                <div class="filter report_ad" v-if="analytic_type == 'report_ad'" :class="{active:isVisibleFilter}">
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
-                    <SelectInput />
+                <div class="filter report_ad" v-if="analytic_type == 'report_ad'" :class="{ active: isVisibleFilter }">
+                    <div class="revers">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.69992 14.4463C12.5599 13.693 14.6666 11.093 14.6666 7.99967C14.6666 4.31967 11.7066 1.33301 7.99992 1.33301C3.55325 1.33301 1.33325 5.03967 1.33325 5.03967M1.33325 5.03967V1.99967M1.33325 5.03967H2.67325H4.29325"
+                                stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1.33325 8C1.33325 11.68 4.31992 14.6667 7.99992 14.6667" stroke="#242626"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-dasharray="3 3" />
+                        </svg>
+                    </div>
+                    <SelectInputAnalyt :items="[{ name: '6 - 12 февраля 2024', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Каналы', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Устройства', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'География', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Демография', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Типы конверсий', active: true }]" />
+                    <SelectInputAnalyt :items="[{ name: 'Форматы рекламы', active: true }]" />
                 </div>
             </div>
             <div class="analytics__top-col">
@@ -308,6 +333,7 @@
 </template>
 
 <script setup>
+import SelectInputAnalyt from '../components/analytics/SelectInputAnalyt.vue'
 import AnalyticReport from '../components/modals/AnalyticReport.vue'
 import ProfileTop from '../components/profile/ProfileTop.vue';
 import ProfileLayout from '../layouts/ProfileLayout.vue'
@@ -402,7 +428,7 @@ function closeModal() {
 }
 
 function showReport() {
-    if (analytic_type.value == 'report_ad') {
+    if (analytic_type.value == 'position') {
         isReportVisible.value = true;
         document.body.style = "overflow:hidden"
     }
@@ -422,6 +448,8 @@ function openImport() {
 
     if (analytic_type.value != 'position') {
         isVisibleImport.value = !isVisibleImport.value;
+    } else {
+        showReport()
     }
 }
 
@@ -509,7 +537,7 @@ function push_url(e) {
     label {
         border: 1px solid var(--colors-secondary-border-color);
         border-radius: 8px;
-        padding: 5px 16px;
+        padding: 5px 12px;
         background: var(--background-background-primary);
         font-family: var(--font-family);
         font-weight: 400;
@@ -812,8 +840,7 @@ function push_url(e) {
     height: 100%;
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
-    padding-left: 38px;
-
+    
 
     &::before {
         content: "";
@@ -831,7 +858,7 @@ function push_url(e) {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: 20px;
+        left: 12px;
     }
 }
 
@@ -839,6 +866,7 @@ function push_url(e) {
     cursor: pointer;
     height: 100%;
     padding: 8px 10px;
+    margin-left: 38px;
     padding-right: 40px;
     text-align: center;
     font-family: var(--font-family);
@@ -853,6 +881,67 @@ function push_url(e) {
 
 }
 
+@media(max-width: 1870px) {
+    .filters_box {
+        position: relative;
+        border: 1px solid var(--colors-secondary-border-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        background: var(--background-background-primary);
+
+        &::before {
+            content: "";
+            display: block;
+            background: url(../assets/img/icons/filter.svg);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .filter {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            transform: translateY(90%);
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 16px 35px 0 rgba(0, 0, 0, 0.1), 0 64px 64px 0 rgba(0, 0, 0, 0.09), 0 144px 86px 0 rgba(0, 0, 0, 0.05), 0 255px 102px 0 rgba(0, 0, 0, 0.01), 0 399px 112px 0 rgba(0, 0, 0, 0);
+            background: var(--background-background-primary);
+            border: 1px solid var(--colors-secondary-border-color);
+            border-radius: 8px;
+            padding: 24px;
+            flex-direction: column;
+            width: 230px;
+            transition: all .3s;
+            
+
+            .revers {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    display: block;
+                }
+            }
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(100%);
+            }
+        }
+
+        .filter_radio-box {
+            flex-direction: column;
+        }
+    }
+}
 
 @media(max-width: 1680px) {
     .box_analytic {
@@ -899,64 +988,7 @@ function push_url(e) {
 
 @media(max-width: 1420px) {
 
-    .filters_box {
-        position: relative;
-        border: 1px solid var(--colors-secondary-border-color);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        background: var(--background-background-primary);
 
-        &::before {
-            content: "";
-            display: block;
-            background: url(../assets/img/icons/filter.svg);
-            width: 24px;
-            height: 24px;
-        }
-
-        .filter {
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            transform: translateY(90%);
-            opacity: 0;
-            visibility: hidden;
-            box-shadow: 0 16px 35px 0 rgba(0, 0, 0, 0.1), 0 64px 64px 0 rgba(0, 0, 0, 0.09), 0 144px 86px 0 rgba(0, 0, 0, 0.05), 0 255px 102px 0 rgba(0, 0, 0, 0.01), 0 399px 112px 0 rgba(0, 0, 0, 0);
-            background: var(--background-background-primary);
-            border: 1px solid var(--colors-secondary-border-color);
-            border-radius: 8px;
-            padding: 24px;
-            flex-direction: column;
-            width: 230px;
-            transition: all .3s;
-            cursor: pointer;
-
-            .revers {
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                svg {
-                    display: block;
-                }
-            }
-
-            &.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(100%);
-            }
-        }
-
-        .filter_radio-box {
-            flex-direction: column;
-        }
-    }
 
     .windows {
         flex-direction: column;
