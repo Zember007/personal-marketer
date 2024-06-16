@@ -96,22 +96,24 @@
                 <div class="switcher__box">
                     <div class="switcher">
                         <div class="switcher__item">
-                            <input type="radio" id="switcher-1" name="switcher" checked>
+                            <input @input="change_switcher('subtasks')" type="radio" id="switcher-1" name="switcher"
+                                checked>
                             <label for="switcher-1">Подзадачи</label>
                         </div>
                         <div class="switcher__item">
-                            <input type="radio" id="switcher-2" name="switcher">
+                            <input @input="change_switcher('docs')" type="radio" id="switcher-2" name="switcher">
                             <label for="switcher-2">Файлы</label>
                         </div>
                         <div class="switcher__item">
-                            <input type="radio" id="switcher-4" name="switcher">
+                            <input @input="change_switcher('team')" type="radio" id="switcher-4" name="switcher">
                             <label for="switcher-4">Команда </label>
                         </div>
                     </div>
                     <div class="switcher__result">
                         <div class="subtasks">
                             <div class="subtasks__top">
-                                <div class="subtasks__count">Подзадачи <span>0</span></div>
+                                <div class="subtasks__count"> {{ switcher[select]['title'] }} <span>0</span>
+                                </div>
                                 <div class="subtasks__add">
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +126,7 @@
                                             stroke="#242626" stroke-width="1.5" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Добавить подзадачу</span>
+                                    <span>{{ switcher[select]['add'] }}</span>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +148,22 @@ export default {
     name: 'AddProject',
 
     data: () => ({
-        myInputModel: ''
+        myInputModel: '',
+        select: 'subtasks',
+        switcher: {
+            subtasks: {
+                title: 'Подзадачи',
+                add: 'Добавить подзадачу'
+            },
+            docs: {
+                title: 'Файлы',
+                add: 'Добавить файл'
+            },
+            team: {
+                title: 'Команда',
+                add: 'Добавить в команду'
+            },
+        }
     }),
 
     methods: {
@@ -162,6 +179,9 @@ export default {
                 prefix: '€',
                 suffix: ''
             });
+        },
+        change_switcher(data) {
+            this.select = data
         }
     },
 }
@@ -547,6 +567,7 @@ button {
 
     .switcher {
         overflow-x: scroll;
+
         &::-webkit-scrollbar {
             width: 0;
             height: 0;
