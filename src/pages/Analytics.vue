@@ -321,9 +321,9 @@
                 <Bar title="Позиция" :labels="true" />
             </div>
             <div class="windows">
-                <AnalyticsBlock />
-                <AnalyticsBlock />
-                <AnalyticsBlock />
+                <AnalyticsBlock title="1-10" />
+                <AnalyticsBlock title="11-30" />
+                <AnalyticsBlock title="31-100" />
             </div>
             <div class="search_table">
                 <AnalyticsSearchTablePosition />
@@ -871,7 +871,7 @@ function push_url(e) {
     padding: 8px 10px;
     margin-left: 38px;
     padding-right: 40px;
-    text-align: center;
+    // text-align: center;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;

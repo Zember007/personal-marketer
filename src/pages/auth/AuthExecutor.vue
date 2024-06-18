@@ -8,7 +8,7 @@
             <h3>Для начала, выберите, чем вы занимаетесь: маркетолог или фрилансер.</h3>
         </div>
         <div class="auth__nav">
-            <RouterLink to="/login" href="#" class="auth__button">
+            <RouterLink @click="changeType('Marketer')" to="/login" href="#" class="auth__button">
                 <div class="auth__button-img">
                     <img src="../../assets/img/auth/marketer.jpg" alt="auth__button">
                 </div>
@@ -19,7 +19,7 @@
                     кампаний и анализа их эффективности.
                 </div>
             </RouterLink>
-            <RouterLink to="/login" href="#" class="auth__button">
+            <RouterLink @click="changeType('Freelancer')" to="/login" href="#" class="auth__button">
                 <div class="auth__button-img">
                     <img src="../../assets/img/auth/frilancer.jpg" alt="auth__button">
                 </div>
@@ -36,6 +36,10 @@
 
 <script setup>
 import AuthLayout from '../../layouts/AuthLayout.vue'
+
+function changeType(type) {
+    localStorage.setItem('profileType', type)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -87,24 +91,37 @@ import AuthLayout from '../../layouts/AuthLayout.vue'
 }
 
 @media(max-width:990px) {
-    .auth__button-title{font-size: 24px;}
-    .auth__button-description{font-size: 14px;}
-    .auth__nav{gap:20px;}
+    .auth__button-title {
+        font-size: 24px;
+    }
+
+    .auth__button-description {
+        font-size: 14px;
+    }
+
+    .auth__nav {
+        gap: 20px;
+    }
 }
 
 @media(max-width:780px) {
-    .auth__nav{flex-direction: column;}
+    .auth__nav {
+        flex-direction: column;
+    }
+
     h1 {
         font-size: 24px;
     }
-    h3{
+
+    h3 {
         text-align: center;
         font-size: 16px;
     }
 
-    .auth__button-img{
+    .auth__button-img {
         width: 100%;
         height: auto;
+
         img {
             width: 100%;
         }

@@ -12,11 +12,15 @@ import Chat from './pages/Chat.vue';
 import Team from './pages/Team.vue';
 import Balance from './pages/Balance.vue';
 import Home from './pages/Home.vue';
+import Blog from './pages/Blog.vue';
+import BlogPost from './pages/BlogPost.vue';
 import Analytics from './pages/Analytics.vue';
 import NotFound from './pages/404.vue';
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/blog', component: Blog },
+  { path: '/blog/post', component: BlogPost },
   { path: '/auth', component: AuthExecutor },
   { path: '/auth/verification', component: VerificationPhone },
   { path: '/login', component: AuthLogin },

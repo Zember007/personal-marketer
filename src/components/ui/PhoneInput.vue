@@ -1,14 +1,16 @@
 <template>
     <label class="label">
         <span>{{ label }}</span>
-        <input v-mask="'+7 ### ### ## ##'" placeholder="+7 XXX XXX XX XX" type="text" class="input">
+        <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" v-mask="'+7 ### ### ## ##'" placeholder="+7 XXX XXX XX XX" type="text" :class="{warn : error}" class="input">
     </label>
 </template>
 
 <script>
 export default {
     props: {
-        label: String
+        label: String,
+        modelValue: String,
+        error: Boolean
     }
 }
 </script>
@@ -19,6 +21,10 @@ export default {
     border-radius: 8px;
     padding: 16px;
     min-width: 340px;
+
+    &.warn {
+        border: 1px solid var(--colors-secondary-border-color-error);
+    }
 }
 
 .label {

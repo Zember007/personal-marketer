@@ -945,8 +945,6 @@ export default {
     max-width: 280px;
 }
 
-.share__links {}
-
 .footer__nav-block {
     display: flex;
     gap: 100px;

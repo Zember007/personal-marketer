@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.23.1",
     "chart.js": "^4.4.3",
+    "dotenv": "^16.4.5",
     "dragula": "^3.7.3",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.77.2",
@@ -21,6 +24,7 @@
     "v-mask": "^2.3.0",
     "vue": "^3.4.27",
     "vue-chartjs": "^5.3.1",
+    "vue-cli-service": "^5.0.9",
     "vue-custom-scrollbar": "^1.4.4",
     "vue-dragscroll": "^4.0.5",
     "vue-kanban": "^1.8.0",

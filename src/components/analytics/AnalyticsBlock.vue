@@ -1,7 +1,7 @@
 <template>
     <div class="box_block">
         <div class="title">
-            <span>1-10 (0%)</span>
+            <span>{{ title }} (0%)</span>
             <div class="warn">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -24,7 +24,9 @@
 
 <script>
 export default {
-
+    props: {
+        title: String
+    }
 }
 </script>
 

@@ -1,10 +1,9 @@
 <template>
     <div class="verf_code">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="0">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="1">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="2">
-        <input maxlength="1" @input="code_input" type="text" name="code" id="3">
-        <input type="hidden" name="pincode" id="code">
+        <input maxlength="1" :class="[warn ? 'error' : '']" @input="code_input" type="text" name="code" id="0">
+        <input maxlength="1" :class="[warn ? 'error' : '']" @input="code_input" type="text" name="code" id="1">
+        <input maxlength="1" :class="[warn ? 'error' : '']" @input="code_input" type="text" name="code" id="2">
+        <input maxlength="1" :class="[warn ? 'error' : '']" @input="code_input" type="text" name="code" id="3">
     </div>
 </template>
 
@@ -14,6 +13,11 @@ export default {
         return {
             pincode: []
         }
+    },
+
+    props: {
+        modelValue: String,
+        warn: Boolean
     },
 
     methods: {
@@ -31,6 +35,15 @@ export default {
                 }
             }
 
+            if(event.target.id) {
+                var data = ''
+                this.pincode.forEach(el => {
+                    data += el
+                })
+
+                this.$emit('update:modelValue', data)
+            }
+
         }
     }
 }
@@ -41,6 +54,10 @@ export default {
     display: flex;
     justify-content: center;
     gap: 12px;
+}
+
+.error {
+    border: 1px solid var(--colors-secondary-border-color-error);
 }
 
 input {

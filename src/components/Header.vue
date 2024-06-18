@@ -5,8 +5,8 @@
                 <img src="../assets/img/sidebar/logo.svg" alt="logo">
             </RouterLink>
             <div class="header__nav" :class="{ active: open_menu }">
-                <RouterLink to="/login">
-                    <PrimaryButton id="button">Вход для клиентов</PrimaryButton>
+                <RouterLink @click="changeType" to="/login">
+                    <PrimaryButton  id="button">Вход для клиентов</PrimaryButton>
                 </RouterLink>
                 <RouterLink to="/auth">
                     <PrimaryButton id="button">Вход для исполнителей</PrimaryButton>
@@ -28,10 +28,13 @@ export default {
         return {
             open_menu: false
         }
-    },
+    }, 
     methods: {
         menu_action(data) {
             this.open_menu = data
+        },
+        changeType() {
+            localStorage.setItem('profileType','Customer')
         }
     }
 }

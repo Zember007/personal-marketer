@@ -1,13 +1,24 @@
 <template>
     <div class="checkbox_box">
-        <input type="checkbox" class="custom-checkbox" id="checkbox" name="happy" value="yes">
+        <input @change="input" type="checkbox" class="custom-checkbox" id="checkbox" name="happy" value="yes">
         <label for="checkbox"></label>
     </div>
 </template>
 
 <script>
 export default {
-
+    props: {
+        modelValue: Boolean
+    },
+    methods: {
+        input(e) {
+            if(e.target.checked){
+                this.$emit('update:modelValue', true)
+            }else{
+                this.$emit('update:modelValue', false)
+            }
+        }
+    }
 }
 </script>
 
