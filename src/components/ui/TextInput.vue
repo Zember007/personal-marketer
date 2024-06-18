@@ -1,7 +1,7 @@
 <template>
     <label class="label">
         <span>{{ label }}</span>
-        <input type="text" class="input" :v-mask="mask">
+        <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" type="text" class="input" :v-mask="mask">
     </label>
 </template>
 
@@ -9,10 +9,8 @@
 export default {
     props: {
         label: String,
-        mask: String
-    },
-    mounted() {
-        console.log(this.mask);
+        mask: String,
+        modelValue: String
     }
 }
 </script>

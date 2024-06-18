@@ -1,5 +1,5 @@
 <template>
-    <div class="checkbox_box">
+    <div class="checkbox_box" :class="{warn : error}">
         <input @change="input" type="checkbox" class="custom-checkbox" id="checkbox" name="happy" value="yes">
         <label for="checkbox"></label>
     </div>
@@ -8,7 +8,8 @@
 <script>
 export default {
     props: {
-        modelValue: Boolean
+        modelValue: Boolean,
+        error: Boolean
     },
     methods: {
         input(e) {

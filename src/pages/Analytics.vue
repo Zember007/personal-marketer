@@ -50,10 +50,10 @@
             </button>
         </ProfileTop>
         <div class="analytics__top">
-            <div class="analytics__top-col filters_box" >
-            <div class="mob" @click="isVisibleFilter = !isVisibleFilter">
-                <img src="../assets/img/icons/filter.svg" alt="filter">
-            </div>
+            <div class="analytics__top-col filters_box">
+                <div class="mob" @click="isVisibleFilter = !isVisibleFilter">
+                    <img src="../assets/img/icons/filter.svg" alt="filter">
+                </div>
                 <div class="filter site" v-if="analytic_type == 'site'" :class="{ active: isVisibleFilter }">
                     <div class="revers">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -843,7 +843,7 @@ function push_url(e) {
     height: 100%;
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 8px;
-    
+
 
     &::before {
         content: "";
@@ -896,7 +896,7 @@ function push_url(e) {
         background: var(--background-background-primary);
 
         .mob {
-            display: block;            
+            display: block;
             width: 24px;
             height: 24px;
             cursor: pointer;
@@ -917,7 +917,7 @@ function push_url(e) {
             flex-direction: column;
             width: 230px;
             transition: all .3s;
-            
+
 
             .revers {
                 width: 40px;

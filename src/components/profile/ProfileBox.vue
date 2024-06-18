@@ -3,12 +3,11 @@
         <div class="profile__cart-main">
             <div class="profile__gallery">
                 <ProfileGallery />
-                <div class="edit__box">
-
+                <div class="edit__box">                    
                     <div class="profile__main-inf">
-                        <div class="profile__fullname">Алексей Цыплаков</div>
+                        <div class="profile__fullname">{{ user.firstName }} {{ user.lastName }}</div> 
                         <ProfileRating :data="[1, 2, 3]" />
-                        <div class="profile__specialization">Маркетолог</div>
+                        <div class="profile__specialization">{{ GetSpetilization() }}</div>
                     </div>
 
                     <a href="#" v-if="!preview" @click.prevent="EditShow" class="profile__edit">
@@ -62,16 +61,16 @@
             </div>
             <div class="profile__main-box">
                 <div class="profile__main-inf">
-                    <div class="profile__fullname">Алексей Цыплаков</div>
+                    <div class="profile__fullname">{{ user.firstName }} {{ user.lastName }}</div>
                     <ProfileRating :data="[1, 2, 3]" />
-                    <div class="profile__specialization">Маркетолог</div>
+                    <div class="profile__specialization">{{ GetSpetilization() }}</div>
                 </div>
-                <ProfileDescription />
+                <ProfileDescription :text="user.description" />
             </div>
         </div>
 
         <ProfileData :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
-
+        
     </div>
 
     <AddProject v-show="isModalVisible" @close="closeModal" />
@@ -83,6 +82,7 @@ import ProfileDescription from './ProfileDescription.vue';
 import ProfileData from './ProfileData.vue';
 import ProfileRating from './ProfileRating.vue';
 import AddProject from '../modals/AddProject.vue';
+import axios from 'axios';
 
 export default {
     components: {
@@ -95,10 +95,12 @@ export default {
     data() {
         return {
             isModalVisible: false,
+            preview: true
         };
     },
+
     props: {
-        preview: Boolean
+        user: Object
     },
 
     methods: {
@@ -112,7 +114,31 @@ export default {
         },
         EditShow() {
             this.$emit('edit_show')
+        },
+        GetSpetilization() {
+            return this.user.profileType
+        },
+        async check_profile(id) {
+            const router = this.$router;
+            const revers = this;
+            const token = localStorage.getItem('accessToken')
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+
+            await axios.get('/api/auth/user',
+                config
+            )
+                .then(function (response) {                    
+                    if(response.data.id == id) {
+                        revers.preview = false
+                    }
+                })
         }
+    },
+    mounted() {
+        this.check_profile(this.$route.params.id)
+        console.log();
     }
 }
 </script>

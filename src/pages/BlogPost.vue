@@ -9,8 +9,8 @@
                         <span>Главная</span>
                         <span>Блог</span>
                     </div>
-                    <div class="main-img">
-                        <img src="../assets/img/home/materials/image-1.jpg " alt="image">
+                    <div class="blog__wrapper-img">
+                        <img src="../assets/img/home/materials/image-1.jpg" alt="image">
                     </div>
 
                     <div class="information-main">
@@ -28,8 +28,42 @@
                         </h1>
                         <div class="information-main-data">
                             <div class="information-main-data-box">
-                                <div class="information-main-data-block"></div>
-                                <div class="information-main-data-block"></div>
+                                <div class="information-main-data-block">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 2V5" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M16 2V5" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M3.5 9.08997H20.5" stroke="#0D6EFD" stroke-width="1.5"
+                                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                                            stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M11.9955 13.7H12.0045" stroke="#0D6EFD" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8.29431 13.7H8.30329" stroke="#0D6EFD" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8.29431 16.7H8.30329" stroke="#0D6EFD" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>15.06.2024</span>
+                                </div>
+                                <div class="information-main-data-block">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.75 13.25C20.75 18.08 16.83 22 12 22C7.17 22 3.25 18.08 3.25 13.25C3.25 8.42 7.17 4.5 12 4.5C16.83 4.5 20.75 8.42 20.75 13.25Z"
+                                            stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12 8V13" stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M9 2H15" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Время чтения: 5 минут</span>
+                                </div>
                             </div>
                             <div class="share">
                                 <span>Поделиться:</span>
@@ -37,7 +71,7 @@
                                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="14" cy="14" r="14" fill="#F8F8F8" />
-                                        <path 
+                                        <path
                                             d="M11.6663 18.6666H11.333C8.66634 18.6666 7.33301 18 7.33301 14.6666V11.3333C7.33301 8.66665 8.66634 7.33331 11.333 7.33331H16.6663C19.333 7.33331 20.6663 8.66665 20.6663 11.3333V14.6666C20.6663 17.3333 19.333 18.6666 16.6663 18.6666H16.333C16.1263 18.6666 15.9263 18.7666 15.7997 18.9333L14.7997 20.2666C14.3597 20.8533 13.6397 20.8533 13.1997 20.2666L12.1997 18.9333C12.093 18.7866 11.8463 18.6666 11.6663 18.6666Z"
                                             stroke="#242626" stroke-miterlimit="10" stroke-linecap="round"
                                             stroke-linejoin="round" />
@@ -85,12 +119,143 @@
                     </div>
                 </div>
                 <div class="blog__wrapper">
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
+                    <div class="column first">
+                        <h4>
+                            Разработка сайта в 2024 году - это важный шаг для любого бизнеса, стремящегося укрепить своё
+                            присутствие в интернете. Стоимость разработки сайта может сильно варьироваться в зависимости
+                            от множества факторов.
+                            В этой статье мы рассмотрим основные аспекты, влияющие на цену, и приведем ориентировочные
+                            расценки.
+                        </h4>
+                        <div class="blog__wrapper-img">
+                            <img src="../assets/img/home/materials/image-1.jpg" alt="blog-post-img">
+                        </div>
+                        <h2>1. Тип сайта</h2>
+                        <div class="column_block">
+                            <h3>1.1. Одностраничный сайт (лендинг)</h3>
+                            <h4>
+                                Стоимость: $500 - $1,500 <br>
+                                Описание: Простой сайт, который часто используется для продвижения одного продукта или
+                                услуги. Обычно включает в себя несколько секций на одной странице, такие как «О нас»,
+                                «Услуги», «Отзывы» и «Контакты».
+                            </h4>
+                        </div>
+                        <div class="column_block">
+                            <h3>1.2. Корпоративный сайт</h3>
+                            <h4>
+                                Стоимость: $2,000 - $10,000 <br>
+                                Описание: Сайт для компаний, включающий несколько страниц (например, «Главная», «О
+                                компании», «Услуги», «Блог», «Контакты»). Может включать системы управления контентом
+                                (CMS) и интеграции с внешними сервисами.
+                            </h4>
+                        </div>
+                        <div class="column_block">
+                            <h3>1.3. Интернет-магазин</h3>
+                            <h4>
+                                Стоимость: $5,000 - $30,000 <br>
+                                Описание: Сайт для продажи товаров или услуг онлайн. Включает каталог продукции, корзину
+                                покупок, систему оплаты, пользовательские аккаунты и другие функции.
+                            </h4>
+
+                        </div>
+                        <div class="column_block">
+                            <h3>1.4. Кастомизированный веб-портал</h3>
+                            <h4>
+                                Стоимость: $10,000 - $100,000+ <br>
+                                Описание: Сложные проекты, такие как социальные сети, большие новостные порталы или
+                                специализированные платформы. Требуют индивидуального подхода и значительных затрат
+                                времени и ресурсов.
+                            </h4>
+                        </div>
+                        <div class="blog__wrapper-img">
+                            <img src="../assets/img/home/materials/image-1.jpg" alt="blog-post-img">
+                        </div>
+                        <h2>2. Основные факторы, влияющие на стоимость</h2>
+                        <div class="column_block">
+                            <h3>2.1. Дизайн</h3>
+                            <h4>
+                                Шаблонный дизайн: $500 - $1,500 <br>
+                                Индивидуальный дизайн: $2,000 - $10,000+ <br>
+                                Шаблонные решения дешевле и быстрее в реализации, но индивидуальный дизайн позволяет
+                                создать уникальный и брендированный сайт, который лучше соответствует потребностям
+                                бизнеса.
+                            </h4>
+                        </div>
+                        <div class="column_block">
+                            <h3>2.2. Функциональность</h3>
+                            <h4>
+                                Базовая функциональность: Включает стандартные элементы, такие как контактные формы,
+                                карты, галереи изображений. Стоимость реализации: $1,000 - $5,000. <br>
+                                Расширенная функциональность: Включает сложные интеграции, пользовательские кабинеты,
+                                автоматизацию бизнес-процессов. Стоимость реализации: $5,000 - $20,000+.
+                            </h4>
+                        </div>
+                        <h2>Заключение</h2>
+                        <h4>
+                            Стоимость разработки сайта в 2024 году может значительно варьироваться в зависимости от типа
+                            проекта, требований к дизайну, функциональности, контенту и других факторов. Важно заранее
+                            определить бюджет и обсудить все детали с разработчиком, чтобы получить качественный
+                            продукт, который будет соответствовать вашим ожиданиям и потребностям. Инвестирование в
+                            хороший веб-сайт — это вклад в будущее вашего бизнеса.
+                        </h4>
+                        <div class="tags">
+                            <span>Теги:</span>
+                            <div class="switcher">
+                                <span>Веб-дизайн</span>
+                                <span>Сайты</span>
+                                <span>Бизнес</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column second">
+                        <BlogCart :description="false"></BlogCart>
+                        <BlogCart :description="false"></BlogCart>
+                        <BlogCart :description="false"></BlogCart>
+                        <BlogCart :description="false"></BlogCart>
+                    </div>
                 </div>
             </main>
+            <section class="materials">
+                <div class="main__inner">
+                    <h2 class="title_main">Читайте наши другие <span>
+                            <RouterLink to="/blog">статьи</RouterLink>
+                        </span> </h2>
+                    <div class="materials__box">
+                        <RouterLink to="/blog/post" class="materials__block">
+                            <div class="materials__block-img">
+                                <img src="../assets/img/home/materials/image.jpg" alt="material">
+                            </div>
+                            <div class="materials__block-date">22.05.2024</div>
+                            <div class="materials__block-title">Как найти подходящего
+                                исполнителя?</div>
+                        </RouterLink>
+                        <RouterLink to="/blog/post" class="materials__block">
+                            <div class="materials__block-img">
+                                <img src="../assets/img/home/materials/image-1.jpg" alt="material">
+                            </div>
+                            <div class="materials__block-date">22.05.2024</div>
+                            <div class="materials__block-title">Сколько стоит разработать
+                                сайт в 2024 году?</div>
+                        </RouterLink>
+                        <RouterLink to="/blog/post" class="materials__block">
+                            <div class="materials__block-img">
+                                <img src="../assets/img/home/materials/image-2.jpg" alt="material">
+                            </div>
+                            <div class="materials__block-date">22.05.2024</div>
+                            <div class="materials__block-title">Что такое брендинг?</div>
+                        </RouterLink>
+                        <RouterLink to="/blog/post" class="materials__block">
+                            <div class="materials__block-img">
+                                <img src="../assets/img/home/materials/image-3.jpg" alt="material">
+                            </div>
+                            <div class="materials__block-date">22.05.2024</div>
+                            <div class="materials__block-title">Топ 10 приложений для
+                                бизнеса</div>
+                        </RouterLink>
+                    </div>
+                </div>
+
+            </section>
         </div>
 
         <footer class="footer">
@@ -163,9 +328,122 @@ import BlogCart from '../components/blog/BlogCart.vue'
 <style lang="scss" scoped>
 .wrapper {}
 
+.materials {
+    padding-bottom: 240px;
+}
+
+.materials__box {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.materials__block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.materials__block-img {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
+.materials__block-date {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+.materials__block-title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.main__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.title_main {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+
+    span {
+        color: var(--icons-active);
+    }
+}
+
+.main-img {
+
+    img {
+        width: 100%;
+    }
+}
+
+.blog__wrapper-img {
+    img {
+        width: 100%;
+    }
+}
+
+.tags {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h2,
+h3,
+h4 {
+    font-family: var(--font-family);
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 32px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--text-secondary);
+}
+
 .container {
-    max-width: 1650px;
-    padding: 0 15px;
+    max-width: 1720px;
+    padding: 0 32px;
     margin: 0 auto;
 }
 
@@ -176,10 +454,53 @@ import BlogCart from '../components/blog/BlogCart.vue'
     gap: 60px;
 }
 
+.information-main-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.information-main-data-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.share {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .share-link {
+        border: 1px solid var(--colors-secondary-border-color);
+        border-radius: 4px;
+        width: 40px;
+        height: 40px;
+        background: var(--background-background-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.information-main-data-block {
+    border-radius: 8px;
+    padding: 12px 24px;
+    background: #ebedff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--primary-button-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .information {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 32px;
 }
 
@@ -187,7 +508,7 @@ import BlogCart from '../components/blog/BlogCart.vue'
     display: flex;
     flex-direction: column;
     gap: 32px;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 .breadcrumbs {
@@ -223,16 +544,12 @@ import BlogCart from '../components/blog/BlogCart.vue'
 
 .main_title {
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 80px;
-    line-height: 110%;
+    line-height: 100%;
     letter-spacing: -0.02em;
-    text-align: center;
     color: var(--text-primary);
-
-    span {
-        color: var(--component-colors-blue-active);
-    }
+    text-align: left;
 }
 
 .search {
@@ -290,9 +607,25 @@ import BlogCart from '../components/blog/BlogCart.vue'
 }
 
 .blog__wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    display: flex;
+
+    gap: 160px;
+
+    .column {
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &.first {
+            width: 75%;
+        }
+
+        &.second {
+            width: 25%;
+            gap: 80px;
+        }
+    }
 }
 
 .footer {
@@ -390,6 +723,56 @@ import BlogCart from '../components/blog/BlogCart.vue'
     }
 }
 
+@media(max-width:1200px) {
+    .main_title {
+        font-size: 54px;
+    }
+
+    .information-main-data {
+        flex-direction: column;
+        gap: 24px;
+        align-items: start;
+    }
+
+    .blog__wrapper {
+        .column {
+
+            &.first {
+                width: 100%;
+            }
+
+            &.second {
+                display: none;
+            }
+        }
+    }
+
+    .blog__wrapper-img {
+        max-height: 370px;
+        overflow: hidden;
+        border-radius: 12px;
+
+    }
+
+    .materials {
+        padding-bottom: 120px;
+    }
+
+    .materials__box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .title_main {
+        font-size: 32px;
+    }
+
+    .main {
+        padding: 60px 0 120px 0;
+    }
+
+}
+
 @media(max-width:950px) {
     .footer__nav-block {
         flex-direction: column;
@@ -407,6 +790,37 @@ import BlogCart from '../components/blog/BlogCart.vue'
 
     .footer__nav-block {
         gap: 60px;
+    }
+}
+
+@media(max-width:550px) {
+    h2 {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    .materials__box {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .title_main {
+        font-size: 24px;
+    }
+
+    .main_title {
+        font-size: 24px;
+    }
+    .blog__wrapper-img {
+        max-height: 170px;
     }
 }
 </style>

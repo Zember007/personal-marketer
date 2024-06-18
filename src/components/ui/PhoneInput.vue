@@ -1,7 +1,7 @@
 <template>
     <label class="label">
         <span>{{ label }}</span>
-        <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" v-mask="'+7 ### ### ## ##'" placeholder="+7 XXX XXX XX XX" type="text" :class="{warn : error}" class="input">
+        <input :disabled="disabled" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" v-mask="'+7 ### ### ## ##'" placeholder="+7 XXX XXX XX XX" type="text" :class="{warn : error}" class="input">
     </label>
 </template>
 
@@ -10,7 +10,8 @@ export default {
     props: {
         label: String,
         modelValue: String,
-        error: Boolean
+        error: Boolean,
+        disabled: Boolean
     }
 }
 </script>

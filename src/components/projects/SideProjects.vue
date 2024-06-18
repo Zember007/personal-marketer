@@ -48,6 +48,7 @@ export default {
    letter-spacing: -0.02em;
    color: var(--text-primary);
    transition: all .3s;
+   text-align: left;
 
    &.active {
       background: #f4f4f4;

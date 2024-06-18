@@ -7,9 +7,8 @@
         </div>
 
         <div class="form_radio input">
-            <input id="radio-index" type="radio" name="radio" value="input">
             <label for="radio-index">
-                <input class="your_price" type="number" placeholder="Своя цена">
+                <input @focus="focus_price" class="your_price" type="number" placeholder="Своя цена">
             </label>
         </div>
     </div>
@@ -20,12 +19,19 @@
 export default {
     props: {
         radios: Object
+    },
+    methods: {
+        focus_price() {
+            document.querySelectorAll('input[name="radio"]').forEach(el => {
+                el.checked = false
+            })
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.your_price {    
+.your_price {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;

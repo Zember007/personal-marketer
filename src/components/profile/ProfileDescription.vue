@@ -2,13 +2,7 @@
     <div class="profile__description">
         <div class="profile__description-title">Описание</div>
         <div class="profile__description-text">
-            Помогаю моим клиентам: стартапам и малому бизнесу качественно выделяться
-            на фоне конкурентов
-            при помощи комплексного маркетинга. Руководитель интернет-проектов и маркетолог.
-            В рекламе и маркетинге с 2010 года. Я работал Директором по маркетингу и руководителем проектов российских,
-            так и иностранных брендов:
-            E-commerce Медицина, Недвижимость, Строительство, Fashion, Финансы,
-            Торгово-производственные компании и другие.
+            {{ text }}
         </div>
         <div class="profile__description-text profile__description-text-more" :class="{active:view_all}">
             Помогаю моим клиентам: стартапам и малому бизнесу качественно выделяться
@@ -30,6 +24,9 @@ export default {
         return {
             view_all: false
         }
+    },
+    props: {
+        text:String
     }
 }
 </script>

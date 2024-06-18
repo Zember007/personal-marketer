@@ -1,96 +1,149 @@
-<template>    
-        <div class="profile__cart">
+<template>
+    <form @submit.prevent="submit_edit" class="profile__cart">
 
-            <section>
+        <section>
+            {{ user }}
+            <div class="text_box">
+                <div class="title_main">Редактирование профиля</div>
+                <div class="description">Управляйте настройками своего профиля</div>
+            </div>
+        </section>
+
+        <section>
+
+            <div class="text_box">
+                <div class="title">Изображение профиля</div>
+                <div class="description">Уставновите фото в изображения PNG или JPEG</div>
+            </div>
+
+            <div class="img_profile-box">
+                <div class="img_profile">
+                    <div class="profile__gallery">
+                        <ProfileGallery />
+                    </div>
+                    <div class="img_profile-nav">
+                        <PrimaryButton @click.prevent>Изменить</PrimaryButton>
+                        <SecondaryButton @click.prevent>Удалить</SecondaryButton>
+                    </div>
+                </div>
+                <div class="description">Рекомендуемый размер изображения 256x256px</div>
+            </div>
+
+        </section>
+        <section class="section_information">
+            <div class="column">
                 <div class="text_box">
-                    <div class="title_main">Редактирование профиля</div>
-                    <div class="description">Управляйте настройками своего профиля</div>
+                    <div class="title">Основная информация</div>
+                    <div class="description">Расскажите нам о себе</div>
                 </div>
-            </section>
-
-            <section>
-
+                <TextInput v-model="FullName" label="Имя и фамилия" />
+                <PhoneInput :disabled="true" v-model="user.phoneNumber" label="Номер телефона" />
+                <INNInput label="ИНН" />
+            </div>
+            <div class="column">
                 <div class="text_box">
-                    <div class="title">Изображение профиля</div>
-                    <div class="description">Уставновите фото в изображения PNG или JPEG</div>
+                    <div class="title">Профессиональная информация</div>
+                    <div class="description">Укажите свою профессию и почасовую ставку</div>
                 </div>
-
-                <div class="img_profile-box">
-                    <div class="img_profile">
-                        <div class="profile__gallery">
-                            <ProfileGallery />
-                        </div>
-                        <div class="img_profile-nav">
-                            <PrimaryButton>Изменить</PrimaryButton>
-                            <SecondaryButton>Удалить</SecondaryButton>
-                        </div>
-                    </div>
-                    <div class="description">Рекомендуемый размер изображения 256x256px</div>
-                </div>
-
-            </section>
-            <section class="section_information">
-                <div class="column">
-                    <div class="text_box">
-                        <div class="title">Основная информация</div>
-                        <div class="description">Расскажите нам о себе</div>
-                    </div>
-                    <TextInput label="Имя и фамилия" />
-                    <PhoneInput label="Номер телефона" />
-                    <INNInput label="ИНН"/>
-                </div>
-                <div class="column">
-                    <div class="text_box">
-                        <div class="title">Профессиональная информация</div>
-                        <div class="description">Укажите свою профессию и почасовую ставку</div>
-                    </div>
-                    <div class="column_select">
-                        <span class="small_text">Профессия</span>
-                        <div class="row_select">
-                            <SelectInput name="Уровень" :items="['A', 'B', 'C']" />
-                            <SelectInput name="Профессия" :items="['Инженер', 'Инженер', 'Инженер']" />
-                        </div>
-                    </div>
-                    <div class="column_select">
-                        <span class="small_text">Почасовая ставка</span>
-                        <RadioInput :radios="['750₽','1000₽','1500₽']"></RadioInput> 
+                <div class="column_select">
+                    <span class="small_text">Профессия</span>
+                    <div class="row_select">
+                        <SelectInput name="Уровень" :items="['A', 'B', 'C']" />
+                        <SelectInput name="Профессия" :items="['Инженер', 'Инженер', 'Инженер']" />
                     </div>
                 </div>
-            </section>
-            <section>
-                <div class="title">Описание</div>
-                <div class="textarea_box">
-                    <textarea @input="textarea_action" name="description" maxlength="1000"></textarea>
-                    <div class="count_char">
-                        {{ textarea_length }}/1000
-                    </div>
+                <div class="column_select">
+                    <span class="small_text">Почасовая ставка</span>
+                    <RadioInput :radios="['750₽', '1000₽', '1500₽']"></RadioInput>
                 </div>
-                <div class="form_btn">
-                    <SecondaryButton>Отменить</SecondaryButton>
-                    <PrimaryButton>Сохранить</PrimaryButton>
+            </div>
+        </section>
+        <section>
+            <div class="title">Описание</div>
+            <div class="textarea_box">
+                <textarea :value="description" @input="textarea_action" name="description" maxlength="1000"></textarea>
+                <div class="count_char">
+                    {{ textarea_length }}/1000
                 </div>
-            </section>
-        </div>
+            </div>
+            <div class="form_btn">
+                <SecondaryButton @click.prevent>Отменить</SecondaryButton>
+                <PrimaryButton>Сохранить</PrimaryButton>
+            </div>
+        </section>
+    </form>
 </template>
 
 <script>
 import ProfileGallery from './ProfileGallery.vue'
 import RadioInput from '../ui/RadioInput.vue';
+import axios from 'axios';
+import { ref } from 'vue';
 
 export default {
     components: {
         ProfileGallery
     },
 
+    props: {
+        user: Object
+    },
+
     data() {
         return {
-            textarea_length: 0
+            textarea_length: 0,
+            description: this.user.description,
+            occupation: '',
+            occupationLevel: '',
+            hourlyRate: 0
         }
     },
 
     methods: {
         textarea_action(event) {
             this.textarea_length = event.target.value.length
+            this.description = event.target.value
+        },
+
+        async submit_edit() {
+
+            const revers = this;
+
+            const token = localStorage.getItem('accessToken')
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+
+            const pararms = {
+                firstName: "John",
+                lastName: "Doe",
+                description: this.description,
+            }
+
+            await axios.patch('/api/profile/customer',
+                pararms,
+                config
+
+            )
+                .then(function (response) {
+
+                    console.log(response.data);
+
+                })
+
+                .catch((er) => {
+                    console.log(er);
+                })
+        }
+    },
+
+    setup(props) {
+        
+        const FullName = ref('')
+        FullName.value = props.user.firstName + ' ' + props.user.lastName
+
+        return {
+            FullName
         }
     }
 }
@@ -244,7 +297,7 @@ section {
     gap: 8px;
 }
 
-.profile__gallery{
+.profile__gallery {
     width: 240px;
 }
 
@@ -252,6 +305,7 @@ section {
     section.section_information {
         flex-direction: column;
     }
+
     .profile__gallery {
         width: 200px;
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="blog-cart">
+    <RouterLink to="/blog/post" class="blog-cart">
         <div class="img">
             <img src="../../assets/img/home/materials/image.jpg" alt="materials">
         </div>
@@ -14,17 +14,19 @@
                 исполнителя?
             </div>
             <div class="date">22.05.2024</div>
-            <div class="text">
+            <div v-if="description" class="text">
                 Разработка сайта в 2024 году - это важный шаг для любого бизнеса, стремящегося укрепить своё
                 присутствие в интернете.
             </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script>
 export default {
-
+    props: {
+        description: Boolean
+    }
 }
 </script>
 
@@ -52,6 +54,7 @@ export default {
 
 .category {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     span {
         border-radius: 8px;
@@ -91,5 +94,19 @@ export default {
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--text-secondary);
+}
+
+@media(max-width:550px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
 }
 </style>

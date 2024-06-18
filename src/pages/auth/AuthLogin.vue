@@ -8,7 +8,7 @@
             <form action="#">
                 <PhoneInput :error="error" v-model="phone" label="Ваш номер телефона" />
                 <div class="check-box">
-                    <CheckInput v-model="privacy"/>
+                    <CheckInput :error="error_privacy" v-model="privacy" />
                     <span class="auth__text">Я принимаю <a href="#" @click.prevent="open_privacy_policy">политику
                             конфиденциальности</a></span>
                 </div>
@@ -16,7 +16,7 @@
                 <PrimaryButton @click.prevent="auth" style="width: 100%;">Продолжить</PrimaryButton>
                 <!-- </RouterLink> -->
             </form>
-            <span class="auth__text">Ещё нет аккаунта? <RouterLink to="/register">Создайте</RouterLink></span>
+            <!-- <span class="auth__text">Ещё нет аккаунта? <RouterLink to="/register">Создайте</RouterLink></span> -->
             <div class="easy_login">
                 <span>Войти с помощью</span>
                 <div class="easy_login-nav">
@@ -68,6 +68,7 @@ export default {
         return {
             phone: '',
             privacy: false,
+            error_privacy: false,
             error: false
         }
     },
@@ -88,24 +89,27 @@ export default {
                 profileType: profileType
             };
 
-            axios.post('/api/mts-mobile-id/send',
+            if (then.privacy) {
 
-                bodyParameters
+                axios.post('/api/mts-mobile-id/send',
 
-            )
-                .then(function (response) {
-                    if(response.data.status == 'ok') {
-                        localStorage.setItem('token', response.data.clientNotificationToken)
-                        localStorage.setItem('phone', phone)
-                        if(then.privacy){
+                    bodyParameters
+
+                )
+                    .then(function (response) {
+                        if (response.data.status == 'ok') {
+                            localStorage.setItem('token', response.data.clientNotificationToken)
+                            localStorage.setItem('phone', phone)
+
                             router.push('/auth/verification')
+
                         }
-                    }
-                })
-                .catch((e) => {
-                    console.log(e);
-                    then.error = true
-                })
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                        then.error = true
+                    })
+            }
         }
     }
 }

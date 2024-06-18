@@ -13,8 +13,9 @@ import Team from './pages/Team.vue';
 import Balance from './pages/Balance.vue';
 import Home from './pages/Home.vue';
 import Blog from './pages/Blog.vue';
-import BlogPost from './pages/BlogPost.vue';
+import BlogPost from './pages/BlogPost.vue'; 
 import Analytics from './pages/Analytics.vue';
+import ReportAnalytics from './pages/ReportAnalytics.vue';
 import NotFound from './pages/404.vue';
 
 const routes = [
@@ -25,7 +26,7 @@ const routes = [
   { path: '/auth/verification', component: VerificationPhone },
   { path: '/login', component: AuthLogin },
   { path: '/register', component: AuthRegister },
-  { path: '/profile', component: MyProfile },
+  { path: '/profile/:id', component: MyProfile },
   { path: '/portfolio', component: ProfileData },
   { path: '/compani', component: ProfileData },
   { path: '/projects', component: Projects },
@@ -34,6 +35,7 @@ const routes = [
   { path: '/team', component: Team }, 
   { path: '/balance', component: Balance },
   { path: '/analytics', component: Analytics },
+  { path: '/analytics/report', component: ReportAnalytics },
   { path: '/404', component: NotFound },  
   { path: '/:catchAll(.*)', redirect: '/404' }, 
 ]

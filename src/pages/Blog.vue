@@ -30,10 +30,10 @@
                     </div>
                 </div>
                 <div class="blog__wrapper">
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
-                    <BlogCart></BlogCart>
+                    <BlogCart :description="true"></BlogCart>
+                    <BlogCart :description="true"></BlogCart>
+                    <BlogCart :description="true"></BlogCart>
+                    <BlogCart :description="true"></BlogCart>
                 </div>
             </main>
         </div>
@@ -109,8 +109,8 @@ import BlogCart from '../components/blog/BlogCart.vue'
 .wrapper {}
 
 .container {
-    max-width: 1650px;
-    padding: 0 15px;
+    max-width: 1720px;
+    padding: 0 32px;
     margin: 0 auto;
 }
 
@@ -219,6 +219,7 @@ import BlogCart from '../components/blog/BlogCart.vue'
 
 .switcher {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 
     span {
@@ -335,9 +336,19 @@ import BlogCart from '../components/blog/BlogCart.vue'
     }
 }
 
+@media (max-width:1400px) {
+    .blog__wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media(max-width:950px) {
     .footer__nav-block {
         flex-direction: column;
+    }
+
+    .main_title  {
+        font-size: 54px;
     }
 }
 
@@ -353,5 +364,22 @@ import BlogCart from '../components/blog/BlogCart.vue'
     .footer__nav-block {
         gap: 60px;
     }
+
+    .blog__wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .main_title  {
+        font-size: 28px;
+    }
+    
 }
+
+@media(max-width:550px)  {
+    .search{
+        display: none;
+    }
+}
+
+
 </style>

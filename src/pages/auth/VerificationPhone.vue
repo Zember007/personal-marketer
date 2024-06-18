@@ -45,7 +45,7 @@ export default {
             return phone.substr(0, 4) + '** *** *' + phone.substr(12, 4)
         },
         async send_code() {
-            const router = this.$router;
+            
             const revers = this;
 
             const token = localStorage.getItem('token')
@@ -64,7 +64,7 @@ export default {
             )
                 .then(function (response) {
                     if (response.data.status == "Completed") {
-                        router.push('/profile')
+                        revers.getUser(response.data.accessToken)
                     } else {
                         revers.error = true
                     }
@@ -76,7 +76,7 @@ export default {
                 })
         },
         async check() {
-            const router = this.$router;
+            
             const revers = this;
 
             const token = localStorage.getItem('token')
@@ -91,8 +91,9 @@ export default {
             )
                 .then(function (response) {
                     if (response.data.status == "Completed") {
-                        router.push('/profile')
-                        localStorage.setItem('accessToken',response.data.accessToken)
+                        // router.push('/profile')
+                        localStorage.setItem('accessToken', response.data.accessToken)
+                        revers.getUser(response.data.accessToken)
                     } else if (response.data != 'Error') {
                         setTimeout(() => {
                             revers.check()
@@ -100,6 +101,22 @@ export default {
                     }
 
                 })
+        },
+
+        async getUser(token) {
+            const router = this.$router;
+            const config = {
+                
+                headers: { Authorization: `Bearer ${token}` }
+            };
+
+            await axios.get('/api/auth/user',
+                config
+            )
+            .then(function (response) {
+                localStorage.setItem('profileData', JSON.stringify(response.data))
+                router.push(`/profile/${response.data.id}`)
+            })
         }
     },
     mounted() {

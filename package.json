@@ -27,10 +27,12 @@
     "vue-cli-service": "^5.0.9",
     "vue-custom-scrollbar": "^1.4.4",
     "vue-dragscroll": "^4.0.5",
+    "vue-html2pdf": "^1.8.0",
     "vue-kanban": "^1.8.0",
     "vue-router": "^4.3.2",
     "vue-the-mask": "^0.11.1",
     "vue3-draggable": "^2.0.9",
+    "vue3-html2pdf": "^1.1.2",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {

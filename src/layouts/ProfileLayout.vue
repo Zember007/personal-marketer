@@ -1,6 +1,6 @@
 <template>
-  <MainHeader @open-menu="open_menu" :menu_action="menu_action"/>
-  <MainSidebar @menu-action="open_menu" :menu_action="menu_action"/>
+  <MainHeader @open-menu="open_menu" :menu_action="menu_action" />
+  <MainSidebar @menu-action="open_menu" :menu_action="menu_action" />
   <main class="main">
     <slot></slot>
   </main>
@@ -11,25 +11,25 @@ import MainHeader from '../components/MainHeader.vue';
 import MainSidebar from '../components/MainSidebar.vue';
 
 export default {
-  components:{
+  components: {
     MainHeader,
     MainSidebar
   },
 
-  data(){
+  data() {
     return {
       menu_action: false
     }
   },
 
   methods: {
-    open_menu(data){
+    open_menu(data) {
       this.menu_action = data
     }
   },
   watch: {
-    menu_action(data){
-      if(data){
+    menu_action(data) {
+      if (data) {
         document.body.style = 'overflow:hidden'
       } else {
         document.body.style = ''
@@ -37,8 +37,13 @@ export default {
     }
   },
 
-  setup(){
+  setup() {
     document.body.style = ''
+  },
+  mounted() {
+    if (!localStorage.getItem('accessToken')) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>

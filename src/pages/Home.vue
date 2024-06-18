@@ -357,39 +357,39 @@ export default {
             <section class="materials">
                 <div class="container">
                     <div class="main__inner">
-                        <h2 class="title_main"><span>Полезные материалы</span> для вашего бизнеса</h2>
+                        <h2 class="title_main"><span><RouterLink to="/blog">Полезные материалы</RouterLink></span> для вашего бизнеса</h2>
                         <div class="materials__box">
-                            <div class="materials__block">
+                            <RouterLink to="/blog/post" class="materials__block">
                                 <div class="materials__block-img">
                                     <img src="../assets/img/home/materials/image.jpg" alt="material">
                                 </div>
                                 <div class="materials__block-date">22.05.2024</div>
                                 <div class="materials__block-title">Как найти подходящего
                                     исполнителя?</div>
-                            </div>
-                            <div class="materials__block">
+                            </RouterLink>
+                            <RouterLink to="/blog/post" class="materials__block">
                                 <div class="materials__block-img">
                                     <img src="../assets/img/home/materials/image-1.jpg" alt="material">
                                 </div>
                                 <div class="materials__block-date">22.05.2024</div>
                                 <div class="materials__block-title">Сколько стоит разработать
                                     сайт в 2024 году?</div>
-                            </div>
-                            <div class="materials__block">
+                            </RouterLink>
+                            <RouterLink to="/blog/post" class="materials__block">
                                 <div class="materials__block-img">
                                     <img src="../assets/img/home/materials/image-2.jpg" alt="material">
                                 </div>
                                 <div class="materials__block-date">22.05.2024</div>
                                 <div class="materials__block-title">Что такое брендинг?</div>
-                            </div>
-                            <div class="materials__block">
+                            </RouterLink>
+                            <RouterLink to="/blog/post" class="materials__block">
                                 <div class="materials__block-img">
                                     <img src="../assets/img/home/materials/image-3.jpg" alt="material">
                                 </div>
                                 <div class="materials__block-date">22.05.2024</div>
                                 <div class="materials__block-title">Топ 10 приложений для
                                     бизнеса</div>
-                            </div>
+                            </RouterLink>
                         </div>
                     </div>
                 </div>
@@ -425,7 +425,7 @@ export default {
                                 <a href="#" class="link">Главная</a>
                                 <a href="#" class="link">Возможности</a>
                                 <a href="#" class="link">Тарифы</a>
-                                <a href="#" class="link">Блог</a>
+                                <RouterLink to="/blog" class="link">Блог</RouterLink>
                                 <a href="#" class="link">Контакты</a>
                             </div>
                             <div class="column">
