@@ -18,7 +18,8 @@
                 <VerificationCode :warn="error" v-model="code"></VerificationCode>
 
                 <PrimaryButton @click.prevent="send_code" style="width: 100%;">Войти</PrimaryButton>
-                <span><a href="#">Отправить код повторно (...с)</a></span>
+                <span :class="[!currentTime ? 'active' : '']"><a @click.prevent="startTimer" href="#">Отправить код
+                        повторно ({{ currentTime }}с)</a></span>
             </form>
         </div>
     </AuthLayout>
@@ -36,7 +37,9 @@ export default {
     data() {
         return {
             code: '',
-            error: false
+            error: false,
+            currentTime: 0,
+            timer: null
         }
     },
     methods: {
@@ -45,7 +48,7 @@ export default {
             return phone.substr(0, 4) + '** *** *' + phone.substr(12, 4)
         },
         async send_code() {
-            
+
             const revers = this;
 
             const token = localStorage.getItem('token')
@@ -63,7 +66,7 @@ export default {
 
             )
                 .then(function (response) {
-                    
+
                     if (response.data.status == "Completed") {
                         revers.getUser(response.data.accessToken)
                     }
@@ -75,7 +78,7 @@ export default {
                 })
         },
         async check() {
-            
+
             const revers = this;
 
             const token = localStorage.getItem('token')
@@ -105,27 +108,54 @@ export default {
         async getUser(token) {
             const router = this.$router;
             const config = {
-                
+
                 headers: { Authorization: `Bearer ${token}` }
             };
 
             await axios.get('/api/auth/user',
                 config
             )
-            .then(function (response) {
-                localStorage.setItem('profileData', JSON.stringify(response.data))
-                localStorage.setItem('id', response.data.id)
-                router.push(`/profile/${response.data.id}`)
-            })
-        }
+                .then(function (response) {
+                    localStorage.setItem('profileData', JSON.stringify(response.data))
+                    localStorage.setItem('id', response.data.id)
+                    router.push(`/profile/${response.data.id}`)
+                })
+        },
+
+        startTimer() {
+            if (this.currentTime == 0) {
+                this.currentTime = 60
+                this.timer = setInterval(() => {
+                    this.currentTime--
+                }, 1000)
+            }
+        },
+        stopTimer() {
+            clearTimeout(this.timer)
+        },
     },
     mounted() {
         this.check()
-    }
+        this.startTimer()
+    },
+    destroyed() {
+        this.stopTimer()
+    },
+    watch: {
+        currentTime(time) {
+            if (time === 0) {
+                this.stopTimer()
+            }
+        }
+    },
 }
 </script>
 
 <style lang="scss" scoped>
+.active {
+    color: var(--text-primary);
+}
+
 .error {
     border: 1px solid var(--colors-secondary-border-color);
     border-radius: 16px;

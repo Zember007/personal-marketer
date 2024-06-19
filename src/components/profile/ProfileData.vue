@@ -1,8 +1,8 @@
 <template>
     <div class="profile__data">
         <div class="profile__data-top">
-            <div class="profile__data-title">{{ title }}</div>
-            <button class="profile__data-edit" v-if="!preview" @click.prevent="showModal">
+            <div class="profile__data-title">{{ props.title }}</div>
+            <button class="profile__data-edit" v-if="!props.preview" @click.prevent="showModal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
@@ -20,7 +20,7 @@
                 <div class="profile__data-item-title">Twist Joy</div>
             </div>
         </div>
-        <div v-if="!preview" class="profile__data-list empty" @click="showModal"> 
+        <div v-if="!props.preview" class="profile__data-list empty" @click="showModal">
 
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -33,28 +33,30 @@
 
         </div>
     </div>
+    {{ PortfolioList }}
 </template>
 
-<script>
+<script setup>
 import axios from 'axios';
-export default {
-    name: "ProfileData",
+import { GetPortfolio } from '../../hooks/GetPortfolio';
+import { ref, defineProps, defineEmits } from 'vue';
 
-    props: {
-        title: String,
-        preview: Boolean,
-        type: String
-    },
+const props = defineProps({
+    title: String,
+    preview: Boolean,
+    type: String
+})
 
-    methods: {
-        showModal(){
-            this.$emit('show-Modal')
-        }
-    },
-    mounted() {
-        
-    }
+const emit = defineEmits({})
+
+
+function showModal() {
+    emit('show-Modal') 
 }
+
+const id = localStorage.getItem('id')
+
+const PortfolioList = ref(GetPortfolio(id))
 </script>
 
 <style lang="scss" scoped>
@@ -165,6 +167,7 @@ export default {
             width: 16px;
             height: 16px;
         }
+
         padding: 8px;
     }
 

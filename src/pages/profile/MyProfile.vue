@@ -2,10 +2,10 @@
 
     <ProfileLayout>
 
-        <ProfileTop v-if="!edit">
+        <ProfileTop v-if="!edit && User.firstName">
             С возвращением, Алексей!
         </ProfileTop>
-        <ProfileTop v-else>
+        <ProfileTop v-if="edit">
             <a href="#" @click.prevent="edit = !edit" class="route_back">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

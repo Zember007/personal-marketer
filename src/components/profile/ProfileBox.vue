@@ -138,7 +138,7 @@ export default {
     },
     mounted() {
         this.check_profile(this.$route.params.id)
-        console.log();
+        console.log(localStorage.getItem('id'));
     }
 }
 </script>

@@ -19,6 +19,7 @@ export default {
                 config
             )
                 .then(function (response) {
+                    localStorage.setItem('id',response.data.id)
                     router.push('/profile/'+response.data.id)
                 })
         }

@@ -6,11 +6,12 @@
             <main class="main">
                 <div class="information">
                     <div class="breadcrumbs">
-                        <span>Главная</span>
-                        <span>Блог</span>
+                        <span><a href="/">Главная</a></span>
+                        <span><a href="/blog">Блог</a></span>
+                        <span><a href="#">Сколько стоит разработать сайт в 2024 году?</a></span>
                     </div>
                     <div class="blog__wrapper-img">
-                        <img src="../assets/img/home/materials/image-1.jpg" alt="image">
+                        <img src="../assets/img/blog/image.jpg" alt="image">
                     </div>
 
                     <div class="information-main">
@@ -128,7 +129,7 @@
                             расценки.
                         </h4>
                         <div class="blog__wrapper-img">
-                            <img src="../assets/img/home/materials/image-1.jpg" alt="blog-post-img">
+                            <img src="../assets/img/blog/image-1.jpg" alt="blog-post-img">
                         </div>
                         <h2>1. Тип сайта</h2>
                         <div class="column_block">
@@ -168,7 +169,7 @@
                             </h4>
                         </div>
                         <div class="blog__wrapper-img">
-                            <img src="../assets/img/home/materials/image-1.jpg" alt="blog-post-img">
+                            <img src="../assets/img/blog/image-2.jpg" alt="blog-post-img">
                         </div>
                         <h2>2. Основные факторы, влияющие на стоимость</h2>
                         <div class="column_block">
@@ -442,8 +443,9 @@ h4 {
 }
 
 .container {
-    max-width: 1720px;
-    padding: 0 32px;
+    max-width: 1650px;
+    padding: 0 20px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -819,6 +821,7 @@ h4 {
     .main_title {
         font-size: 24px;
     }
+
     .blog__wrapper-img {
         max-height: 170px;
     }

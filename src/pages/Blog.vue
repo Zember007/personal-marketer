@@ -1,4 +1,5 @@
 <template>
+    <div id="top"></div> 
     <div class="wrapper">
         <Header></Header>
 
@@ -6,8 +7,8 @@
             <main class="main">
                 <div class="information">
                     <div class="breadcrumbs">
-                        <span>Главная</span>
-                        <span>Блог</span>
+                        <span><a href="/">Главная</a></span>
+                        <span><a href="#">Блог</a></span>
                     </div>
                     <div class="information-main">
                         <h1 class="main_title">
@@ -109,8 +110,9 @@ import BlogCart from '../components/blog/BlogCart.vue'
 .wrapper {}
 
 .container {
-    max-width: 1720px;
-    padding: 0 32px;
+    max-width: 1650px;
+    padding: 0 20px;
+    height: 100%;
     margin: 0 auto;
 }
 

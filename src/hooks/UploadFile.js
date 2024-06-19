@@ -1,9 +1,7 @@
 import axios from "axios";
 import { ref, onMounted } from 'vue';
 
-export function GetPortfolio(id) {
-
-    const portfolio = ref([])
+export function Upload(data) {
 
     const fetching = async () => {
 

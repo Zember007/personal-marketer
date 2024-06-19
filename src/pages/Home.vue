@@ -36,10 +36,28 @@ export default {
             ],
             text_active: 0,
             touchstartX: 0,
-            touchendX: 0
+            touchendX: 0,
+            active_line: 0,
+            animation: null
         }
     },
     methods: {
+        IntervalAnimation() {
+            this.animation = setInterval(() => {
+                if (this.active_line == 100) {
+                    this.active_line = 0
+                    if (this.text_active != 4) {
+                        this.text_active = this.text_active + 1
+                        document.querySelectorAll('.preview__switcher input')[this.text_active].click()
+                    } else {
+                        this.text_active = 0
+                        document.querySelectorAll('.preview__switcher input')[this.text_active].click()
+                    }
+                }
+                this.active_line++
+                document.querySelector('.preview__switcher').style.setProperty('--width_active_slide', `${this.active_line}%`);
+            }, 100)
+        },
         text_change(num) {
             this.text_active = num
         },
@@ -55,21 +73,21 @@ export default {
 
         touch_end(event) {
             this.touchendX = event.changedTouches[0].screenX;
-            if (this.touchendX+30 < this.touchstartX-30) {
-                if (this.text_active != 4) {                    
+            if (this.touchendX + 30 < this.touchstartX - 30) {
+                if (this.text_active != 4) {
                     this.text_active = this.text_active + 1
                     document.querySelectorAll('.preview__switcher input')[this.text_active].click()
                 }
             }
 
-            if (this.touchendX-30 > this.touchstartX+30) {
+            if (this.touchendX - 30 > this.touchstartX + 30) {
                 if (this.text_active != 0) {
                     this.text_active = this.text_active - 1
                     document.querySelectorAll('.preview__switcher input')[this.text_active].click()
                 }
             }
         },
-        
+
 
         touch_start(event) {
             this.touchstartX = event.changedTouches[0].screenX;
@@ -85,6 +103,8 @@ export default {
                 });
             });
         })
+
+        this.IntervalAnimation()
     },
 }
 </script>
@@ -357,7 +377,9 @@ export default {
             <section class="materials">
                 <div class="container">
                     <div class="main__inner">
-                        <h2 class="title_main"><span><RouterLink to="/blog">Полезные материалы</RouterLink></span> для вашего бизнеса</h2>
+                        <h2 class="title_main"><span>
+                                <RouterLink to="/blog">Полезные материалы</RouterLink>
+                            </span> для вашего бизнеса</h2>
                         <div class="materials__box">
                             <RouterLink to="/blog/post" class="materials__block">
                                 <div class="materials__block-img">
@@ -425,7 +447,7 @@ export default {
                                 <a href="#" class="link">Главная</a>
                                 <a href="#" class="link">Возможности</a>
                                 <a href="#" class="link">Тарифы</a>
-                                <RouterLink to="/blog" class="link">Блог</RouterLink>
+                                <a href="/blog" class="link">Блог</a>
                                 <a href="#" class="link">Контакты</a>
                             </div>
                             <div class="column">
@@ -533,6 +555,10 @@ export default {
     color: var(--component-colors-blue-active);
 }
 
+:root {
+    --width_active_slide: 0%
+}
+
 .preview__switcher {
     display: flex;
     gap: 5px;
@@ -556,7 +582,7 @@ export default {
             }
 
             &::before {
-                width: 100px;
+                width: var(--width_active_slide);
             }
         }
     }
@@ -573,13 +599,13 @@ export default {
     &::before {
         content: "";
         background: var(--icons-active);
-        width: 0;
+        width: 0%;
         height: 8px;
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: 1;
-        transition: all .3s;
+        transition: all 1s;
     }
 
     .title {
