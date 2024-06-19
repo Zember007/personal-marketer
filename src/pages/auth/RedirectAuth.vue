@@ -9,7 +9,7 @@ import axios from 'axios'
 export default {
     methods: {
         async fetching (token) {
-            
+            const router = this.$router
             const config = {
 
                 headers: { Authorization: `Bearer ${token}` }
@@ -19,7 +19,7 @@ export default {
                 config
             )
                 .then(function (response) {
-                    const router = this.$router.push('/profile/'+response.data.id)
+                    router.push('/profile/'+response.data.id)
                 })
         }
 
