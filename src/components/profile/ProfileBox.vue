@@ -2,7 +2,7 @@
     <div class="profile__cart" :class="{ preview: preview }">
         <div class="profile__cart-main">
             <div class="profile__gallery">
-                <ProfileGallery />
+                <ProfileGallery :image="user.image"/>
                 <div class="edit__box">                    
                     <div class="profile__main-inf">
                         <div class="profile__fullname">{{ user.firstName }} {{ user.lastName }}</div> 
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <ProfileData :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
+        <ProfileData :type="user.profileType" :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
         
     </div>
 

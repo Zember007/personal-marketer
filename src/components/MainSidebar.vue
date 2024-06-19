@@ -127,7 +127,7 @@
 
           <span>Настройки</span>
         </div>
-        <div class="sidebar__nav-item">
+        <div @click="logout" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M14 1.66699H11.8333C9.16667 1.66699 7.5 3.33366 7.5 6.00033V9.37533H12.7083C13.05 9.37533 13.3333 9.65866 13.3333 10.0003C13.3333 10.342 13.05 10.6253 12.7083 10.6253H7.5V14.0003C7.5 16.667 9.16667 18.3337 11.8333 18.3337H13.9917C16.6583 18.3337 18.325 16.667 18.325 14.0003V6.00033C18.3333 3.33366 16.6667 1.66699 14 1.66699Z"
@@ -160,6 +160,10 @@ export default {
   methods: {
     overflowVisible() {
       document.body.style = ''
+    },
+    logout() {
+      localStorage.setItem('accessToken', '')
+      this.$router.push('/')
     }
   },
    

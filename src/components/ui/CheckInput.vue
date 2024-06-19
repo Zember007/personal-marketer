@@ -31,6 +31,10 @@ export default {
     background: #FFF;
     border: 1px solid #27272f;
     border-radius: 8px;    
+
+    &.warn {
+        border: 1px solid var(--colors-secondary-border-color-error);
+    }
 }
 .custom-checkbox {
     position: absolute;
@@ -45,11 +49,16 @@ export default {
     user-select: none;
     width: 100%; 
     height: 100%;
+    position: relative;
 }
 
 .custom-checkbox+label::before {
     content: '';
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 100%; 
     height: 100%;
     flex-shrink: 0;

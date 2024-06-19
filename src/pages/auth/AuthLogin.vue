@@ -90,6 +90,8 @@ export default {
             };
 
             if (then.privacy) {
+                this.error_privacy = false
+                this.error = false
 
                 axios.post('/api/mts-mobile-id/send',
 
@@ -109,7 +111,33 @@ export default {
                         console.log(e);
                         then.error = true
                     })
+            } else {
+                this.error_privacy = true
+                if(this.phone == '') {
+                    this.error = true
+                }
             }
+        },
+        async getUser(token) {
+            const router = this.$router;
+            const config = {
+
+                headers: { Authorization: `Bearer ${token}` }
+            };
+
+            await axios.get('/api/auth/user',
+                config
+            )
+                .then(function (response) {
+                    localStorage.setItem('profileData', JSON.stringify(response.data))
+                    router.push(`/profile/${response.data.id}`)
+                })
+        }
+    },
+
+    mounted() {
+        if(localStorage.getItem('accessToken')) {
+            this.getUser(localStorage.getItem('accessToken'))
         }
     }
 }

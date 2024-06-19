@@ -36,18 +36,23 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: "ProfileData",
 
     props: {
         title: String,
-        preview: Boolean
+        preview: Boolean,
+        type: String
     },
 
     methods: {
         showModal(){
             this.$emit('show-Modal')
         }
+    },
+    mounted() {
+        
     }
 }
 </script>

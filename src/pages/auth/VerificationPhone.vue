@@ -63,10 +63,9 @@ export default {
 
             )
                 .then(function (response) {
+                    
                     if (response.data.status == "Completed") {
                         revers.getUser(response.data.accessToken)
-                    } else {
-                        revers.error = true
                     }
 
                 })
@@ -115,6 +114,7 @@ export default {
             )
             .then(function (response) {
                 localStorage.setItem('profileData', JSON.stringify(response.data))
+                localStorage.setItem('id', response.data.id)
                 router.push(`/profile/${response.data.id}`)
             })
         }

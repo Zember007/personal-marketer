@@ -1,13 +1,19 @@
 <template>
-
-    <div class="img-box">
-        <img src="../../assets/img/profile/no_img.svg " alt="gallery">
+    <div class="img-box" v-if="image">
+        <img :src="image.url" alt="gallery">
+    </div>
+    <div class="img-box" v-else>
+        <img class="icon" src="../../assets/img/profile/no_img.svg " alt="gallery">
     </div>
 </template>
 
 <script>
 export default {
-    name: "ProfileGallery"
+    name: "ProfileGallery",
+
+    props: {
+        image: Object
+    },
 
 }
 </script>
@@ -16,11 +22,17 @@ export default {
 .img-box {
     background: var(--background-background-secondary);
     border-radius: 12px;
-    width: 100%;
+    max-width: 240px;
     height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
+    img:not(.icon) {
+        
+        height: 100%;
+    }
 }
 
 @media(max-width:990px) {

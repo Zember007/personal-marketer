@@ -1,19 +1,20 @@
 import { createWebHistory, createRouter } from 'vue-router'
+import axios from "axios";
 
 import MyProfile from './pages/profile/MyProfile.vue';
-import ProfileData from './pages/profile/ProfileData.vue'; 
-import AuthExecutor from './pages/auth/AuthExecutor.vue'; 
-import AuthLogin from './pages/auth/AuthLogin.vue'; 
-import AuthRegister from './pages/auth/AuthRegister.vue'; 
+import ProfileData from './pages/profile/ProfileData.vue';
+import AuthExecutor from './pages/auth/AuthExecutor.vue';
+import AuthLogin from './pages/auth/AuthLogin.vue';
+import AuthRegister from './pages/auth/AuthRegister.vue';
 import VerificationPhone from './pages/auth/VerificationPhone.vue';
 import Projects from './pages/Projects.vue';
-import TasksBoard from './pages/TasksBoard.vue'; 
+import TasksBoard from './pages/TasksBoard.vue';
 import Chat from './pages/Chat.vue';
 import Team from './pages/Team.vue';
 import Balance from './pages/Balance.vue';
 import Home from './pages/Home.vue';
 import Blog from './pages/Blog.vue';
-import BlogPost from './pages/BlogPost.vue'; 
+import BlogPost from './pages/BlogPost.vue';
 import Analytics from './pages/Analytics.vue';
 import ReportAnalytics from './pages/ReportAnalytics.vue';
 import NotFound from './pages/404.vue';
@@ -30,19 +31,36 @@ const routes = [
   { path: '/portfolio', component: ProfileData },
   { path: '/compani', component: ProfileData },
   { path: '/projects', component: Projects },
-  { path: '/tasks', component: TasksBoard }, 
-  { path: '/chat', component: Chat }, 
-  { path: '/team', component: Team }, 
+  { path: '/tasks', component: TasksBoard },
+  { path: '/chat', component: Chat },
+  { path: '/team', component: Team },
   { path: '/balance', component: Balance },
   { path: '/analytics', component: Analytics },
   { path: '/analytics/report', component: ReportAnalytics },
-  { path: '/404', component: NotFound },  
-  { path: '/:catchAll(.*)', redirect: '/404' }, 
+  {
+    path: '/auth/handle',
+    redirect: to => {
+      localStorage.setItem('accessToken', to.query.accessToken)      
+
+      const config = {
+        headers: { Authorization: `Bearer ${to.query.accessToken}` }
+      };
+
+      axios.get('/api/auth/user',
+        config
+      )
+        .then(function (response) {
+          return { path: '/profile/' + response.data.id } 
+        })
+    },
+  },
+  { path: '/404', component: NotFound },
+  { path: '/:catchAll(.*)', redirect: '/404' },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-}) 
+})
 
 export default router

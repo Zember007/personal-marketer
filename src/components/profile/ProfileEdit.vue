@@ -16,18 +16,19 @@
                 <div class="description">Уставновите фото в изображения PNG или JPEG</div>
             </div>
 
-            <div class="img_profile-box">
+            <form @submit.prevent class="img_profile-box">
                 <div class="img_profile">
                     <div class="profile__gallery">
-                        <ProfileGallery />
+                        <ProfileGallery :image="image" />
                     </div>
                     <div class="img_profile-nav">
-                        <PrimaryButton @click.prevent>Изменить</PrimaryButton>
+                        <PrimaryButton @click.prevent="open_file">Изменить</PrimaryButton>
                         <SecondaryButton @click.prevent>Удалить</SecondaryButton>
+                        <input @change="uploadImg" type="file" class="file_inpt">
                     </div>
                 </div>
                 <div class="description">Рекомендуемый размер изображения 256x256px</div>
-            </div>
+            </form>
 
         </section>
         <section class="section_information">
@@ -95,7 +96,8 @@ export default {
             description: this.user.description,
             occupation: '',
             occupationLevel: '',
-            hourlyRate: 0
+            hourlyRate: 0,
+            image: this.user.image
         }
     },
 
@@ -105,22 +107,83 @@ export default {
             this.description = event.target.value
         },
 
-        async submit_edit() {
-
-            const revers = this;
+        async uploadImg(e) {
 
             const token = localStorage.getItem('accessToken')
             const config = {
                 headers: { Authorization: `Bearer ${token}` }
             };
 
-            const pararms = {
-                firstName: "John",
-                lastName: "Doe",
-                description: this.description,
+            const revers = this
+
+            if (revers.user.image != null) {
+                await axios.delete('/api/uploads/' + revers.user.image.id,
+                    config
+                )
+                    .then(function (response) {
+
+                        console.log(response.data);
+
+                    })
             }
 
-            await axios.patch('/api/profile/customer',
+            const data = new FormData()
+
+            data.append('file', e.target.files[0])
+
+            await axios.post('/api/uploads/',
+                data,
+                config
+
+            )
+                .then(function (response) {
+
+                    console.log(response.data);
+                    revers.image = response.data
+                    revers.submit_edit('file', response.data.id)
+
+                })
+
+                .catch((er) => {
+                    console.log(er);
+                })
+        },
+
+        open_file() {
+            document.querySelector('input[type="file"]').click()
+        },
+
+        async submit_edit(method = '', id = '') {
+
+            const revers = this;
+
+            const token = localStorage.getItem('accessToken')
+            const profileType = this.user.profileType.toLowerCase()
+
+
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+
+            var pararms = {}
+
+            if (method == 'file') {
+                pararms = {
+                    image: id,
+                }
+            } else {
+
+                pararms = {
+                    firstName: "John",
+                    lastName: "Doe",
+                    description: this.description,
+                }
+
+            }
+
+
+
+            await axios.patch('/api/profile/' + profileType,
                 pararms,
                 config
 
@@ -138,7 +201,7 @@ export default {
     },
 
     setup(props) {
-        
+
         const FullName = ref('')
         FullName.value = props.user.firstName + ' ' + props.user.lastName
 
@@ -163,6 +226,13 @@ textarea {
     line-height: 130%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+}
+
+.file_inpt {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .textarea_box {
