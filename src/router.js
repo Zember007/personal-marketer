@@ -4,6 +4,7 @@ import axios from "axios";
 import MyProfile from './pages/profile/MyProfile.vue';
 import ProfileData from './pages/profile/ProfileData.vue';
 import AuthExecutor from './pages/auth/AuthExecutor.vue';
+import RedirectAuth from './pages/auth/RedirectAuth.vue';
 import AuthLogin from './pages/auth/AuthLogin.vue';
 import AuthRegister from './pages/auth/AuthRegister.vue';
 import VerificationPhone from './pages/auth/VerificationPhone.vue';
@@ -37,23 +38,7 @@ const routes = [
   { path: '/balance', component: Balance },
   { path: '/analytics', component: Analytics },
   { path: '/analytics/report', component: ReportAnalytics },
-  {
-    path: '/auth/handle',
-    redirect: to => {
-      localStorage.setItem('accessToken', to.query.accessToken)      
-
-      const config = {
-        headers: { Authorization: `Bearer ${to.query.accessToken}` }
-      };
-
-      axios.get('/api/auth/user',
-        config
-      )
-        .then(function (response) {
-          return { path: '/profile/' + response.data.id } 
-        })
-    },
-  },
+  { path: '/auth/handle', component: RedirectAuth },
   { path: '/404', component: NotFound },
   { path: '/:catchAll(.*)', redirect: '/404' },
 ]
