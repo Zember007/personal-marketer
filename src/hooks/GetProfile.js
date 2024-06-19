@@ -1,9 +1,12 @@
 import axios from "axios";
 import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 export function GetUser(id) {
 
     const user = ref([])
+
+    const router = useRouter()
 
     const fetching = async () => {
 
@@ -19,6 +22,10 @@ export function GetUser(id) {
         )
             .then((response) => {
                 user.value = response.data
+            })
+
+            .catch((e) => {
+                router.push('/404')
             })
     }
 

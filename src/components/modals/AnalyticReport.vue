@@ -29,14 +29,17 @@
                             </select>
                         </div>
                     </div>
-                    <PrimaryButton>Скачать отчет</PrimaryButton>
+                    <PrimaryButton @click.prevent="report">Скачать отчет</PrimaryButton>                    
                 </form>
             </div>
         </div>
+       
     </transition>
 </template>
 
 <script>
+
+
 export default {
     name: 'AddProject',
 
@@ -44,6 +47,9 @@ export default {
         close() {
             this.$emit('close')
         },
+        report() {
+            window.open('/analytics/report') 
+        }
     },
 }
 </script>

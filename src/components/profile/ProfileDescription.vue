@@ -5,13 +5,7 @@
             {{ text }}
         </div>
         <div class="profile__description-text profile__description-text-more" :class="{active:view_all}">
-            Помогаю моим клиентам: стартапам и малому бизнесу качественно выделяться
-            на фоне конкурентов
-            при помощи комплексного маркетинга. Руководитель интернет-проектов и маркетолог.
-            В рекламе и маркетинге с 2010 года. Я работал Директором по маркетингу и руководителем проектов российских,
-            так и иностранных брендов:
-            E-commerce Медицина, Недвижимость, Строительство, Fashion, Финансы,
-            Торгово-производственные компании и другие.
+            {{ text }}
         </div>
         <button v-if="!view_all" @click.prevent="view_all = !view_all"  class="profile__description-more">Подробнее...</button>
     </div>
@@ -55,6 +49,7 @@ export default {
     line-height: 160%;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    white-space: pre-wrap;
 
     &.profile__description-text-more {
         overflow: hidden;

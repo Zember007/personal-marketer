@@ -3,7 +3,7 @@
     <ProfileLayout>
 
         <ProfileTop v-if="!edit && User.firstName">
-            С возвращением, Алексей!
+            С возвращением, {{ User.firstName }}!
         </ProfileTop>
         <ProfileTop v-if="edit">
             <a href="#" @click.prevent="edit = !edit" class="route_back">
@@ -20,7 +20,7 @@
 
 
 
-        <ProfileBox :user="User" v-if="!edit" @edit_show="showEdit" />
+        <ProfileBox :id="id" :user="User" v-if="!edit" @edit_show="showEdit" />
         <ProfileEdit :user="User" v-else />
 
     </ProfileLayout>
@@ -41,7 +41,12 @@ function showEdit() {
     edit.value = true;
 }
 
-const User = ref(GetUser(useRoute().params.id))
+const id = useRoute().params.id
+
+const User = ref(GetUser(id))
+
+
+
 </script>
 
 <style lang="scss" scoped>

@@ -219,7 +219,7 @@
             <section class="materials">
                 <div class="main__inner">
                     <h2 class="title_main">Читайте наши другие <span>
-                            <RouterLink to="/blog">статьи</RouterLink>
+                            <a href="/blog">статьи</a>
                         </span> </h2>
                     <div class="materials__box">
                         <RouterLink to="/blog/post" class="materials__block">
@@ -289,17 +289,17 @@
                                 <a href="#" class="link">Главная</a>
                                 <a href="#" class="link">Возможности</a>
                                 <a href="#" class="link">Тарифы</a>
-                                <a href="#" class="link">Блог</a>
+                                <a href="/blog" class="link">Блог</a>
                                 <a href="#" class="link">Контакты</a>
                             </div>
                             <div class="column">
                                 <div class="title">Возможности</div>
                                 <a href="#" class="link">Маркетлейс маркетологов</a>
-                                <a href="#personal" class="link">Персональная стратегия</a>
-                                <a href="#analytics" class="link">Аналитика</a>
-                                <a href="#documents" class="link">Документы, счета, чат в едином сервисе</a>
-                                <a href="#balance" class="link">Контроль бюджета</a>
-                                <a href="#analytics" class="link">Отчеты</a>
+                                <a href="/#personal" class="link">Персональная стратегия</a>
+                                <a href="/#analytics" class="link">Аналитика</a>
+                                <a href="/#documents" class="link">Документы, счета, чат в едином сервисе</a>
+                                <a href="/#balance" class="link">Контроль бюджета</a>
+                                <a href="/#analytics" class="link">Отчеты</a>
                             </div>
                             <div class="column">
                                 <div class="title">Информация</div>

@@ -56,7 +56,7 @@ export default {
                 }
                 this.active_line++
                 document.querySelector('.preview__switcher').style.setProperty('--width_active_slide', `${this.active_line}%`);
-            }, 100)
+            }, 50)
         },
         text_change(num) {
             this.text_active = num
@@ -582,6 +582,7 @@ export default {
             }
 
             &::before {
+                transition: all .1s;
                 width: var(--width_active_slide);
             }
         }

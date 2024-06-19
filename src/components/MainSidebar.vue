@@ -6,7 +6,7 @@
       </RouterLink>
       <div class="sidebar__nav">
         <div class="sidebar__nav-title"><span>Основное</span></div>
-        <RouterLink :to="profile_link" class="sidebar__nav-item">
+        <RouterLink :to="'/profile/'+user.id" class="sidebar__nav-item">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.99992 10.0003C12.3011 10.0003 14.1666 8.13485 14.1666 5.83366C14.1666 3.53247 12.3011 1.66699 9.99992 1.66699C7.69873 1.66699 5.83325 3.53247 5.83325 5.83366C5.83325 8.13485 7.69873 10.0003 9.99992 10.0003Z"
@@ -145,6 +145,8 @@
   </template>
 
 <script>
+import { GetAuthUser } from '../hooks/GetAuthUser';
+import { ref } from 'vue';
 export default {
   props: {
     menu_action: Boolean
@@ -172,10 +174,12 @@ export default {
       this.$emit('menu-action',data)
     }
   },
-  mounted() {
-    let id = JSON.parse(localStorage.getItem('profileData')).id
-    this.profile_link = '/profile/'+id
-    // console.log();
+  setup() {
+    const user = ref(GetAuthUser())
+
+    return {
+      user
+    }
   }
 }
 </script>

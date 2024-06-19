@@ -14,13 +14,14 @@
                 <span>Добавить проект</span>
             </button>
         </div>
-        <div class="profile__data-list full">
-            <div class="profile__data-item">
+        <div class="profile__data-list full" v-if="PortfolioList.items">
+            <div class="profile__data-item" v-for="item in PortfolioList.items">
                 <div class="profile__data-item-img"></div>
-                <div class="profile__data-item-title">Twist Joy</div>
+                <div class="profile__data-item-title">{{ item.name }}</div>
+                <!-- {{ item }} -->
             </div>
         </div>
-        <div v-if="!props.preview" class="profile__data-list empty" @click="showModal">
+        <div v-if="!props.preview && PortfolioList.items.length==0" class="profile__data-list empty" @click="showModal">
 
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 12H16" stroke="#242626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -33,7 +34,6 @@
 
         </div>
     </div>
-    {{ PortfolioList }}
 </template>
 
 <script setup>
@@ -44,7 +44,8 @@ import { ref, defineProps, defineEmits } from 'vue';
 const props = defineProps({
     title: String,
     preview: Boolean,
-    type: String
+    type: String,
+    id: Number
 })
 
 const emit = defineEmits({})
@@ -54,7 +55,7 @@ function showModal() {
     emit('show-Modal') 
 }
 
-const id = localStorage.getItem('id')
+const id = props.id
 
 const PortfolioList = ref(GetPortfolio(id))
 </script>

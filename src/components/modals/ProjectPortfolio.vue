@@ -63,14 +63,6 @@ export default {
     },
 
     methods: {
-        file_input() {
-            document.querySelector('input[type="file"]').click()
-        },
-        upload(e) {
-            e.target.files.forEach(file => {
-                this.files.push(file)
-            });
-        },
         close() {
             this.$emit('close')
         },

@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <ProfileData :type="user.profileType" :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
+        <ProfileData :id="id" :type="user.profileType" :preview="preview" title="Портфолио" @show-Modal="showModal"></ProfileData>
         
     </div>
 
@@ -100,7 +100,8 @@ export default {
     },
 
     props: {
-        user: Object
+        user: Object,
+        id: Number
     },
 
     methods: {

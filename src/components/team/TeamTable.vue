@@ -24,9 +24,9 @@
                 </div>
             </div>
             <div class="tbody">
-                <div v-for="cat in sortedCats" class="box_el">
+                <!-- <div v-for="cat in sortedCats" class="box_el">
                     <TableElement :cat="cat" />
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="pages">
@@ -36,7 +36,8 @@
 </template>
 
 <script>
-
+import { Marketers } from '../../hooks/GetMarketers.js'
+import { ref } from 'vue'
 import TableElement from './TableElement.vue'
 export default {
     name: "TeamTable",
@@ -66,6 +67,11 @@ export default {
             this.currentPage = e.target.__vnode.props['data-page']
         },
 
+    },
+    setup() {
+        const MarketersList = ref(Marketers())
+
+        return { MarketersList }
     },
     mounted() {
         fetch('https://www.raymondcamden.com/.netlify/functions/get-cats')

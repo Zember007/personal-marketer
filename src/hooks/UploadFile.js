@@ -1,27 +1,34 @@
 import axios from "axios";
 import { ref, onMounted } from 'vue';
 
-export function Upload(data) {
+export function Upload(files) {
 
-    const fetching = async () => {
+    const files_id = []
 
-        const token = localStorage.getItem('accessToken')
+    const token = localStorage.getItem('accessToken')
 
-        const config = {
+    const config = {
 
-            headers: { Authorization: `Bearer ${token}` }
-        };
+        headers: { Authorization: `Bearer ${token}` }
+    };
 
-        await axios.get('/api/users/' + id + '/portfolio',
+    files.forEach(element => {
+
+        const data = new FormData()
+
+        data.append('file', element)
+
+
+        axios.post('/api/uploads/',
+            data,
             config
         )
             .then((response) => {
-                portfolio.value = response.data
+                console.log(response);
+                files_id.push(response.data.id)
             })
-    }
+    });
 
-    onMounted(fetching)
 
-    return portfolio
-
+    return files_id
 }

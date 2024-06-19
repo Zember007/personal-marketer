@@ -173,9 +173,12 @@ export default {
                 }
             } else {
 
+                const Name = this.FullName.split(' ')
+                
+
                 pararms = {
-                    firstName: "John",
-                    lastName: "Doe",
+                    firstName: Name[0],
+                    lastName: Name[Name.length-1],
                     description: this.description,
                 }
 
@@ -190,7 +193,8 @@ export default {
             )
                 .then(function (response) {
 
-                    console.log(response.data);
+                    // console.log(response.data);
+                    window.location = window.location
 
                 })
 
@@ -203,7 +207,12 @@ export default {
     setup(props) {
 
         const FullName = ref('')
-        FullName.value = props.user.firstName + ' ' + props.user.lastName
+        var firstName, lastName
+            
+        props.user.firstName? firstName=props.user.firstName: firstName=''
+        props.user.lastName? lastName=props.user.lastName: lastName=''
+        
+        FullName.value = firstName + ' ' + lastName 
 
         return {
             FullName

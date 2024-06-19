@@ -136,7 +136,7 @@
             </div>
             <div class="analytics__top-col">
                 <div class="analytics__top-button"
-                    @click="isVisibleWidgets = !isVisibleWidgets; isVisibleImport = false">
+                    @click="isVisibleWidgets = !isVisibleWidgets; isVisibleImport = false" v-if="analytic_type != 'position'">
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.1665 10H13.8332" stroke="#242626" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />

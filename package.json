@@ -16,6 +16,7 @@
     "chart.js": "^4.4.3",
     "dotenv": "^16.4.5",
     "dragula": "^3.7.3",
+    "html2pdf.js": "^0.10.1",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.77.2",
     "simplebar": "^6.2.6",
